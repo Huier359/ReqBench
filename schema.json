@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ReqBench Public Sample",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "sample_id",
+    "task",
+    "task_name_zh",
+    "difficulty",
+    "difficulty_zh",
+    "model_input"
+  ],
+  "properties": {
+    "sample_id": {
+      "type": "string",
+      "pattern": "^REQBENCH-(COMP|DECO|CONF|CMPL|EXTR|TRAC)-L[123]-\\d{2}$"
+    },
+    "task": {
+      "type": "string",
+      "enum": [
+        "requirements_completion",
+        "requirements_decomposition",
+        "requirements_conflict_identification",
+        "requirements_completeness_assessment",
+        "requirements_extraction",
+        "requirements_traceability"
+      ]
+    },
+    "task_name_zh": {
+      "type": "string",
+      "enum": [
+        "需求补全",
+        "需求分解",
+        "需求冲突识别",
+        "需求完整性评估",
+        "需求抽取",
+        "需求追踪"
+      ]
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": [
+        "L1",
+        "L2",
+        "L3"
+      ]
+    },
+    "difficulty_zh": {
+      "type": "string",
+      "enum": [
+        "低",
+        "中",
+        "高"
+      ]
+    },
+    "model_input": {
+      "description": "可直接用于构造模型请求的公开输入；具体类型随任务而异。"
+    }
+  }
+}

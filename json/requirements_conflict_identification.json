@@ -1,0 +1,2268 @@
+[
+  {
+    "sample_id": "REQBENCH-CONF-L1-01",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "审核版本、满员和取消报名",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "管理员审核通过后发布活动；审核操作采用版本号，过期页面提交必须拒绝。"
+        },
+        {
+          "id": "R2",
+          "text": "活动达到人数上限时，报名接口拒绝新报名；取消报名后原子释放名额。"
+        },
+        {
+          "id": "R3",
+          "text": "审核通过后发起人仍可直接修改时间和人数上限，不需要重新审核。"
+        },
+        {
+          "id": "R4",
+          "text": "活动已发布后修改时间或人数上限必须回到待审核，旧报名记录保留。"
+        },
+        {
+          "id": "R5",
+          "text": "“报名人数”统计已成功报名记录，不包含候补或取消记录。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L1-02",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "知识库版本、路线推荐与人工接管",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "问答优先使用景区当前发布的知识库版本，回答记录知识版本号。"
+        },
+        {
+          "id": "R2",
+          "text": "为保证回答稳定，所有游客请求固定使用首次上线的知识库版本。"
+        },
+        {
+          "id": "R3",
+          "text": "人工接管时向坐席提供当前对话摘要，但游客可以删除该摘要。"
+        },
+        {
+          "id": "R4",
+          "text": "个性化路线使用历史交互；关闭推荐后改用热门路线。"
+        },
+        {
+          "id": "R5",
+          "text": "“当前发布版本”指运营审核通过且对游客可见的知识库版本。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L1-03",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "破产后的地产处理",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "资金不足时先进入资产处置步骤，支付成功后回到游戏流程。"
+        },
+        {
+          "id": "R2",
+          "text": "支付接口返回insufficient_funds后直接发布bankrupt事件，地产模块据此清空资产。"
+        },
+        {
+          "id": "R3",
+          "text": "破产后地产回归空白状态并向房间广播。"
+        },
+        {
+          "id": "R4",
+          "text": "抵押地产在解除抵押前不能收取过路费。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L1-04",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "历史任务、CLI与自动重构版本",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "Web端和CLI都创建统一的分析任务ID，历史记录可查询其输入摘要、结果和版本。"
+        },
+        {
+          "id": "R2",
+          "text": "CLI任务不写入历史记录，只有Web端任务可以在历史页查看。"
+        },
+        {
+          "id": "R3",
+          "text": "自动重构代码必须标注使用的规则版本，并允许用户预览差异后下载。"
+        },
+        {
+          "id": "R4",
+          "text": "历史任务展示最新规则解释，不需要保留任务执行时的规则版本。"
+        },
+        {
+          "id": "R5",
+          "text": "分析工具不执行用户代码，CLI和Web共享同一静态分析引擎。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L1-05",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "渡劫与法宝槽位",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "未渡劫修士只能装备1件法宝，渡劫成功后解锁第2个法宝槽。"
+        },
+        {
+          "id": "R2",
+          "text": "筑基期修士合成后立即获得2个法宝槽，不需要完成渡劫。"
+        },
+        {
+          "id": "R3",
+          "text": "渡劫期间修士持续受到天雷伤害，存活才突破。"
+        },
+        {
+          "id": "R4",
+          "text": "“筑基期”是境界名称，“渡劫”是从筑基向更高境界的过程。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L1-06",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "自动化评估、人工复核和偏好删除",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "匹配度和胜任力评估作为辅助信息，最终拒绝需要人工确认。"
+        },
+        {
+          "id": "R2",
+          "text": "招聘方筛选页按匹配度阈值自动隐藏候选人，隐藏结果不进入人工复核队列。"
+        },
+        {
+          "id": "R3",
+          "text": "求职者删除偏好后，推荐缓存清除相关权重；历史审计只保留任务摘要。"
+        },
+        {
+          "id": "R4",
+          "text": "可解释性存档任务将完整简历、偏好快照和每轮Prompt写入长期证据库。"
+        },
+        {
+          "id": "R5",
+          "text": "审计记录应保留任务编号、输入摘要、结果状态和异常，不要求永久保留原始个人资料。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L1-07",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "异常告警的状态流转",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "告警处理页支持“已确认→处理中→已解决”的状态流转，并记录操作者。"
+        },
+        {
+          "id": "R2",
+          "text": "告警列表的数据接口只返回resolved事件；确认或处理中事件不单独保留状态记录。"
+        },
+        {
+          "id": "R3",
+          "text": "告警列表支持按状态筛选。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L1-08",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "课堂互动、离线提交与成绩口径",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "课堂答题结果实时回传，教师端可立即查看答题统计。"
+        },
+        {
+          "id": "R2",
+          "text": "网络断开时学生可以继续作答，恢复连接后上传本地答案；服务器以最后一次有效时间戳合并。"
+        },
+        {
+          "id": "R3",
+          "text": "教师发布成绩后，学生只能查看个人成绩，不能修改原始答题记录。"
+        },
+        {
+          "id": "R4",
+          "text": "教师批阅主观题时可以直接修改学生原始答案，系统只保存最终分数。"
+        },
+        {
+          "id": "R5",
+          "text": "成绩更正应产生新成绩记录并保留原始答题和批阅日志。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L1-09",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "导航树生成方式",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "构建器在检测到mkdocs.yml的nav字段时，按字段顺序生成导航树。"
+        },
+        {
+          "id": "R2",
+          "text": "站点预览器每次扫描docs目录后直接生成目录导航，并将结果写回构建产物。"
+        },
+        {
+          "id": "R3",
+          "text": "开发服务器监听Markdown文件变化并自动重建。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L1-10",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "交付前确认",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "交付包生成前，系统检查商家确认状态和质量评审状态。"
+        },
+        {
+          "id": "R2",
+          "text": "质量Agent通过后，交付流水线自动推送方案、页面和代码；商家确认只作为后续反馈记录。"
+        },
+        {
+          "id": "R3",
+          "text": "Agent协作过程记录任务分工、输入快照和审计轨迹。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L1-11",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "交卷后的答案修改",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "主动交卷后答卷状态记为submitted，答案快照进入只读区。"
+        },
+        {
+          "id": "R2",
+          "text": "自动保存接口在考试结束前持续接受本地快照，并按学生最后一次上传时间覆盖答卷缓存。"
+        },
+        {
+          "id": "R3",
+          "text": "倒计时归零时系统自动收卷。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L1-12",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "匿名发帖的身份可见性",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "帖子前台显示匿名昵称；有举报工单时，管理员可在受控页面查看发帖账号。"
+        },
+        {
+          "id": "R2",
+          "text": "普通用户侧的帖子详情接口不返回匿名帖子的真实账号字段。"
+        },
+        {
+          "id": "R3",
+          "text": "管理员删除违规帖子时记录处置日志。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L1-13",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "SSO会话、选课批次与成绩可见性",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "统一登录使用SSO Token，系统在会话有效期内自动刷新认证状态。"
+        },
+        {
+          "id": "R2",
+          "text": "用户退出目标系统后立即使SSO Token失效，但不影响教务系统中的其他会话。"
+        },
+        {
+          "id": "R3",
+          "text": "预选课程在批次结束时自动转为正选，转化前必须重新检查课程冲突。"
+        },
+        {
+          "id": "R4",
+          "text": "Dashboard只展示已确认课程和本人作业/考试信息。"
+        },
+        {
+          "id": "R5",
+          "text": "课表展示所有预选课程，并将其标记为“已确认”。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L1-14",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "租户数据隔离",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "查询、缓存键和文件读取均从请求上下文取得tenant_id，并写入审计日志。"
+        },
+        {
+          "id": "R2",
+          "text": "平台运营任务通过global-admin服务账号汇总多个租户的任务和文件元数据，接口请求不携带单一tenant_id。"
+        },
+        {
+          "id": "R3",
+          "text": "跨租户访问需要记录访问原因、范围和结果，并触发异常告警。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L1-15",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "推荐、审核和AI标识的交互",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "推荐服务使用用户浏览行为生成个性化排序；用户可关闭个性化推荐。"
+        },
+        {
+          "id": "R2",
+          "text": "关闭推荐后，热门内容列表仍可按全站热度排序，但不得使用该用户历史行为。"
+        },
+        {
+          "id": "R3",
+          "text": "AI润色或摘要内容在发布前由用户确认，并在帖子中显示AI生成提示。"
+        },
+        {
+          "id": "R4",
+          "text": "AI审核命中低质内容时直接拒绝发布，人工审核只处理误报申诉。"
+        },
+        {
+          "id": "R5",
+          "text": "管理员可以在人工复核通过后恢复被拦截内容，并保留原始模型结果。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L2-01",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "选课冲突检测与跨批次选课",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "正选时系统必须阻止与已选课程时间重叠的课程。"
+        },
+        {
+          "id": "R2",
+          "text": "预选阶段允许学生先加入时间冲突课程，正选确认时再校验。"
+        },
+        {
+          "id": "R3",
+          "text": "批次切换后，预选结果自动视为正选结果，无需再次校验。"
+        },
+        {
+          "id": "R4",
+          "text": "课表页面以周视图展示已确认课程。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L2-02",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "语音问答输出",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "游客可以使用语音或文本提问，系统返回文本和语音同步结果。"
+        },
+        {
+          "id": "R2",
+          "text": "系统只返回文本，不生成语音或数字人口型。"
+        },
+        {
+          "id": "R3",
+          "text": "无障碍场景下可关闭语音播放。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L2-03",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "外部访客访问文档",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "外部访客通过绑定租户的分享链接访问文档，链接带有到期时间。"
+        },
+        {
+          "id": "R2",
+          "text": "文档预览服务按token找到文件即可返回内容，token本身不携带租户和过期信息。"
+        },
+        {
+          "id": "R3",
+          "text": "只读成员可以查看所属团队文档但不能编辑。"
+        },
+        {
+          "id": "R4",
+          "text": "访客和内部只读成员都不可修改文档，但数据边界不同。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L2-04",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "岗位推荐的用户控制",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "用户关闭个性化推荐后，职位列表切换为全站热度排序。"
+        },
+        {
+          "id": "R2",
+          "text": "推荐服务仍从偏好缓存读取岗位类型和地点权重，用于候选岗位预排序。"
+        },
+        {
+          "id": "R3",
+          "text": "用户可以查看并删除已保存的岗位偏好。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L2-05",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "版本审签、批注与归档恢复",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "审签通过的版本才进入current状态，旧版本只读。"
+        },
+        {
+          "id": "R2",
+          "text": "项目负责人可以在current版本上直接修改正文，系统保留修改前快照。"
+        },
+        {
+          "id": "R3",
+          "text": "正文修改必须生成新版本并重新审签。"
+        },
+        {
+          "id": "R4",
+          "text": "批注可以在审签过程中新增且不改变正文版本号。"
+        },
+        {
+          "id": "R5",
+          "text": "current_version表示对外协作读取的版本。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L2-06",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "版本化试卷、阅卷与申诉",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "考试开始后保留试卷快照，阅卷读取考生作答时的版本。"
+        },
+        {
+          "id": "R2",
+          "text": "题库标准答案更新后，阅卷任务按最新答案批量重算历史答卷。"
+        },
+        {
+          "id": "R3",
+          "text": "复核调整新增成绩记录，并保留原成绩、原答案和调整原因。"
+        },
+        {
+          "id": "R4",
+          "text": "复核任务调用最新阅卷版本后覆盖当前成绩记录，不生成独立变更版本。"
+        },
+        {
+          "id": "R5",
+          "text": "题库版本和试卷版本是不同对象，题库更新不应自动改变已开始考试的试卷。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L2-07",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "采集方式与数据落库",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "Prometheus和Loki数据既可由平台定时拉取，也可由数据源推送；两种方式统一转换后进入缓存。"
+        },
+        {
+          "id": "R2",
+          "text": "对于不支持推送的数据源，平台必须采用定时拉取；支持推送的数据源可使用推送接入。"
+        },
+        {
+          "id": "R3",
+          "text": "对无法解析的数据进入失败队列并保留原始片段。"
+        },
+        {
+          "id": "R4",
+          "text": "对Prometheus使用Pull、对Loki使用Push是部署约定，不改变统一存储结果。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L2-08",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "审核发布与报名可见性",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "审核通过后活动状态变为published，报名接口只接受published活动。"
+        },
+        {
+          "id": "R2",
+          "text": "活动提交后即可进入广场草稿展示，报名按钮在审核异步完成前也返回可用状态。"
+        },
+        {
+          "id": "R3",
+          "text": "信息不完整时审核接口返回缺失字段。"
+        },
+        {
+          "id": "R4",
+          "text": "展示卡片和报名资格是两个独立字段。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L2-09",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "举报处理与匿名保护",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "管理员在具有关联举报工单时可以查看发帖账号，访问写入审计日志。"
+        },
+        {
+          "id": "R2",
+          "text": "举报处理页只返回帖子内容和风险标签，不向管理员展示发帖账号。"
+        },
+        {
+          "id": "R3",
+          "text": "举报记录保存处理人、时间和结果。"
+        },
+        {
+          "id": "R4",
+          "text": "匿名展示只约束普通用户前台，不等于后台不可追溯。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L2-10",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "手动导航、自动导航与插件改写",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "当mkdocs.yml存在nav时，使用nav顺序生成导航；没有nav时按目录层级生成。"
+        },
+        {
+          "id": "R2",
+          "text": "没有配置nav时，系统按目录层级自动生成导航。"
+        },
+        {
+          "id": "R3",
+          "text": "插件可以在构建阶段修改导航树，但修改结果只对本次构建生效。"
+        },
+        {
+          "id": "R4",
+          "text": "GitHub Pages发布使用构建后的site目录，不能重新按另一套导航规则构建。"
+        },
+        {
+          "id": "R5",
+          "text": "“自动导航”指缺少nav时的默认策略，不表示忽略显式nav。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L2-11",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "模板默认值、商家确认与版本交付",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "默认值写入需求摘要的待确认区，商家确认后才进入最终快照。"
+        },
+        {
+          "id": "R2",
+          "text": "模板生成器将默认值直接写入confirmed_config，后续Agent按该配置生成代码。"
+        },
+        {
+          "id": "R3",
+          "text": "交付包记录需求快照ID和生成版本。"
+        },
+        {
+          "id": "R4",
+          "text": "商家修改需求后，系统只更新页面预览，不重新生成代码，以避免破坏既有版本。"
+        },
+        {
+          "id": "R5",
+          "text": "交付包包含需求摘要、页面结构、配置和代码，并记录生成版本。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L2-12",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "回合超时处理",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "服务器在回合开始时记录deadline，超时后推进turn_index并广播下一位玩家。"
+        },
+        {
+          "id": "R2",
+          "text": "客户端倒计时结束后先把房间界面切换到下一位，服务器返回的回合状态只用于事后校正。"
+        },
+        {
+          "id": "R3",
+          "text": "系统向房间内所有玩家广播回合切换信息。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L2-13",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "自动重构的适用边界",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "系统只对规则明确且不改变语义的问题生成自动重构代码。"
+        },
+        {
+          "id": "R2",
+          "text": "质量看板将所有高严重级别问题标记为“可自动修复”，并允许一键生成替换代码。"
+        },
+        {
+          "id": "R3",
+          "text": "高严重级别表示风险优先级，不代表存在安全的自动重构方案。"
+        },
+        {
+          "id": "R4",
+          "text": "自动重构结果由用户预览差异后再下载。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L2-14",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "工单完成状态",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "维修人员标记处理完成后，工单进入待验收并通知报修人。"
+        },
+        {
+          "id": "R2",
+          "text": "SLA统计在收到处理完成事件后立即将工单计入已完成量，并停止超时计时。"
+        },
+        {
+          "id": "R3",
+          "text": "报修人可以在验收后提交评价。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L2-15",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "商店资金的跨阶段生命周期",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "回合结算时将剩余灵石换算为shop_funds，商店在每3回合结束时开放。"
+        },
+        {
+          "id": "R2",
+          "text": "阶段结算记录中的shop_funds作为下一阶段开局资金写入存档。"
+        },
+        {
+          "id": "R3",
+          "text": "商店资金跨回合累积，阶段切换时按经济规则处理。"
+        },
+        {
+          "id": "R4",
+          "text": "继续游戏加载存档后，商店页面直接展示存档中的shop_funds。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L3-01",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "学生成绩/课表信息访问",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "学生登录后只能查看本人课表、作业和考试信息。"
+        },
+        {
+          "id": "R2",
+          "text": "成绩明细接口按当前学生ID过滤，不返回同专业其他学生的成绩。"
+        },
+        {
+          "id": "R3",
+          "text": "Dashboard聚合课表、作业和考试入口。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L3-02",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "阶段、商店资金与存档恢复",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "商店资金由未花完灵石转化而来，跨回合累积，跨阶段切换时清零。"
+        },
+        {
+          "id": "R2",
+          "text": "每回合结束自动存档，存档必须包含商店资金和当前阶段/回合。"
+        },
+        {
+          "id": "R3",
+          "text": "读取存档后，系统按存档中的商店资金恢复，不重新按当前阶段计算。"
+        },
+        {
+          "id": "R4",
+          "text": "阶段切换后读取旧存档时，商店资金应恢复为读取前内存中的最新值。"
+        },
+        {
+          "id": "R5",
+          "text": "“商店资金”与“灵石”是两种不同货币，清零规则不同。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L3-03",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "作业截止与补交",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "作业deadline到达后，普通提交接口返回late状态并停止修改原答案。"
+        },
+        {
+          "id": "R2",
+          "text": "教师开启补交后，迟交学生可通过补交接口上传新版本，系统保留原提交时间。"
+        },
+        {
+          "id": "R3",
+          "text": "成绩统计区分准时、迟交和未提交。"
+        },
+        {
+          "id": "R4",
+          "text": "补交开关由教师按课程配置。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L3-04",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "AI润色结果的发布确认",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "用户可以在编辑页调整AI润色结果，点击确认后才生成可发布版本。"
+        },
+        {
+          "id": "R2",
+          "text": "内容服务监听润色任务完成事件，并将生成文本写入帖子正文；发布页只负责展示处理状态。"
+        },
+        {
+          "id": "R3",
+          "text": "发布前预览同时展示标题、摘要和标签的当前版本。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L3-05",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "并发批注与版本锁定",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "多人可以在同一图纸版本上添加批注，批注独立记录用户和时间。"
+        },
+        {
+          "id": "R2",
+          "text": "图纸进入审签状态后，正文文件的写入接口被锁定。"
+        },
+        {
+          "id": "R3",
+          "text": "审签人可以在审签过程中补充批注，但不得改变正文文件。"
+        },
+        {
+          "id": "R4",
+          "text": "批注与正文图纸是不同数据对象。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L3-06",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "匿名规则、申诉和审计",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "有举报工单时管理员可查看对应账号，查看动作写入审计日志。"
+        },
+        {
+          "id": "R2",
+          "text": "运营后台提供按日期批量导出匿名帖账号的功能，导出任务只记录操作者和数量。"
+        },
+        {
+          "id": "R3",
+          "text": "申诉期间保留原帖和审核日志。"
+        },
+        {
+          "id": "R4",
+          "text": "用户申诉成功后可以恢复帖子，但不得删除原审核日志。"
+        },
+        {
+          "id": "R5",
+          "text": "“匿名”仅约束普通用户界面，不约束合规调查权限。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L3-07",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "工单状态、验收与并发处理",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "处理完成事件把工单置为待验收，报修人确认后再置为已完成。"
+        },
+        {
+          "id": "R2",
+          "text": "统计服务收到处理完成事件即计入已完成量，评价入口随事件开放。"
+        },
+        {
+          "id": "R3",
+          "text": "管理员可在待验收状态下重新派单，已有维修记录保持只读。"
+        },
+        {
+          "id": "R4",
+          "text": "状态更新采用版本号控制，后提交者刷新后重试。"
+        },
+        {
+          "id": "R5",
+          "text": "“完成”在看板中表示维修动作结束，“已完成”表示业务闭环结束。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L3-08",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "规划层与商家确认",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "外门执事将缺失字段标记为待确认，并把问题返回商家。"
+        },
+        {
+          "id": "R2",
+          "text": "规划Agent可先用行业模板填充默认值生成预览，默认值写入待确认清单。"
+        },
+        {
+          "id": "R3",
+          "text": "商家确认页面结构后，设计Agent才生成最终页面。"
+        },
+        {
+          "id": "R4",
+          "text": "模板默认值只影响预览，不会自动进入交付版本。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L3-09",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "自动保存、强制收卷与成绩复核",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "自动保存快照带服务器接收时间，考试结束后不再接受新的答卷版本。"
+        },
+        {
+          "id": "R2",
+          "text": "断线期间客户端保留本地答案，恢复连接后上传最后一次快照。"
+        },
+        {
+          "id": "R3",
+          "text": "考试结束时间到达时立即锁定服务器已收到的答案。"
+        },
+        {
+          "id": "R4",
+          "text": "复核调整只产生新的成绩记录，原始答卷保持不变。"
+        },
+        {
+          "id": "R5",
+          "text": "复核调整只改变成绩记录，原始答卷和变更日志必须保留。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L3-10",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "活动报名人数上限",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "报名接口在capacity达到上限后不再增加confirmed_count，并返回满员状态。"
+        },
+        {
+          "id": "R2",
+          "text": "满员后仍允许学生提交报名表，系统把记录写入registration_count并按队列顺序处理。"
+        },
+        {
+          "id": "R3",
+          "text": "同一用户重复提交时提示已存在报名记录。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L3-11",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "简历解析失败与投递",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "解析失败时保留上传文件，提示用户修正后重新提交解析任务。"
+        },
+        {
+          "id": "R2",
+          "text": "投递服务收到resume_id后即可创建投递记录，匹配度任务在后台异步补写。"
+        },
+        {
+          "id": "R3",
+          "text": "匹配和建议仅作为辅助信息，最终投递由用户确认。"
+        },
+        {
+          "id": "R4",
+          "text": "解析失败的原始文件可以删除。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L3-12",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "告警去抖、Webhook与报告追问",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "异常检测合并同一窗口内的重复事件，再生成一条告警。"
+        },
+        {
+          "id": "R2",
+          "text": "Webhook接收每次原始检测事件，用于外部系统计算自己的去重策略。"
+        },
+        {
+          "id": "R3",
+          "text": "告警列表展示去抖后的告警，并支持确认和解决。"
+        },
+        {
+          "id": "R4",
+          "text": "报告追问只保留有限轮次上下文。"
+        },
+        {
+          "id": "R5",
+          "text": "Webhook通知用于触发工单创建，不等于告警列表中的告警状态变化。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L3-13",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "回合切换、断线重连与回放",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "服务器推进turn_index并广播下一位玩家，再启动权威deadline。"
+        },
+        {
+          "id": "R2",
+          "text": "客户端deadline到期后立即切换界面，服务器状态用于随后校正。"
+        },
+        {
+          "id": "R3",
+          "text": "重连时恢复服务器保存的当前玩家和剩余时间。"
+        },
+        {
+          "id": "R4",
+          "text": "回放使用服务器操作记录，不读取客户端倒计时。"
+        },
+        {
+          "id": "R5",
+          "text": "回合超时时间由附录参数配置。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L3-14",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "配置校验与构建失败时点",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "正式构建开始前校验配置字段和类型，错误时返回定位信息。"
+        },
+        {
+          "id": "R2",
+          "text": "开发模式会先保留上一版site目录，配置变更在后台重建完成后再替换产物。"
+        },
+        {
+          "id": "R3",
+          "text": "构建错误需要包含文件路径、字段名或插件名称。"
+        },
+        {
+          "id": "R4",
+          "text": "预校验和主校验都发生在新构建产物写入前。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CONF-L3-15",
+    "task": "requirements_conflict_identification",
+    "task_name_zh": "需求冲突识别",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "分析引擎是否执行用户代码",
+      "task_instruction": "识别需求条目之间的真实冲突，并区分表达差异。仅当条目在相同或重叠的对象、条件、时间、角色或规则下无法同时成立时判为真冲突；输出冲突类型、发生位置、证据和处理建议（保留/待确认/合并/重写）。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "分析任务读取Python源码，通过语法、规范和风险规则生成问题清单。"
+        },
+        {
+          "id": "R2",
+          "text": "分析详情页需要展示被测程序的标准输出和退出码，且输出挂在同一分析任务下。"
+        },
+        {
+          "id": "R3",
+          "text": "系统提供内置样例代码供用户加载。"
+        },
+        {
+          "id": "R4",
+          "text": "运行结果由隔离执行器产生，执行器与静态分析任务共用输入文件。"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "存在真冲突|无真冲突",
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "requirement_ids": [
+              "R1",
+              "R2"
+            ],
+            "is_real_conflict": true,
+            "conflict_type": "直接矛盾|约束冲突|目标冲突|术语冲突|规则冲突|版本冲突|表达差异",
+            "conflict_location": [
+              "对象|条件|时间|角色|规则"
+            ],
+            "conflict_point": "说明不可同时成立的具体关系",
+            "evidence": "引用条目编号并解释",
+            "suggested_handling": "保留|待确认|合并|重写"
+          }
+        ],
+        "handling_summary": "按冲突ID给出建议"
+      }
+    }
+  }
+]

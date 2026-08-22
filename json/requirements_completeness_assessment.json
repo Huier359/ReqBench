@@ -1,0 +1,4907 @@
+[
+  {
+    "sample_id": "REQBENCH-CMPL-L1-01",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "高校活动平台覆盖活动创建、审核、发布、报名和统计，面向学生、发起人和管理员。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的基础业务范围内，系统支持活动创建、审核、发布、报名、取消报名、名额释放、活动结束和统计归档，并校验状态转换。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的基础业务范围内，系统区分学生、发起人和管理员。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的基础业务范围内，系统定义报名字段必要性、处理告知、保存期限、活动结束后的匿名化或删除规则及访问保护。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的基础业务范围内，系统记录创建、审核、报名、取消和导出日志，定义备份周期、恢复验证、告警和故障追踪要求。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-FLOW",
+          "category": "活动业务闭环",
+          "benchmark": "目标系统产品Checklist",
+          "representative_clauses": [
+            "创建、审核、发布、报名、取消和结项"
+          ],
+          "completeness_question": "活动各阶段及名额变化是否闭环？"
+        },
+        {
+          "check_id": "CAT-ROLE",
+          "category": "角色与数据边界",
+          "benchmark": "目标系统权限基线",
+          "representative_clauses": [
+            "ISO A.5.15、A.5.18"
+          ],
+          "completeness_question": "学生、发起人和管理员的操作与可见范围是否明确？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "报名数据生命周期",
+          "benchmark": "个人信息保护法数据治理基线",
+          "representative_clauses": [
+            "第6、17、19、47、51条"
+          ],
+          "completeness_question": "报名字段、告知、期限和删除是否覆盖？"
+        },
+        {
+          "check_id": "CAT-CONSIST",
+          "category": "名额与状态一致性",
+          "benchmark": "目标系统可靠性Checklist",
+          "representative_clauses": [
+            "并发名额和幂等控制"
+          ],
+          "completeness_question": "重复报名、并发满员和审核冲突是否处理？"
+        },
+        {
+          "check_id": "CAT-OPS",
+          "category": "运维与可追溯",
+          "benchmark": "ISO/IEC 27001信息安全控制基线",
+          "representative_clauses": [
+            "Annex A 8.13、8.15"
+          ],
+          "completeness_question": "关键操作、备份恢复和故障追踪是否可验证？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L1-02",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "校园知识社区提供AI润色、摘要、问答草稿、人工审核和个性化推荐。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的基础业务范围内，AI生成标题、摘要和草稿后由用户编辑确认，发布前可撤回并记录最终采用内容。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的基础业务范围内，自动识别异常内容并支持人工复核。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的基础业务范围内，系统说明推荐目的和主要依据，支持非个性化模式、关闭推荐、查看删除标签及投诉。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的基础业务范围内，AI生成或修改内容旁显示提示，发布、复制和导出保留来源记录并支持追溯。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-CREATE",
+          "category": "AI辅助创作与确认",
+          "benchmark": "AI内容社区Checklist",
+          "representative_clauses": [
+            "深度合成管理规定第8、10条"
+          ],
+          "completeness_question": "AI结果是否可编辑、确认、撤回并区分最终发布？"
+        },
+        {
+          "check_id": "CAT-MOD",
+          "category": "内容治理与人工兜底",
+          "benchmark": "内容社区治理基线",
+          "representative_clauses": [
+            "算法推荐管理规定第7、9条"
+          ],
+          "completeness_question": "识别、复核、申诉和处置是否闭环？"
+        },
+        {
+          "check_id": "CAT-RECO",
+          "category": "推荐透明与用户控制",
+          "benchmark": "算法推荐管理规定",
+          "representative_clauses": [
+            "第16、17、22条"
+          ],
+          "completeness_question": "推荐告知、关闭、非个性化和标签管理是否覆盖？"
+        },
+        {
+          "check_id": "CAT-LABEL",
+          "category": "AI内容来源标识",
+          "benchmark": "生成合成内容标识基线",
+          "representative_clauses": [
+            "标识办法第4、5条"
+          ],
+          "completeness_question": "AI生成或修改内容是否可识别可追踪？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "画像与行为数据生命周期",
+          "benchmark": "个人信息保护法数据治理基线",
+          "representative_clauses": [
+            "第19、24、47、51条"
+          ],
+          "completeness_question": "画像、浏览、内容和审核记录是否有期限和删除？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L1-03",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "平台服务求职者、招聘方和管理员，提供职位推荐、简历解析、岗位匹配和胜任力评估。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的基础业务范围内，平台说明推荐目的和主要依据，支持非个性化职位列表、关闭推荐及标签查看删除。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的基础业务范围内，用户可确认、修改和删除简历。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的基础业务范围内，平台说明筛选因素和用途，为候选人提供解释、人工复核和异议入口，最终拒绝不得仅依赖模型。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的基础业务范围内，平台记录模型和规则版本、输入摘要、输出、人工调整、复核和申诉轨迹并保护日志。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-RECO",
+          "category": "职位推荐与用户控制",
+          "benchmark": "算法推荐完整性基线",
+          "representative_clauses": [
+            "算法推荐管理规定第16、17条"
+          ],
+          "completeness_question": "推荐目的、依据、关闭和非个性化选项是否覆盖？"
+        },
+        {
+          "check_id": "CAT-RESUME",
+          "category": "简历数据处理闭环",
+          "benchmark": "招聘平台数据治理Checklist",
+          "representative_clauses": [
+            "个人信息保护法第6、17、19、28、47条"
+          ],
+          "completeness_question": "字段必要性、敏感信息、期限和删除是否覆盖？"
+        },
+        {
+          "check_id": "CAT-DECISION",
+          "category": "招聘自动化决策与人工复核",
+          "benchmark": "自动化决策完整性基线",
+          "representative_clauses": [
+            "个人信息保护法第24、55、56条"
+          ],
+          "completeness_question": "筛选评估是否有解释、异议和非自动化兜底？"
+        },
+        {
+          "check_id": "CAT-AUDIT",
+          "category": "模型规则证据链",
+          "benchmark": "AI系统可审计Checklist",
+          "representative_clauses": [
+            "ISO A.8.15；个人信息保护法第56条"
+          ],
+          "completeness_question": "模型版本、输入、输出、复核和申诉是否可追踪？"
+        },
+        {
+          "check_id": "CAT-ROLE",
+          "category": "招聘角色与数据边界",
+          "benchmark": "招聘平台权限基线",
+          "representative_clauses": [
+            "ISO A.5.15、A.5.18"
+          ],
+          "completeness_question": "求职者、HR和负责人的数据边界是否明确？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L1-04",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "多租户企业协作平台提供组织、项目、任务、文件、消息、计费和管理能力。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的基础业务范围内，系统在数据库、缓存、搜索、对象存储和异步任务中强制租户上下文，执行越权测试并记录异常。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的基础业务范围内，平台覆盖邀请、审批、转岗、离职撤权、特权复核、会话失效和紧急账号管理。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的基础业务范围内，平台展示套餐和用量。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的基础业务范围内，平台记录租户管理和数据操作，按租户告警，定义备份、RPO/RTO、恢复演练和证据导出。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-TENANT",
+          "category": "租户隔离",
+          "benchmark": "SaaS多租户安全基线",
+          "representative_clauses": [
+            "ISO A.5.15、A.8.3"
+          ],
+          "completeness_question": "数据、缓存、搜索、文件和任务是否全链路隔离？"
+        },
+        {
+          "check_id": "CAT-IAM",
+          "category": "身份权限与生命周期",
+          "benchmark": "SaaS身份治理基线",
+          "representative_clauses": [
+            "ISO A.5.16、A.5.18"
+          ],
+          "completeness_question": "邀请、转岗、离职、特权和会话是否闭环？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "租户数据生命周期",
+          "benchmark": "SaaS数据治理基线",
+          "representative_clauses": [
+            "个人信息保护法第19、47条；ISO A.8.10"
+          ],
+          "completeness_question": "导入、使用、导出、删除和租户退出是否闭环？"
+        },
+        {
+          "check_id": "CAT-BILL",
+          "category": "订阅计费一致性",
+          "benchmark": "SaaS计费产品Checklist",
+          "representative_clauses": [
+            "套餐、用量、账单和退款"
+          ],
+          "completeness_question": "套餐变更、用量、账单、欠费和退款是否一致？"
+        },
+        {
+          "check_id": "CAT-OPS",
+          "category": "租户级运维与审计",
+          "benchmark": "ISO/IEC 27001信息安全控制基线",
+          "representative_clauses": [
+            "Annex A 8.13、8.15、8.16"
+          ],
+          "completeness_question": "审计、告警、备份和恢复是否支持租户维度？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L1-05",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "平台采集检索日志，进行异常检测、AI解释、告警、工单联动和审计。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的基础业务范围内，平台定义采集协议、解析失败队列、去重、顺序、背压、丢失率和延迟验收指标。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的基础业务范围内，平台输出异常类型和解释。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的基础业务范围内，平台分类敏感日志，执行脱敏，定义原始日志、索引、导出和备份的期限、删除及法律保留。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的基础业务范围内，平台记录查询、导出、规则、模型、权限和告警处置操作，保护审计日志完整性并支持调查。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-INGEST",
+          "category": "日志采集与质量",
+          "benchmark": "可观测平台Checklist",
+          "representative_clauses": [
+            "采集、解析、去重和背压"
+          ],
+          "completeness_question": "多源日志在延迟、丢失、重复和格式异常下是否可控？"
+        },
+        {
+          "check_id": "CAT-DETECT",
+          "category": "检测结果可信度",
+          "benchmark": "AI可观测性Checklist",
+          "representative_clauses": [
+            "模型版本和检测证据"
+          ],
+          "completeness_question": "异常结果是否有版本、证据、置信度和降级？"
+        },
+        {
+          "check_id": "CAT-ACTION",
+          "category": "告警处置闭环",
+          "benchmark": "运维事件管理Checklist",
+          "representative_clauses": [
+            "告警、确认、升级和关闭"
+          ],
+          "completeness_question": "告警去重、升级、工单和复盘是否闭环？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "日志数据生命周期",
+          "benchmark": "日志数据治理基线",
+          "representative_clauses": [
+            "个人信息保护法第19、47条；ISO A.8.10"
+          ],
+          "completeness_question": "敏感日志、索引、导出和备份是否有期限与删除？"
+        },
+        {
+          "check_id": "CAT-AUDIT",
+          "category": "平台操作审计",
+          "benchmark": "ISO/IEC 27001信息安全控制基线",
+          "representative_clauses": [
+            "Annex A 8.15、8.16"
+          ],
+          "completeness_question": "查询、导出、规则和模型变更是否可追溯？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L1-06",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "本地静态分析工具支持Web/CLI输入、报告导出、自动重构和历史任务，不执行用户代码。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的基础业务范围内，工具校验空输入和语法。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的基础业务范围内，每个发现项记录规则版本、代码位置、证据、严重级别和置信度，规则失败时隔离并报告。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的基础业务范围内，工具仅执行白名单重构，预览差异，重新解析和复验，失败保留原文并可回滚。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的基础业务范围内，历史任务按用户隔离，定义代码和报告期限、删除、导出及删除后的备份清理。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-INPUT",
+          "category": "输入与接口边界",
+          "benchmark": "ISO/IEC 27001安全开发基线",
+          "representative_clauses": [
+            "ISO A.8.26、A.8.28"
+          ],
+          "completeness_question": "代码、文件、路径、参数和导出是否校验？"
+        },
+        {
+          "check_id": "CAT-ANALYSIS",
+          "category": "分析结果可信度",
+          "benchmark": "代码质量工具Checklist",
+          "representative_clauses": [
+            "规则版本、证据和严重级别"
+          ],
+          "completeness_question": "发现项是否可定位、可复现并支持失败降级？"
+        },
+        {
+          "check_id": "CAT-TRANSFORM",
+          "category": "自动修改安全闸门",
+          "benchmark": "ISO/IEC 27001安全开发基线",
+          "representative_clauses": [
+            "ISO A.8.28、A.8.29"
+          ],
+          "completeness_question": "重构是否有白名单、复验、回滚和原文保护？"
+        },
+        {
+          "check_id": "CAT-HISTORY",
+          "category": "历史任务与权限",
+          "benchmark": "ISO/IEC 27001信息安全控制基线",
+          "representative_clauses": [
+            "Annex A 5.15、8.10"
+          ],
+          "completeness_question": "历史隔离、期限、删除和导出是否覆盖？"
+        },
+        {
+          "check_id": "CAT-QUALITY",
+          "category": "测试与验收",
+          "benchmark": "ISO/IEC 27001安全开发基线",
+          "representative_clauses": [
+            "ISO A.8.29"
+          ],
+          "completeness_question": "输入、分析、导出和重构是否有测试门槛？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L1-07",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "文档工具支持Markdown组织、构建预览、主题插件、搜索和静态站点发布。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的基础业务范围内，系统支持构建预览和发布。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的基础业务范围内，系统固定主题插件版本，验证来源和完整性，限制构建权限并支持漏洞升级和回滚。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的基础业务范围内，构建前扫描密钥、个人信息和内部页面，按发布环境执行允许列表并阻断敏感内容。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的基础业务范围内，平台限制私有文档访问，生成可键盘操作、含替代文本且跨浏览器可用的站点并验收。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-BUILD",
+          "category": "构建发布闭环",
+          "benchmark": "文档平台产品Checklist",
+          "representative_clauses": [
+            "编辑、构建、预览、发布和回滚"
+          ],
+          "completeness_question": "文档从编辑到发布是否可追踪可回滚？"
+        },
+        {
+          "check_id": "CAT-CONTENT",
+          "category": "内容与链接完整性",
+          "benchmark": "文档质量Checklist",
+          "representative_clauses": [
+            "链接、资源和导航校验"
+          ],
+          "completeness_question": "链接、资源、导航和搜索索引是否验证？"
+        },
+        {
+          "check_id": "CAT-PLUGIN",
+          "category": "主题插件供应链",
+          "benchmark": "软件供应链安全Checklist",
+          "representative_clauses": [
+            "ISO A.8.25、A.8.30"
+          ],
+          "completeness_question": "主题插件是否有来源、版本、权限和漏洞治理？"
+        },
+        {
+          "check_id": "CAT-SECRET",
+          "category": "敏感信息与发布边界",
+          "benchmark": "ISO/IEC 27001安全开发基线",
+          "representative_clauses": [
+            "ISO A.8.12、A.8.28"
+          ],
+          "completeness_question": "构建是否防止密钥和内部内容误发布？"
+        },
+        {
+          "check_id": "CAT-ACCESS",
+          "category": "文档访问与可用性",
+          "benchmark": "文档服务Checklist",
+          "representative_clauses": [
+            "权限、无障碍和兼容性"
+          ],
+          "completeness_question": "私有文档、无障碍和多端访问是否覆盖？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L1-08",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "校园信息平台提供信息发布、检索、互动、通知和管理审核能力。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的基础业务范围内，信息支持草稿、审核、发布、更新、过期、下线和归档，状态变化通知相关用户。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的基础业务范围内，系统定义索引延迟、排序依据、权限过滤、无结果提示和索引失败补偿。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的基础业务范围内，管理员可删除违规评论。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的基础业务范围内，权限矩阵按学校身份、组织归属和信息类型限制发布、审核、查看和导出，并同步撤权。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-FLOW",
+          "category": "信息发布闭环",
+          "benchmark": "校园信息平台Checklist",
+          "representative_clauses": [
+            "创建、审核、发布、更新和下线"
+          ],
+          "completeness_question": "信息生命周期和状态是否完整？"
+        },
+        {
+          "check_id": "CAT-SEARCH",
+          "category": "检索与结果可信度",
+          "benchmark": "信息检索质量Checklist",
+          "representative_clauses": [
+            "索引、新鲜度和无结果处理"
+          ],
+          "completeness_question": "搜索索引、排序、时效和失败是否可验证？"
+        },
+        {
+          "check_id": "CAT-MOD",
+          "category": "互动内容治理",
+          "benchmark": "内容社区治理基线",
+          "representative_clauses": [
+            "举报、审核和申诉"
+          ],
+          "completeness_question": "评论举报、复核、申诉和处置是否闭环？"
+        },
+        {
+          "check_id": "CAT-ROLE",
+          "category": "校园角色与权限",
+          "benchmark": "校园平台权限基线",
+          "representative_clauses": [
+            "ISO A.5.15、A.5.18"
+          ],
+          "completeness_question": "学生、教师、组织和管理员边界是否明确？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "校园用户数据生命周期",
+          "benchmark": "个人信息保护法数据治理基线",
+          "representative_clauses": [
+            "第6、17、19、47条"
+          ],
+          "completeness_question": "账号、互动、订阅和通知数据是否有用途、期限和删除？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L1-09",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "工程图纸平台支持上传、版本、审签、批注、协同、检索和归档。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的基础业务范围内，系统保存历史版本。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的基础业务范围内，图纸支持提交、并行会签、驳回、修改、重审、意见关闭和超时升级，并锁定生效版本。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的基础业务范围内，权限矩阵按项目、专业、图纸、版本和外协期限限制查看、批注、下载和审批，撤权即时生效。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的基础业务范围内，系统校验文件类型和哈希，记录转换链、电子签署、下载水印和证据，异常版本隔离。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-VERSION",
+          "category": "图纸版本与基线",
+          "benchmark": "工程文档管理Checklist",
+          "representative_clauses": [
+            "版本、基线、变更和回退"
+          ],
+          "completeness_question": "版本关系、有效版本和回退是否明确？"
+        },
+        {
+          "check_id": "CAT-REVIEW",
+          "category": "审签与变更闭环",
+          "benchmark": "工程审签流程Checklist",
+          "representative_clauses": [
+            "提交、会签、驳回、重审和关闭"
+          ],
+          "completeness_question": "审签、意见处理和变更是否闭环？"
+        },
+        {
+          "check_id": "CAT-ROLE",
+          "category": "项目与图纸权限边界",
+          "benchmark": "工程协同权限基线",
+          "representative_clauses": [
+            "ISO A.5.15、A.5.18"
+          ],
+          "completeness_question": "项目、专业、版本和外协访问是否隔离？"
+        },
+        {
+          "check_id": "CAT-INTEGRITY",
+          "category": "文件完整性与可追溯",
+          "benchmark": "工程文件可信性Checklist",
+          "representative_clauses": [
+            "哈希、签名和操作证据"
+          ],
+          "completeness_question": "上传、转换、下载和签署是否可验证未篡改？"
+        },
+        {
+          "check_id": "CAT-ARCHIVE",
+          "category": "工程档案生命周期",
+          "benchmark": "工程档案管理Checklist",
+          "representative_clauses": [
+            "归档、保留、移交和销毁"
+          ],
+          "completeness_question": "图纸及审签证据是否按项目阶段归档？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L1-10",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "报修平台支持工单提交、派单、接单、处理、验收、评价和统计。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的基础业务范围内，系统按故障影响和紧急度分级，定义响应修复SLA、暂停条件、超时升级和通知。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的基础业务范围内，权限矩阵限制工单详情、联系方式、位置、转派、验收和统计导出，并记录授权变更。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的基础业务范围内，系统告知位置联系方式用途，最小化收集，定义图片、工单和评价的期限、归档、删除及例外。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的基础业务范围内，系统发送派单和完成通知。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-TICKET",
+          "category": "工单状态闭环",
+          "benchmark": "报修产品Checklist",
+          "representative_clauses": [
+            "提交、派单、处理、验收和关闭"
+          ],
+          "completeness_question": "工单状态、退回、转派和重开是否完整？"
+        },
+        {
+          "check_id": "CAT-SLA",
+          "category": "优先级与SLA",
+          "benchmark": "维修服务管理Checklist",
+          "representative_clauses": [
+            "分级、响应、升级和超时"
+          ],
+          "completeness_question": "紧急程度、响应修复时限和升级是否明确？"
+        },
+        {
+          "check_id": "CAT-ROLE",
+          "category": "报修角色与数据边界",
+          "benchmark": "目标系统权限基线",
+          "representative_clauses": [
+            "ISO A.5.15、A.5.18"
+          ],
+          "completeness_question": "报修人、维修员、调度员和管理员边界是否明确？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "报修数据生命周期",
+          "benchmark": "个人信息保护法数据治理基线",
+          "representative_clauses": [
+            "第6、17、19、47条"
+          ],
+          "completeness_question": "位置、联系方式、图片和工单是否有期限和删除？"
+        },
+        {
+          "check_id": "CAT-NOTIFY",
+          "category": "通知与现场协同",
+          "benchmark": "报修服务Checklist",
+          "representative_clauses": [
+            "派单、到场、变更和失败补偿"
+          ],
+          "completeness_question": "状态通知、预约、到场和通知失败是否闭环？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L1-11",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "Web多人实时大富翁支持房间、回合、地产交易、聊天、断线重连和回放。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的基础业务范围内，系统支持建房、开始、回合和结算。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的基础业务范围内，系统定义移动、购买、租金、建设、交易、卡牌、破产和胜利规则及优先级，并覆盖边界案例。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的基础业务范围内，服务端验证所有操作，检测异常行为和刷屏，支持举报、分级处置、误判申诉及证据保留。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的基础业务范围内，系统保存规则版本、随机种子和事件序列以复现回放，定义战绩聊天和举报记录期限与删除。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-GAME",
+          "category": "对局状态机",
+          "benchmark": "实时游戏产品Checklist",
+          "representative_clauses": [
+            "房间、准备、回合、结算和退出"
+          ],
+          "completeness_question": "对局状态和非法转换是否完整？"
+        },
+        {
+          "check_id": "CAT-SYNC",
+          "category": "实时同步与权威判定",
+          "benchmark": "实时游戏一致性Checklist",
+          "representative_clauses": [
+            "服务端权威、顺序和重连"
+          ],
+          "completeness_question": "并发操作、消息顺序和重连是否保持一致？"
+        },
+        {
+          "check_id": "CAT-RULE",
+          "category": "游戏规则完整性",
+          "benchmark": "大富翁玩法Checklist",
+          "representative_clauses": [
+            "移动、地产、交易、破产和胜利"
+          ],
+          "completeness_question": "规则冲突、边界和随机事件是否可判定？"
+        },
+        {
+          "check_id": "CAT-ABUSE",
+          "category": "作弊与社交滥用",
+          "benchmark": "在线游戏安全Checklist",
+          "representative_clauses": [
+            "作弊、刷屏、举报和处置"
+          ],
+          "completeness_question": "客户端篡改、串通、刷屏和举报是否处理？"
+        },
+        {
+          "check_id": "CAT-HISTORY",
+          "category": "战绩回放与数据生命周期",
+          "benchmark": "在线游戏数据Checklist",
+          "representative_clauses": [
+            "回放一致性和保存删除"
+          ],
+          "completeness_question": "战绩回放是否可复现且有期限和删除？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L1-12",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "Web单机塔防融合招募、部署、法宝、阵法、波次、战斗、结算和本地存档。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的基础业务范围内，游戏覆盖初始化、流派地图选择、招募部署、战斗波次、Boss、胜负结算和重新开始。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的基础业务范围内，系统描述灵石、招募和商店。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的基础业务范围内，存档采用原子写入和校验，保留备份，定义版本迁移、损坏检测、恢复和不兼容提示。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的基础业务范围内，游戏支持键鼠重映射、暂停、速度调整、规则说明、色彩替代提示和关键操作确认。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-LOOP",
+          "category": "单局玩法闭环",
+          "benchmark": "塔防游戏产品Checklist",
+          "representative_clauses": [
+            "初始化、战斗、结算和重开"
+          ],
+          "completeness_question": "一局游戏从开始到结算重开是否闭环？"
+        },
+        {
+          "check_id": "CAT-RULE",
+          "category": "规则依赖与优先级",
+          "benchmark": "策略游戏规则Checklist",
+          "representative_clauses": [
+            "阵法、五行、法宝和状态优先级"
+          ],
+          "completeness_question": "多系统叠加时的计算顺序和边界是否明确？"
+        },
+        {
+          "check_id": "CAT-ECON",
+          "category": "经济与随机公平性",
+          "benchmark": "Roguelite经济Checklist",
+          "representative_clauses": [
+            "掉落、商店、随机种子和保底"
+          ],
+          "completeness_question": "招募、掉落和商店是否可验证且不死锁？"
+        },
+        {
+          "check_id": "CAT-SAVE",
+          "category": "存档完整性与迁移",
+          "benchmark": "单机游戏存档Checklist",
+          "representative_clauses": [
+            "原子写入、版本迁移和损坏恢复"
+          ],
+          "completeness_question": "存档写入、版本升级和损坏是否可恢复？"
+        },
+        {
+          "check_id": "CAT-ACCESS",
+          "category": "输入可用性与暂停",
+          "benchmark": "PC游戏可用性Checklist",
+          "representative_clauses": [
+            "键盘、暂停和提示"
+          ],
+          "completeness_question": "操作、暂停、说明和可访问性是否覆盖？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L1-13",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "多Agent系统采集门店需求，生成方案、原型和代码，经过确认与质量检查后交付。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的基础业务范围内，系统采集配置并生成摘要。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的基础业务范围内，每个产物关联需求版本、模型、提示词、模板、依赖和生成时间，支持差异与回滚。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的基础业务范围内，商家预览确认功能和数据处理，实施人员审批安全测试，系统未经授权不得自动上线。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的基础业务范围内，系统说明门店资料和素材用途，定义最小化、期限、导出、删除及模型供应商不留存要求。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-REQ",
+          "category": "需求采集与确认闭环",
+          "benchmark": "生成式开发产品Checklist",
+          "representative_clauses": [
+            "采集、澄清、确认和变更"
+          ],
+          "completeness_question": "商家需求是否可澄清、确认、变更并追踪？"
+        },
+        {
+          "check_id": "CAT-GEN",
+          "category": "生成产物可追溯",
+          "benchmark": "生成式开发治理Checklist",
+          "representative_clauses": [
+            "模型、提示词、输入和产物版本"
+          ],
+          "completeness_question": "方案、原型和代码能否追溯到输入和生成版本？"
+        },
+        {
+          "check_id": "CAT-HUMAN",
+          "category": "人工确认与发布闸门",
+          "benchmark": "人机协同Checklist",
+          "representative_clauses": [
+            "预览、审批和禁止自动上线"
+          ],
+          "completeness_question": "高影响操作是否由商家或实施人员确认？"
+        },
+        {
+          "check_id": "CAT-QUALITY",
+          "category": "生成代码质量门槛",
+          "benchmark": "ISO/IEC 27001安全开发基线",
+          "representative_clauses": [
+            "ISO A.8.25、A.8.28、A.8.29"
+          ],
+          "completeness_question": "生成代码是否经过安全、功能和依赖测试？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "商家与生成数据生命周期",
+          "benchmark": "个人信息保护法数据治理基线",
+          "representative_clauses": [
+            "第6、17、19、47条"
+          ],
+          "completeness_question": "门店资料、素材、账号和生成物是否有用途、期限和删除？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L1-14",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "多租户平台新增套餐、用量计费、欠费降级、退款和企业数据退出能力。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的基础业务范围内，平台覆盖邀请、审批、转岗、离职撤权、特权复核、会话失效和紧急账号管理。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的基础业务范围内，平台定义租户数据导入、用途、保留、导出、删除、备份清理和合同终止后的迁移退出。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的基础业务范围内，平台以幂等事件处理套餐变更、用量计量、账单、欠费降级、退款和争议，并支持对账。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的基础业务范围内，平台记录系统日志并备份。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-TENANT",
+          "category": "租户隔离",
+          "benchmark": "SaaS多租户安全基线",
+          "representative_clauses": [
+            "ISO A.5.15、A.8.3"
+          ],
+          "completeness_question": "数据、缓存、搜索、文件和任务是否全链路隔离？"
+        },
+        {
+          "check_id": "CAT-IAM",
+          "category": "身份权限与生命周期",
+          "benchmark": "SaaS身份治理基线",
+          "representative_clauses": [
+            "ISO A.5.16、A.5.18"
+          ],
+          "completeness_question": "邀请、转岗、离职、特权和会话是否闭环？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "租户数据生命周期",
+          "benchmark": "SaaS数据治理基线",
+          "representative_clauses": [
+            "个人信息保护法第19、47条；ISO A.8.10"
+          ],
+          "completeness_question": "导入、使用、导出、删除和租户退出是否闭环？"
+        },
+        {
+          "check_id": "CAT-BILL",
+          "category": "订阅计费一致性",
+          "benchmark": "SaaS计费产品Checklist",
+          "representative_clauses": [
+            "套餐、用量、账单和退款"
+          ],
+          "completeness_question": "套餐变更、用量、账单、欠费和退款是否一致？"
+        },
+        {
+          "check_id": "CAT-OPS",
+          "category": "租户级运维与审计",
+          "benchmark": "ISO/IEC 27001信息安全控制基线",
+          "representative_clauses": [
+            "Annex A 8.13、8.15、8.16"
+          ],
+          "completeness_question": "审计、告警、备份和恢复是否支持租户维度？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L1-15",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "scenario": "跨校正式考试关注高并发、自动保存、监控证据、成绩争议和灾难恢复。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的基础业务范围内，系统支持倒计时、自动保存和收卷。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的基础业务范围内，系统定义评分规则、人工复核、成绩发布、申诉、审批修改、并发冲突、回滚和通知。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的基础业务范围内，系统分别定义答卷、IP、切屏、成绩、申诉和备份的用途、期限、归档、删除及考试前告知。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的基础业务范围内，系统定义考试数据RPO/RTO，执行恢复演练，保护日志完整性并管理密钥生成、轮换和撤销。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-EXAM",
+          "category": "考试业务状态机",
+          "benchmark": "目标系统产品Checklist",
+          "representative_clauses": [
+            "创建、答题、交卷和成绩发布"
+          ],
+          "completeness_question": "考试状态、重复进入和状态锁定是否闭环？"
+        },
+        {
+          "check_id": "CAT-ANTI",
+          "category": "监控与审计证据",
+          "benchmark": "正式考试可信性Checklist",
+          "representative_clauses": [
+            "切屏监控和日志审计"
+          ],
+          "completeness_question": "监控告知、日志保护和争议调查是否覆盖？"
+        },
+        {
+          "check_id": "CAT-GRADE",
+          "category": "阅卷成绩与申诉",
+          "benchmark": "考试公平性Checklist",
+          "representative_clauses": [
+            "自动批阅、人工评阅和复核"
+          ],
+          "completeness_question": "评分、发布、复核、回滚和通知是否闭环？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "考试数据生命周期",
+          "benchmark": "个人信息保护法数据治理基线",
+          "representative_clauses": [
+            "第17、19、47、55条"
+          ],
+          "completeness_question": "答卷、监控、成绩和申诉材料是否有期限和删除？"
+        },
+        {
+          "check_id": "CAT-RECOVERY",
+          "category": "备份恢复与完整性验证",
+          "benchmark": "ISO/IEC 27001业务连续性基线",
+          "representative_clauses": [
+            "Annex A 8.13、8.15、8.24"
+          ],
+          "completeness_question": "RPO/RTO、演练、日志和密钥生命周期是否覆盖？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L2-01",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "目标系统支持匿名发帖、评论互动、内容审核、举报和管理员处置。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的跨角色协作范围内，系统有自动审核和管理员删除。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的跨角色协作范围内，前台不展示身份，后台仅在授权调查中受控解匿名，所有查询留痕并限制导出。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的跨角色协作范围内，系统允许删除帖子。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的跨角色协作范围内，系统在帮助页展示“发帖互动闭环”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-CONTENT",
+          "category": "发帖互动闭环",
+          "benchmark": "校园社区产品Checklist",
+          "representative_clauses": [
+            "发布、评论、删除和状态反馈"
+          ],
+          "completeness_question": "帖子和评论的创建、编辑、删除及状态是否闭环？"
+        },
+        {
+          "check_id": "CAT-MOD",
+          "category": "内容治理闭环",
+          "benchmark": "内容社区治理基线",
+          "representative_clauses": [
+            "算法推荐管理规定第7、9条"
+          ],
+          "completeness_question": "审核、举报、申诉和处置是否闭环？"
+        },
+        {
+          "check_id": "CAT-ANON",
+          "category": "匿名与责任可追溯",
+          "benchmark": "匿名社区安全Checklist",
+          "representative_clauses": [
+            "最小披露和受控追溯"
+          ],
+          "completeness_question": "前台匿名与后台追溯边界是否明确？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "用户与内容数据生命周期",
+          "benchmark": "个人信息保护法数据治理基线",
+          "representative_clauses": [
+            "第6、19、47、51条"
+          ],
+          "completeness_question": "账号、内容、举报和追溯数据是否有期限与删除？"
+        },
+        {
+          "check_id": "CAT-ABUSE",
+          "category": "滥用与风控",
+          "benchmark": "社区反滥用Checklist",
+          "representative_clauses": [
+            "频率控制和账号处置"
+          ],
+          "completeness_question": "刷屏、骚扰、批量注册和绕过审核是否处理？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L2-02",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "校园知识社区提供AI润色、摘要、问答草稿、人工审核和个性化推荐。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的跨角色协作范围内，自动识别异常内容并支持人工复核。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的跨角色协作范围内，系统说明推荐目的和主要依据，支持非个性化模式、关闭推荐、查看删除标签及投诉。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的跨角色协作范围内，编辑页显示AI提示。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的跨角色协作范围内，系统在帮助页展示“AI辅助创作与确认”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-CREATE",
+          "category": "AI辅助创作与确认",
+          "benchmark": "AI内容社区Checklist",
+          "representative_clauses": [
+            "深度合成管理规定第8、10条"
+          ],
+          "completeness_question": "AI结果是否可编辑、确认、撤回并区分最终发布？"
+        },
+        {
+          "check_id": "CAT-MOD",
+          "category": "内容治理与人工兜底",
+          "benchmark": "内容社区治理基线",
+          "representative_clauses": [
+            "算法推荐管理规定第7、9条"
+          ],
+          "completeness_question": "识别、复核、申诉和处置是否闭环？"
+        },
+        {
+          "check_id": "CAT-RECO",
+          "category": "推荐透明与用户控制",
+          "benchmark": "算法推荐管理规定",
+          "representative_clauses": [
+            "第16、17、22条"
+          ],
+          "completeness_question": "推荐告知、关闭、非个性化和标签管理是否覆盖？"
+        },
+        {
+          "check_id": "CAT-LABEL",
+          "category": "AI内容来源标识",
+          "benchmark": "生成合成内容标识基线",
+          "representative_clauses": [
+            "标识办法第4、5条"
+          ],
+          "completeness_question": "AI生成或修改内容是否可识别可追踪？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "画像与行为数据生命周期",
+          "benchmark": "个人信息保护法数据治理基线",
+          "representative_clauses": [
+            "第19、24、47、51条"
+          ],
+          "completeness_question": "画像、浏览、内容和审核记录是否有期限和删除？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L2-03",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "在线教学平台支持课程、课件、直播、签到、作业、测验和学习统计。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的跨角色协作范围内，系统覆盖建课、课件和作业。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的跨角色协作范围内，教师、助教、学生和管理员的课程、作业、成绩、导出权限通过矩阵控制并留痕。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的跨角色协作范围内，平台提供字幕。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的跨角色协作范围内，系统在帮助页展示“直播互动与降级”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-COURSE",
+          "category": "课程教学闭环",
+          "benchmark": "在线教学产品Checklist",
+          "representative_clauses": [
+            "建课、授课、作业、测验和结课"
+          ],
+          "completeness_question": "课程从创建到结课是否闭环？"
+        },
+        {
+          "check_id": "CAT-LIVE",
+          "category": "直播互动与降级",
+          "benchmark": "在线教学可用性Checklist",
+          "representative_clauses": [
+            "断线重连和降级"
+          ],
+          "completeness_question": "直播、互动、断线和回放是否有可恢复要求？"
+        },
+        {
+          "check_id": "CAT-ROLE",
+          "category": "师生助教权限边界",
+          "benchmark": "教育平台权限基线",
+          "representative_clauses": [
+            "ISO A.5.15、A.5.18"
+          ],
+          "completeness_question": "课程、成绩和班级数据的操作边界是否明确？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "学习数据生命周期",
+          "benchmark": "个人信息保护法数据治理基线",
+          "representative_clauses": [
+            "第6、17、19、47条"
+          ],
+          "completeness_question": "签到、互动、作业和学习画像是否有期限与删除？"
+        },
+        {
+          "check_id": "CAT-ACCESS",
+          "category": "无障碍与学习公平",
+          "benchmark": "教育产品可用性Checklist",
+          "representative_clauses": [
+            "WCAG 2.2 AA代表性要求"
+          ],
+          "completeness_question": "字幕、键盘操作和替代材料是否覆盖？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L2-04",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "多租户企业协作平台提供组织、项目、任务、文件、消息、计费和管理能力。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的跨角色协作范围内，平台覆盖邀请、审批、转岗、离职撤权、特权复核、会话失效和紧急账号管理。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的跨角色协作范围内，平台支持文件删除和数据导出。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的跨角色协作范围内，平台展示套餐和用量。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的跨角色协作范围内，系统在帮助页展示“租户隔离”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-TENANT",
+          "category": "租户隔离",
+          "benchmark": "SaaS多租户安全基线",
+          "representative_clauses": [
+            "ISO A.5.15、A.8.3"
+          ],
+          "completeness_question": "数据、缓存、搜索、文件和任务是否全链路隔离？"
+        },
+        {
+          "check_id": "CAT-IAM",
+          "category": "身份权限与生命周期",
+          "benchmark": "SaaS身份治理基线",
+          "representative_clauses": [
+            "ISO A.5.16、A.5.18"
+          ],
+          "completeness_question": "邀请、转岗、离职、特权和会话是否闭环？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "租户数据生命周期",
+          "benchmark": "SaaS数据治理基线",
+          "representative_clauses": [
+            "个人信息保护法第19、47条；ISO A.8.10"
+          ],
+          "completeness_question": "导入、使用、导出、删除和租户退出是否闭环？"
+        },
+        {
+          "check_id": "CAT-BILL",
+          "category": "订阅计费一致性",
+          "benchmark": "SaaS计费产品Checklist",
+          "representative_clauses": [
+            "套餐、用量、账单和退款"
+          ],
+          "completeness_question": "套餐变更、用量、账单、欠费和退款是否一致？"
+        },
+        {
+          "check_id": "CAT-OPS",
+          "category": "租户级运维与审计",
+          "benchmark": "ISO/IEC 27001信息安全控制基线",
+          "representative_clauses": [
+            "Annex A 8.13、8.15、8.16"
+          ],
+          "completeness_question": "审计、告警、备份和恢复是否支持租户维度？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L2-05",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "平台采集检索日志，进行异常检测、AI解释、告警、工单联动和审计。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的跨角色协作范围内，平台定义采集协议、解析失败队列、去重、顺序、背压、丢失率和延迟验收指标。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的跨角色协作范围内，平台输出异常类型和解释。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的跨角色协作范围内，平台记录登录和查询日志。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的跨角色协作范围内，系统在帮助页展示“告警处置闭环”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-INGEST",
+          "category": "日志采集与质量",
+          "benchmark": "可观测平台Checklist",
+          "representative_clauses": [
+            "采集、解析、去重和背压"
+          ],
+          "completeness_question": "多源日志在延迟、丢失、重复和格式异常下是否可控？"
+        },
+        {
+          "check_id": "CAT-DETECT",
+          "category": "检测结果可信度",
+          "benchmark": "AI可观测性Checklist",
+          "representative_clauses": [
+            "模型版本和检测证据"
+          ],
+          "completeness_question": "异常结果是否有版本、证据、置信度和降级？"
+        },
+        {
+          "check_id": "CAT-ACTION",
+          "category": "告警处置闭环",
+          "benchmark": "运维事件管理Checklist",
+          "representative_clauses": [
+            "告警、确认、升级和关闭"
+          ],
+          "completeness_question": "告警去重、升级、工单和复盘是否闭环？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "日志数据生命周期",
+          "benchmark": "日志数据治理基线",
+          "representative_clauses": [
+            "个人信息保护法第19、47条；ISO A.8.10"
+          ],
+          "completeness_question": "敏感日志、索引、导出和备份是否有期限与删除？"
+        },
+        {
+          "check_id": "CAT-AUDIT",
+          "category": "平台操作审计",
+          "benchmark": "ISO/IEC 27001信息安全控制基线",
+          "representative_clauses": [
+            "Annex A 8.15、8.16"
+          ],
+          "completeness_question": "查询、导出、规则和模型变更是否可追溯？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L2-06",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "本地静态分析工具支持Web/CLI输入、报告导出、自动重构和历史任务，不执行用户代码。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的跨角色协作范围内，工具校验代码长度、文件类型、路径、编码、CLI参数和导出目标，拒绝越界并给出错误。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的跨角色协作范围内，工具输出规则和发现项。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的跨角色协作范围内，历史任务仅本人可见。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的跨角色协作范围内，系统在帮助页展示“自动修改安全闸门”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-INPUT",
+          "category": "输入与接口边界",
+          "benchmark": "ISO/IEC 27001安全开发基线",
+          "representative_clauses": [
+            "ISO A.8.26、A.8.28"
+          ],
+          "completeness_question": "代码、文件、路径、参数和导出是否校验？"
+        },
+        {
+          "check_id": "CAT-ANALYSIS",
+          "category": "分析结果可信度",
+          "benchmark": "代码质量工具Checklist",
+          "representative_clauses": [
+            "规则版本、证据和严重级别"
+          ],
+          "completeness_question": "发现项是否可定位、可复现并支持失败降级？"
+        },
+        {
+          "check_id": "CAT-TRANSFORM",
+          "category": "自动修改安全闸门",
+          "benchmark": "ISO/IEC 27001安全开发基线",
+          "representative_clauses": [
+            "ISO A.8.28、A.8.29"
+          ],
+          "completeness_question": "重构是否有白名单、复验、回滚和原文保护？"
+        },
+        {
+          "check_id": "CAT-HISTORY",
+          "category": "历史任务与权限",
+          "benchmark": "ISO/IEC 27001信息安全控制基线",
+          "representative_clauses": [
+            "Annex A 5.15、8.10"
+          ],
+          "completeness_question": "历史隔离、期限、删除和导出是否覆盖？"
+        },
+        {
+          "check_id": "CAT-QUALITY",
+          "category": "测试与验收",
+          "benchmark": "ISO/IEC 27001安全开发基线",
+          "representative_clauses": [
+            "ISO A.8.29"
+          ],
+          "completeness_question": "输入、分析、导出和重构是否有测试门槛？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L2-07",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "文档工具支持Markdown组织、构建预览、主题插件、搜索和静态站点发布。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的跨角色协作范围内，系统支持构建预览和发布。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的跨角色协作范围内，系统支持安装主题和插件。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的跨角色协作范围内，平台限制私有文档访问，生成可键盘操作、含替代文本且跨浏览器可用的站点并验收。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的跨角色协作范围内，系统在帮助页展示“内容与链接完整性”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-BUILD",
+          "category": "构建发布闭环",
+          "benchmark": "文档平台产品Checklist",
+          "representative_clauses": [
+            "编辑、构建、预览、发布和回滚"
+          ],
+          "completeness_question": "文档从编辑到发布是否可追踪可回滚？"
+        },
+        {
+          "check_id": "CAT-CONTENT",
+          "category": "内容与链接完整性",
+          "benchmark": "文档质量Checklist",
+          "representative_clauses": [
+            "链接、资源和导航校验"
+          ],
+          "completeness_question": "链接、资源、导航和搜索索引是否验证？"
+        },
+        {
+          "check_id": "CAT-PLUGIN",
+          "category": "主题插件供应链",
+          "benchmark": "软件供应链安全Checklist",
+          "representative_clauses": [
+            "ISO A.8.25、A.8.30"
+          ],
+          "completeness_question": "主题插件是否有来源、版本、权限和漏洞治理？"
+        },
+        {
+          "check_id": "CAT-SECRET",
+          "category": "敏感信息与发布边界",
+          "benchmark": "ISO/IEC 27001安全开发基线",
+          "representative_clauses": [
+            "ISO A.8.12、A.8.28"
+          ],
+          "completeness_question": "构建是否防止密钥和内部内容误发布？"
+        },
+        {
+          "check_id": "CAT-ACCESS",
+          "category": "文档访问与可用性",
+          "benchmark": "文档服务Checklist",
+          "representative_clauses": [
+            "权限、无障碍和兼容性"
+          ],
+          "completeness_question": "私有文档、无障碍和多端访问是否覆盖？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L2-08",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "目标系统提供问答、路线、景点讲解、多模态交互和人工服务衔接。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的跨角色协作范围内，数字人支持问答和景点讲解。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的跨角色协作范围内，系统接入权威安全信息，标注更新时间，遇到封路、极端天气和求助时优先提示并转人工。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的跨角色协作范围内，系统保护游客账号和对话。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的跨角色协作范围内，系统在帮助页展示“AI回答可信与边界”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-GUIDE",
+          "category": "导览服务闭环",
+          "benchmark": "智慧景区服务Checklist",
+          "representative_clauses": [
+            "问答、路线、讲解和服务转接"
+          ],
+          "completeness_question": "从咨询到导览完成及异常转接是否闭环？"
+        },
+        {
+          "check_id": "CAT-SAFETY",
+          "category": "安全信息与应急",
+          "benchmark": "景区安全服务Checklist",
+          "representative_clauses": [
+            "风险提示、应急信息和人工确认"
+          ],
+          "completeness_question": "天气、封路、客流和紧急求助是否可靠？"
+        },
+        {
+          "check_id": "CAT-AI",
+          "category": "AI回答可信与边界",
+          "benchmark": "生成式AI服务治理Checklist",
+          "representative_clauses": [
+            "生成式人工智能服务管理暂行办法第4、7条"
+          ],
+          "completeness_question": "回答是否有来源、置信、拒答和纠错？"
+        },
+        {
+          "check_id": "CAT-LABEL",
+          "category": "数字人生成内容标识",
+          "benchmark": "生成合成内容标识基线",
+          "representative_clauses": [
+            "标识办法第4、5条"
+          ],
+          "completeness_question": "合成形象、语音和回答是否持续可识别？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "游客交互数据生命周期",
+          "benchmark": "个人信息保护法数据治理基线",
+          "representative_clauses": [
+            "第6、17、19、47条"
+          ],
+          "completeness_question": "位置、语音、画像和对话是否有用途、期限和删除？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L2-09",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "工程图纸平台支持上传、版本、审签、批注、协同、检索和归档。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的跨角色协作范围内，系统保存历史版本。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的跨角色协作范围内，系统按项目角色授权。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的跨角色协作范围内，系统校验文件类型和哈希，记录转换链、电子签署、下载水印和证据，异常版本隔离。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的跨角色协作范围内，系统在帮助页展示“审签与变更闭环”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-VERSION",
+          "category": "图纸版本与基线",
+          "benchmark": "工程文档管理Checklist",
+          "representative_clauses": [
+            "版本、基线、变更和回退"
+          ],
+          "completeness_question": "版本关系、有效版本和回退是否明确？"
+        },
+        {
+          "check_id": "CAT-REVIEW",
+          "category": "审签与变更闭环",
+          "benchmark": "工程审签流程Checklist",
+          "representative_clauses": [
+            "提交、会签、驳回、重审和关闭"
+          ],
+          "completeness_question": "审签、意见处理和变更是否闭环？"
+        },
+        {
+          "check_id": "CAT-ROLE",
+          "category": "项目与图纸权限边界",
+          "benchmark": "工程协同权限基线",
+          "representative_clauses": [
+            "ISO A.5.15、A.5.18"
+          ],
+          "completeness_question": "项目、专业、版本和外协访问是否隔离？"
+        },
+        {
+          "check_id": "CAT-INTEGRITY",
+          "category": "文件完整性与可追溯",
+          "benchmark": "工程文件可信性Checklist",
+          "representative_clauses": [
+            "哈希、签名和操作证据"
+          ],
+          "completeness_question": "上传、转换、下载和签署是否可验证未篡改？"
+        },
+        {
+          "check_id": "CAT-ARCHIVE",
+          "category": "工程档案生命周期",
+          "benchmark": "工程档案管理Checklist",
+          "representative_clauses": [
+            "归档、保留、移交和销毁"
+          ],
+          "completeness_question": "图纸及审签证据是否按项目阶段归档？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L2-10",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "报修平台支持工单提交、派单、接单、处理、验收、评价和统计。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的跨角色协作范围内，工单支持提交、派单、处理和完成。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的跨角色协作范围内，系统区分报修人和维修员。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的跨角色协作范围内，系统通知派单、预约、到场、延期、完成和验收，支持重试去重及无法联系的升级。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的跨角色协作范围内，系统在帮助页展示“优先级与SLA”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-TICKET",
+          "category": "工单状态闭环",
+          "benchmark": "报修产品Checklist",
+          "representative_clauses": [
+            "提交、派单、处理、验收和关闭"
+          ],
+          "completeness_question": "工单状态、退回、转派和重开是否完整？"
+        },
+        {
+          "check_id": "CAT-SLA",
+          "category": "优先级与SLA",
+          "benchmark": "维修服务管理Checklist",
+          "representative_clauses": [
+            "分级、响应、升级和超时"
+          ],
+          "completeness_question": "紧急程度、响应修复时限和升级是否明确？"
+        },
+        {
+          "check_id": "CAT-ROLE",
+          "category": "报修角色与数据边界",
+          "benchmark": "目标系统权限基线",
+          "representative_clauses": [
+            "ISO A.5.15、A.5.18"
+          ],
+          "completeness_question": "报修人、维修员、调度员和管理员边界是否明确？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "报修数据生命周期",
+          "benchmark": "个人信息保护法数据治理基线",
+          "representative_clauses": [
+            "第6、17、19、47条"
+          ],
+          "completeness_question": "位置、联系方式、图片和工单是否有期限和删除？"
+        },
+        {
+          "check_id": "CAT-NOTIFY",
+          "category": "通知与现场协同",
+          "benchmark": "报修服务Checklist",
+          "representative_clauses": [
+            "派单、到场、变更和失败补偿"
+          ],
+          "completeness_question": "状态通知、预约、到场和通知失败是否闭环？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L2-11",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "Web多人实时大富翁支持房间、回合、地产交易、聊天、断线重连和回放。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的跨角色协作范围内，系统支持建房、开始、回合和结算。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的跨角色协作范围内，系统使用服务端权威和断线重连。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的跨角色协作范围内，系统保存规则版本、随机种子和事件序列以复现回放，定义战绩聊天和举报记录期限与删除。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的跨角色协作范围内，系统在帮助页展示“游戏规则完整性”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-GAME",
+          "category": "对局状态机",
+          "benchmark": "实时游戏产品Checklist",
+          "representative_clauses": [
+            "房间、准备、回合、结算和退出"
+          ],
+          "completeness_question": "对局状态和非法转换是否完整？"
+        },
+        {
+          "check_id": "CAT-SYNC",
+          "category": "实时同步与权威判定",
+          "benchmark": "实时游戏一致性Checklist",
+          "representative_clauses": [
+            "服务端权威、顺序和重连"
+          ],
+          "completeness_question": "并发操作、消息顺序和重连是否保持一致？"
+        },
+        {
+          "check_id": "CAT-RULE",
+          "category": "游戏规则完整性",
+          "benchmark": "大富翁玩法Checklist",
+          "representative_clauses": [
+            "移动、地产、交易、破产和胜利"
+          ],
+          "completeness_question": "规则冲突、边界和随机事件是否可判定？"
+        },
+        {
+          "check_id": "CAT-ABUSE",
+          "category": "作弊与社交滥用",
+          "benchmark": "在线游戏安全Checklist",
+          "representative_clauses": [
+            "作弊、刷屏、举报和处置"
+          ],
+          "completeness_question": "客户端篡改、串通、刷屏和举报是否处理？"
+        },
+        {
+          "check_id": "CAT-HISTORY",
+          "category": "战绩回放与数据生命周期",
+          "benchmark": "在线游戏数据Checklist",
+          "representative_clauses": [
+            "回放一致性和保存删除"
+          ],
+          "completeness_question": "战绩回放是否可复现且有期限和删除？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L2-12",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "Web单机塔防融合招募、部署、法宝、阵法、波次、战斗、结算和本地存档。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的跨角色协作范围内，游戏描述招募、部署和战斗。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的跨角色协作范围内，系统描述灵石、招募和商店。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的跨角色协作范围内，游戏支持键鼠重映射、暂停、速度调整、规则说明、色彩替代提示和关键操作确认。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的跨角色协作范围内，系统在帮助页展示“规则依赖与优先级”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-LOOP",
+          "category": "单局玩法闭环",
+          "benchmark": "塔防游戏产品Checklist",
+          "representative_clauses": [
+            "初始化、战斗、结算和重开"
+          ],
+          "completeness_question": "一局游戏从开始到结算重开是否闭环？"
+        },
+        {
+          "check_id": "CAT-RULE",
+          "category": "规则依赖与优先级",
+          "benchmark": "策略游戏规则Checklist",
+          "representative_clauses": [
+            "阵法、五行、法宝和状态优先级"
+          ],
+          "completeness_question": "多系统叠加时的计算顺序和边界是否明确？"
+        },
+        {
+          "check_id": "CAT-ECON",
+          "category": "经济与随机公平性",
+          "benchmark": "Roguelite经济Checklist",
+          "representative_clauses": [
+            "掉落、商店、随机种子和保底"
+          ],
+          "completeness_question": "招募、掉落和商店是否可验证且不死锁？"
+        },
+        {
+          "check_id": "CAT-SAVE",
+          "category": "存档完整性与迁移",
+          "benchmark": "单机游戏存档Checklist",
+          "representative_clauses": [
+            "原子写入、版本迁移和损坏恢复"
+          ],
+          "completeness_question": "存档写入、版本升级和损坏是否可恢复？"
+        },
+        {
+          "check_id": "CAT-ACCESS",
+          "category": "输入可用性与暂停",
+          "benchmark": "PC游戏可用性Checklist",
+          "representative_clauses": [
+            "键盘、暂停和提示"
+          ],
+          "completeness_question": "操作、暂停、说明和可访问性是否覆盖？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L2-13",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "多租户平台新增套餐、用量计费、欠费降级、退款和企业数据退出能力。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的跨角色协作范围内，平台支持文件删除和数据导出。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的跨角色协作范围内，平台以幂等事件处理套餐变更、用量计量、账单、欠费降级、退款和争议，并支持对账。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的跨角色协作范围内，平台记录系统日志并备份。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的跨角色协作范围内，系统在帮助页展示“租户隔离”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-TENANT",
+          "category": "租户隔离",
+          "benchmark": "SaaS多租户安全基线",
+          "representative_clauses": [
+            "ISO A.5.15、A.8.3"
+          ],
+          "completeness_question": "数据、缓存、搜索、文件和任务是否全链路隔离？"
+        },
+        {
+          "check_id": "CAT-IAM",
+          "category": "身份权限与生命周期",
+          "benchmark": "SaaS身份治理基线",
+          "representative_clauses": [
+            "ISO A.5.16、A.5.18"
+          ],
+          "completeness_question": "邀请、转岗、离职、特权和会话是否闭环？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "租户数据生命周期",
+          "benchmark": "SaaS数据治理基线",
+          "representative_clauses": [
+            "个人信息保护法第19、47条；ISO A.8.10"
+          ],
+          "completeness_question": "导入、使用、导出、删除和租户退出是否闭环？"
+        },
+        {
+          "check_id": "CAT-BILL",
+          "category": "订阅计费一致性",
+          "benchmark": "SaaS计费产品Checklist",
+          "representative_clauses": [
+            "套餐、用量、账单和退款"
+          ],
+          "completeness_question": "套餐变更、用量、账单、欠费和退款是否一致？"
+        },
+        {
+          "check_id": "CAT-OPS",
+          "category": "租户级运维与审计",
+          "benchmark": "ISO/IEC 27001信息安全控制基线",
+          "representative_clauses": [
+            "Annex A 8.13、8.15、8.16"
+          ],
+          "completeness_question": "审计、告警、备份和恢复是否支持租户维度？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L2-14",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "目标系统扩大推荐和自动审核规模，需要评估用户控制、申诉、标识和模型证据。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的跨角色协作范围内，AI生成标题、摘要和草稿后由用户编辑确认，发布前可撤回并记录最终采用内容。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的跨角色协作范围内，编辑页显示AI提示。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的跨角色协作范围内，系统保护账号和内容。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的跨角色协作范围内，系统在帮助页展示“内容治理与人工兜底”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-CREATE",
+          "category": "AI辅助创作与确认",
+          "benchmark": "AI内容社区Checklist",
+          "representative_clauses": [
+            "深度合成管理规定第8、10条"
+          ],
+          "completeness_question": "AI结果是否可编辑、确认、撤回并区分最终发布？"
+        },
+        {
+          "check_id": "CAT-MOD",
+          "category": "内容治理与人工兜底",
+          "benchmark": "内容社区治理基线",
+          "representative_clauses": [
+            "算法推荐管理规定第7、9条"
+          ],
+          "completeness_question": "识别、复核、申诉和处置是否闭环？"
+        },
+        {
+          "check_id": "CAT-RECO",
+          "category": "推荐透明与用户控制",
+          "benchmark": "算法推荐管理规定",
+          "representative_clauses": [
+            "第16、17、22条"
+          ],
+          "completeness_question": "推荐告知、关闭、非个性化和标签管理是否覆盖？"
+        },
+        {
+          "check_id": "CAT-LABEL",
+          "category": "AI内容来源标识",
+          "benchmark": "生成合成内容标识基线",
+          "representative_clauses": [
+            "标识办法第4、5条"
+          ],
+          "completeness_question": "AI生成或修改内容是否可识别可追踪？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "画像与行为数据生命周期",
+          "benchmark": "个人信息保护法数据治理基线",
+          "representative_clauses": [
+            "第19、24、47、51条"
+          ],
+          "completeness_question": "画像、浏览、内容和审核记录是否有期限和删除？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L2-15",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "scenario": "跨校正式考试关注高并发、自动保存、监控证据、成绩争议和灾难恢复。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的跨角色协作范围内，系统支持倒计时、自动保存和收卷。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的跨角色协作范围内，系统记录切屏和关键操作。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的跨角色协作范围内，系统定义评分规则、人工复核、成绩发布、申诉、审批修改、并发冲突、回滚和通知。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的跨角色协作范围内，系统在帮助页展示“考试数据生命周期”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-EXAM",
+          "category": "考试业务状态机",
+          "benchmark": "目标系统产品Checklist",
+          "representative_clauses": [
+            "创建、答题、交卷和成绩发布"
+          ],
+          "completeness_question": "考试状态、重复进入和状态锁定是否闭环？"
+        },
+        {
+          "check_id": "CAT-ANTI",
+          "category": "监控与审计证据",
+          "benchmark": "正式考试可信性Checklist",
+          "representative_clauses": [
+            "切屏监控和日志审计"
+          ],
+          "completeness_question": "监控告知、日志保护和争议调查是否覆盖？"
+        },
+        {
+          "check_id": "CAT-GRADE",
+          "category": "阅卷成绩与申诉",
+          "benchmark": "考试公平性Checklist",
+          "representative_clauses": [
+            "自动批阅、人工评阅和复核"
+          ],
+          "completeness_question": "评分、发布、复核、回滚和通知是否闭环？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "考试数据生命周期",
+          "benchmark": "个人信息保护法数据治理基线",
+          "representative_clauses": [
+            "第17、19、47、55条"
+          ],
+          "completeness_question": "答卷、监控、成绩和申诉材料是否有期限和删除？"
+        },
+        {
+          "check_id": "CAT-RECOVERY",
+          "category": "备份恢复与完整性验证",
+          "benchmark": "ISO/IEC 27001业务连续性基线",
+          "representative_clauses": [
+            "Annex A 8.13、8.15、8.24"
+          ],
+          "completeness_question": "RPO/RTO、演练、日志和密钥生命周期是否覆盖？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L3-01",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "目标系统支持匿名发帖、评论互动、内容审核、举报和管理员处置。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的正式运行与异常场景内，系统支持发帖和评论。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的正式运行与异常场景内，前台不展示身份，后台仅在授权调查中受控解匿名，所有查询留痕并限制导出。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的正式运行与异常场景内，系统允许删除帖子。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的正式运行与异常场景内，系统设置发帖频率限制。"
+        },
+        {
+          "id": "R5",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“内容治理闭环”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R6",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“审核审计与连续性”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R7",
+          "text": "范围说明：不应把强制实名前台展示作为必需项；匿名产品可以通过后台受控追溯承担责任。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-CONTENT",
+          "category": "发帖互动闭环",
+          "benchmark": "校园社区产品Checklist",
+          "representative_clauses": [
+            "发布、评论、删除和状态反馈"
+          ],
+          "completeness_question": "帖子和评论的创建、编辑、删除及状态是否闭环？"
+        },
+        {
+          "check_id": "CAT-MOD",
+          "category": "内容治理闭环",
+          "benchmark": "内容社区治理基线",
+          "representative_clauses": [
+            "算法推荐管理规定第7、9条"
+          ],
+          "completeness_question": "审核、举报、申诉和处置是否闭环？"
+        },
+        {
+          "check_id": "CAT-ANON",
+          "category": "匿名与责任可追溯",
+          "benchmark": "匿名社区安全Checklist",
+          "representative_clauses": [
+            "最小披露和受控追溯"
+          ],
+          "completeness_question": "前台匿名与后台追溯边界是否明确？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "用户与内容数据生命周期",
+          "benchmark": "个人信息保护法数据治理基线",
+          "representative_clauses": [
+            "第6、19、47、51条"
+          ],
+          "completeness_question": "账号、内容、举报和追溯数据是否有期限与删除？"
+        },
+        {
+          "check_id": "CAT-ABUSE",
+          "category": "滥用与风控",
+          "benchmark": "社区反滥用Checklist",
+          "representative_clauses": [
+            "频率控制和账号处置"
+          ],
+          "completeness_question": "刷屏、骚扰、批量注册和绕过审核是否处理？"
+        },
+        {
+          "check_id": "CAT-OPS",
+          "category": "审核审计与连续性",
+          "benchmark": "ISO/IEC 27001信息安全控制基线",
+          "representative_clauses": [
+            "Annex A 8.13、8.15、8.16"
+          ],
+          "completeness_question": "审核操作、规则变更、备份和告警是否覆盖？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L3-02",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "校园知识社区提供AI润色、摘要、问答草稿、人工审核和个性化推荐。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的正式运行与异常场景内，自动识别结果进入人工复核，用户可申诉，系统记录处置时限、结果通知和规则更新。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的正式运行与异常场景内，编辑页显示AI提示。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的正式运行与异常场景内，系统保护账号和内容。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的正式运行与异常场景内，系统在AI异常时回退基础社区。"
+        },
+        {
+          "id": "R5",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“AI辅助创作与确认”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R6",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“推荐透明与用户控制”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R7",
+          "text": "范围说明：不应把每个推荐标签分别拆成缺失大类；它们共同属于推荐透明与用户控制。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-CREATE",
+          "category": "AI辅助创作与确认",
+          "benchmark": "AI内容社区Checklist",
+          "representative_clauses": [
+            "深度合成管理规定第8、10条"
+          ],
+          "completeness_question": "AI结果是否可编辑、确认、撤回并区分最终发布？"
+        },
+        {
+          "check_id": "CAT-MOD",
+          "category": "内容治理与人工兜底",
+          "benchmark": "内容社区治理基线",
+          "representative_clauses": [
+            "算法推荐管理规定第7、9条"
+          ],
+          "completeness_question": "识别、复核、申诉和处置是否闭环？"
+        },
+        {
+          "check_id": "CAT-RECO",
+          "category": "推荐透明与用户控制",
+          "benchmark": "算法推荐管理规定",
+          "representative_clauses": [
+            "第16、17、22条"
+          ],
+          "completeness_question": "推荐告知、关闭、非个性化和标签管理是否覆盖？"
+        },
+        {
+          "check_id": "CAT-LABEL",
+          "category": "AI内容来源标识",
+          "benchmark": "生成合成内容标识基线",
+          "representative_clauses": [
+            "标识办法第4、5条"
+          ],
+          "completeness_question": "AI生成或修改内容是否可识别可追踪？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "画像与行为数据生命周期",
+          "benchmark": "个人信息保护法数据治理基线",
+          "representative_clauses": [
+            "第19、24、47、51条"
+          ],
+          "completeness_question": "画像、浏览、内容和审核记录是否有期限和删除？"
+        },
+        {
+          "check_id": "CAT-MODEL",
+          "category": "模型与外部服务治理",
+          "benchmark": "生成式AI服务治理Checklist",
+          "representative_clauses": [
+            "生成式人工智能服务管理暂行办法第4、7条"
+          ],
+          "completeness_question": "模型版本、供应商、故障和切换是否受控？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L3-03",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "在线教学平台支持课程、课件、直播、签到、作业、测验和学习统计。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的正式运行与异常场景内，需求区分教师和学生。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的正式运行与异常场景内，平台保存学习记录用于统计。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的正式运行与异常场景内，平台提供字幕。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的正式运行与异常场景内，系统记录课程和成绩操作，定义备份、RPO/RTO、恢复演练、容量告警和事故追踪。"
+        },
+        {
+          "id": "R5",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“课程教学闭环”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R6",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“直播互动与降级”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R7",
+          "text": "范围说明：不应要求目标系统必须具备线下教室门禁能力。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-COURSE",
+          "category": "课程教学闭环",
+          "benchmark": "在线教学产品Checklist",
+          "representative_clauses": [
+            "建课、授课、作业、测验和结课"
+          ],
+          "completeness_question": "课程从创建到结课是否闭环？"
+        },
+        {
+          "check_id": "CAT-LIVE",
+          "category": "直播互动与降级",
+          "benchmark": "在线教学可用性Checklist",
+          "representative_clauses": [
+            "断线重连和降级"
+          ],
+          "completeness_question": "直播、互动、断线和回放是否有可恢复要求？"
+        },
+        {
+          "check_id": "CAT-ROLE",
+          "category": "师生助教权限边界",
+          "benchmark": "教育平台权限基线",
+          "representative_clauses": [
+            "ISO A.5.15、A.5.18"
+          ],
+          "completeness_question": "课程、成绩和班级数据的操作边界是否明确？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "学习数据生命周期",
+          "benchmark": "个人信息保护法数据治理基线",
+          "representative_clauses": [
+            "第6、17、19、47条"
+          ],
+          "completeness_question": "签到、互动、作业和学习画像是否有期限与删除？"
+        },
+        {
+          "check_id": "CAT-ACCESS",
+          "category": "无障碍与学习公平",
+          "benchmark": "教育产品可用性Checklist",
+          "representative_clauses": [
+            "WCAG 2.2 AA代表性要求"
+          ],
+          "completeness_question": "字幕、键盘操作和替代材料是否覆盖？"
+        },
+        {
+          "check_id": "CAT-OPS",
+          "category": "教学连续性与审计",
+          "benchmark": "ISO/IEC 27001信息安全控制基线",
+          "representative_clauses": [
+            "Annex A 8.13、8.15、8.16"
+          ],
+          "completeness_question": "备份恢复、告警和教学操作审计是否覆盖？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L3-04",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "正式目标系统系统支持题库、答题、切屏监控、自动保存、阅卷、成绩和复核申诉。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的正式运行与异常场景内，系统支持成绩复核和通知。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的正式运行与异常场景内，系统分别定义答卷、IP、切屏、成绩、申诉和备份的用途、期限、归档、删除及考试前告知。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的正式运行与异常场景内，系统自动备份并加密数据。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的正式运行与异常场景内，系统给出并发目标。"
+        },
+        {
+          "id": "R5",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“考试业务状态机”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R6",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“监控与审计证据”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R7",
+          "text": "范围说明：不应要求所有考试都使用摄像头监考；监控方式取决于考试级别和已告知范围。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-EXAM",
+          "category": "考试业务状态机",
+          "benchmark": "目标系统产品Checklist",
+          "representative_clauses": [
+            "创建、答题、交卷和成绩发布"
+          ],
+          "completeness_question": "考试状态、重复进入和状态锁定是否闭环？"
+        },
+        {
+          "check_id": "CAT-ANTI",
+          "category": "监控与审计证据",
+          "benchmark": "正式考试可信性Checklist",
+          "representative_clauses": [
+            "切屏监控和日志审计"
+          ],
+          "completeness_question": "监控告知、日志保护和争议调查是否覆盖？"
+        },
+        {
+          "check_id": "CAT-GRADE",
+          "category": "阅卷成绩与申诉",
+          "benchmark": "考试公平性Checklist",
+          "representative_clauses": [
+            "自动批阅、人工评阅和复核"
+          ],
+          "completeness_question": "评分、发布、复核、回滚和通知是否闭环？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "考试数据生命周期",
+          "benchmark": "个人信息保护法数据治理基线",
+          "representative_clauses": [
+            "第17、19、47、55条"
+          ],
+          "completeness_question": "答卷、监控、成绩和申诉材料是否有期限和删除？"
+        },
+        {
+          "check_id": "CAT-RECOVERY",
+          "category": "备份恢复与完整性验证",
+          "benchmark": "ISO/IEC 27001业务连续性基线",
+          "representative_clauses": [
+            "Annex A 8.13、8.15、8.24"
+          ],
+          "completeness_question": "RPO/RTO、演练、日志和密钥生命周期是否覆盖？"
+        },
+        {
+          "check_id": "CAT-CAPACITY",
+          "category": "容量与公平降级",
+          "benchmark": "目标系统性能Checklist",
+          "representative_clauses": [
+            "峰值容量和一致体验"
+          ],
+          "completeness_question": "高并发、排队、降级和公平性是否可验收？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L3-05",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "平台服务求职者、招聘方和管理员，提供职位推荐、简历解析、岗位匹配和胜任力评估。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的正式运行与异常场景内，平台说明推荐目的和主要依据，支持非个性化职位列表、关闭推荐及标签查看删除。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的正式运行与异常场景内，用户可确认、修改和删除简历。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的正式运行与异常场景内，招聘方可调整筛选标准。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的正式运行与异常场景内，平台调用外部解析或模型服务。"
+        },
+        {
+          "id": "R5",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“模型规则证据链”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R6",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“招聘角色与数据边界”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R7",
+          "text": "范围说明：不应把所有简历字段一律判定为敏感信息；应先分类再决定控制。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-RECO",
+          "category": "职位推荐与用户控制",
+          "benchmark": "算法推荐完整性基线",
+          "representative_clauses": [
+            "算法推荐管理规定第16、17条"
+          ],
+          "completeness_question": "推荐目的、依据、关闭和非个性化选项是否覆盖？"
+        },
+        {
+          "check_id": "CAT-RESUME",
+          "category": "简历数据处理闭环",
+          "benchmark": "招聘平台数据治理Checklist",
+          "representative_clauses": [
+            "个人信息保护法第6、17、19、28、47条"
+          ],
+          "completeness_question": "字段必要性、敏感信息、期限和删除是否覆盖？"
+        },
+        {
+          "check_id": "CAT-DECISION",
+          "category": "招聘自动化决策与人工复核",
+          "benchmark": "自动化决策完整性基线",
+          "representative_clauses": [
+            "个人信息保护法第24、55、56条"
+          ],
+          "completeness_question": "筛选评估是否有解释、异议和非自动化兜底？"
+        },
+        {
+          "check_id": "CAT-AUDIT",
+          "category": "模型规则证据链",
+          "benchmark": "AI系统可审计Checklist",
+          "representative_clauses": [
+            "ISO A.8.15；个人信息保护法第56条"
+          ],
+          "completeness_question": "模型版本、输入、输出、复核和申诉是否可追踪？"
+        },
+        {
+          "check_id": "CAT-ROLE",
+          "category": "招聘角色与数据边界",
+          "benchmark": "招聘平台权限基线",
+          "representative_clauses": [
+            "ISO A.5.15、A.5.18"
+          ],
+          "completeness_question": "求职者、HR和负责人的数据边界是否明确？"
+        },
+        {
+          "check_id": "CAT-VENDOR",
+          "category": "外部模型与解析服务治理",
+          "benchmark": "第三方服务治理Checklist",
+          "representative_clauses": [
+            "ISO A.5.19、A.5.20"
+          ],
+          "completeness_question": "简历和评估是否受第三方数据边界与故障治理？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L3-06",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "多租户企业协作平台提供组织、项目、任务、文件、消息、计费和管理能力。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的正式运行与异常场景内，数据库查询携带租户标识。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的正式运行与异常场景内，平台展示套餐和用量。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的正式运行与异常场景内，平台记录系统日志并备份。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的正式运行与异常场景内，集成使用细粒度授权、签名、重放防护、限流、幂等重试、密钥轮换和一键撤销。"
+        },
+        {
+          "id": "R5",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“身份权限与生命周期”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R6",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“租户数据生命周期”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R7",
+          "text": "范围说明：不应要求每个租户独占物理数据库；逻辑隔离达到可验证目标即可。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-TENANT",
+          "category": "租户隔离",
+          "benchmark": "SaaS多租户安全基线",
+          "representative_clauses": [
+            "ISO A.5.15、A.8.3"
+          ],
+          "completeness_question": "数据、缓存、搜索、文件和任务是否全链路隔离？"
+        },
+        {
+          "check_id": "CAT-IAM",
+          "category": "身份权限与生命周期",
+          "benchmark": "SaaS身份治理基线",
+          "representative_clauses": [
+            "ISO A.5.16、A.5.18"
+          ],
+          "completeness_question": "邀请、转岗、离职、特权和会话是否闭环？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "租户数据生命周期",
+          "benchmark": "SaaS数据治理基线",
+          "representative_clauses": [
+            "个人信息保护法第19、47条；ISO A.8.10"
+          ],
+          "completeness_question": "导入、使用、导出、删除和租户退出是否闭环？"
+        },
+        {
+          "check_id": "CAT-BILL",
+          "category": "订阅计费一致性",
+          "benchmark": "SaaS计费产品Checklist",
+          "representative_clauses": [
+            "套餐、用量、账单和退款"
+          ],
+          "completeness_question": "套餐变更、用量、账单、欠费和退款是否一致？"
+        },
+        {
+          "check_id": "CAT-OPS",
+          "category": "租户级运维与审计",
+          "benchmark": "ISO/IEC 27001信息安全控制基线",
+          "representative_clauses": [
+            "Annex A 8.13、8.15、8.16"
+          ],
+          "completeness_question": "审计、告警、备份和恢复是否支持租户维度？"
+        },
+        {
+          "check_id": "CAT-INTEGRATION",
+          "category": "外部集成治理",
+          "benchmark": "SaaS集成安全Checklist",
+          "representative_clauses": [
+            "ISO A.5.19、A.8.20"
+          ],
+          "completeness_question": "Webhook、API和第三方应用是否有授权、重试和撤销？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L3-07",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "平台采集检索日志，进行异常检测、AI解释、告警、工单联动和审计。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的正式运行与异常场景内，平台输出异常类型和解释。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的正式运行与异常场景内，平台对日志脱敏并限制访问。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的正式运行与异常场景内，平台记录登录和查询日志。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的正式运行与异常场景内，平台定义采集、检索和告警的RPO/RTO、跨节点冗余、降级队列、恢复演练和数据补采。"
+        },
+        {
+          "id": "R5",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“日志采集与质量”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R6",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“告警处置闭环”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R7",
+          "text": "范围说明：不应把所有日志内容默认判为个人敏感信息；应依据字段分类。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-INGEST",
+          "category": "日志采集与质量",
+          "benchmark": "可观测平台Checklist",
+          "representative_clauses": [
+            "采集、解析、去重和背压"
+          ],
+          "completeness_question": "多源日志在延迟、丢失、重复和格式异常下是否可控？"
+        },
+        {
+          "check_id": "CAT-DETECT",
+          "category": "检测结果可信度",
+          "benchmark": "AI可观测性Checklist",
+          "representative_clauses": [
+            "模型版本和检测证据"
+          ],
+          "completeness_question": "异常结果是否有版本、证据、置信度和降级？"
+        },
+        {
+          "check_id": "CAT-ACTION",
+          "category": "告警处置闭环",
+          "benchmark": "运维事件管理Checklist",
+          "representative_clauses": [
+            "告警、确认、升级和关闭"
+          ],
+          "completeness_question": "告警去重、升级、工单和复盘是否闭环？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "日志数据生命周期",
+          "benchmark": "日志数据治理基线",
+          "representative_clauses": [
+            "个人信息保护法第19、47条；ISO A.8.10"
+          ],
+          "completeness_question": "敏感日志、索引、导出和备份是否有期限与删除？"
+        },
+        {
+          "check_id": "CAT-AUDIT",
+          "category": "平台操作审计",
+          "benchmark": "ISO/IEC 27001信息安全控制基线",
+          "representative_clauses": [
+            "Annex A 8.15、8.16"
+          ],
+          "completeness_question": "查询、导出、规则和模型变更是否可追溯？"
+        },
+        {
+          "check_id": "CAT-CONT",
+          "category": "服务连续性",
+          "benchmark": "可观测平台连续性基线",
+          "representative_clauses": [
+            "ISO A.8.13、A.8.14"
+          ],
+          "completeness_question": "采集、检索和告警是否有降级与恢复目标？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L3-08",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "本地静态分析工具支持Web/CLI输入、报告导出、自动重构和历史任务，不执行用户代码。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的正式运行与异常场景内，工具校验空输入和语法。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的正式运行与异常场景内，每个发现项记录规则版本、代码位置、证据、严重级别和置信度，规则失败时隔离并报告。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的正式运行与异常场景内，历史任务仅本人可见。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的正式运行与异常场景内，系统提供单元测试。"
+        },
+        {
+          "id": "R5",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“自动修改安全闸门”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R6",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“规则插件供应链”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R7",
+          "text": "范围说明：场景明确不执行用户代码，不应把运行时沙箱作为必缺大类。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-INPUT",
+          "category": "输入与接口边界",
+          "benchmark": "ISO/IEC 27001安全开发基线",
+          "representative_clauses": [
+            "ISO A.8.26、A.8.28"
+          ],
+          "completeness_question": "代码、文件、路径、参数和导出是否校验？"
+        },
+        {
+          "check_id": "CAT-ANALYSIS",
+          "category": "分析结果可信度",
+          "benchmark": "代码质量工具Checklist",
+          "representative_clauses": [
+            "规则版本、证据和严重级别"
+          ],
+          "completeness_question": "发现项是否可定位、可复现并支持失败降级？"
+        },
+        {
+          "check_id": "CAT-TRANSFORM",
+          "category": "自动修改安全闸门",
+          "benchmark": "ISO/IEC 27001安全开发基线",
+          "representative_clauses": [
+            "ISO A.8.28、A.8.29"
+          ],
+          "completeness_question": "重构是否有白名单、复验、回滚和原文保护？"
+        },
+        {
+          "check_id": "CAT-HISTORY",
+          "category": "历史任务与权限",
+          "benchmark": "ISO/IEC 27001信息安全控制基线",
+          "representative_clauses": [
+            "Annex A 5.15、8.10"
+          ],
+          "completeness_question": "历史隔离、期限、删除和导出是否覆盖？"
+        },
+        {
+          "check_id": "CAT-QUALITY",
+          "category": "测试与验收",
+          "benchmark": "ISO/IEC 27001安全开发基线",
+          "representative_clauses": [
+            "ISO A.8.29"
+          ],
+          "completeness_question": "输入、分析、导出和重构是否有测试门槛？"
+        },
+        {
+          "check_id": "CAT-PLUGIN",
+          "category": "规则插件供应链",
+          "benchmark": "软件供应链安全Checklist",
+          "representative_clauses": [
+            "ISO A.8.25、A.8.30"
+          ],
+          "completeness_question": "外部规则和依赖是否验证来源、版本和撤回？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L3-09",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "文档工具支持Markdown组织、构建预览、主题插件、搜索和静态站点发布。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的正式运行与异常场景内，系统支持编辑、构建、预览、审批、发布、版本标记和回滚，并记录构建产物。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的正式运行与异常场景内，构建检查Markdown语法。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的正式运行与异常场景内，平台支持权限和响应式页面。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的正式运行与异常场景内，平台保存构建日志。"
+        },
+        {
+          "id": "R5",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“主题插件供应链”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R6",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“敏感信息与发布边界”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R7",
+          "text": "范围说明：不应要求静态文档站必须具备数据库事务能力。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-BUILD",
+          "category": "构建发布闭环",
+          "benchmark": "文档平台产品Checklist",
+          "representative_clauses": [
+            "编辑、构建、预览、发布和回滚"
+          ],
+          "completeness_question": "文档从编辑到发布是否可追踪可回滚？"
+        },
+        {
+          "check_id": "CAT-CONTENT",
+          "category": "内容与链接完整性",
+          "benchmark": "文档质量Checklist",
+          "representative_clauses": [
+            "链接、资源和导航校验"
+          ],
+          "completeness_question": "链接、资源、导航和搜索索引是否验证？"
+        },
+        {
+          "check_id": "CAT-PLUGIN",
+          "category": "主题插件供应链",
+          "benchmark": "软件供应链安全Checklist",
+          "representative_clauses": [
+            "ISO A.8.25、A.8.30"
+          ],
+          "completeness_question": "主题插件是否有来源、版本、权限和漏洞治理？"
+        },
+        {
+          "check_id": "CAT-SECRET",
+          "category": "敏感信息与发布边界",
+          "benchmark": "ISO/IEC 27001安全开发基线",
+          "representative_clauses": [
+            "ISO A.8.12、A.8.28"
+          ],
+          "completeness_question": "构建是否防止密钥和内部内容误发布？"
+        },
+        {
+          "check_id": "CAT-ACCESS",
+          "category": "文档访问与可用性",
+          "benchmark": "文档服务Checklist",
+          "representative_clauses": [
+            "权限、无障碍和兼容性"
+          ],
+          "completeness_question": "私有文档、无障碍和多端访问是否覆盖？"
+        },
+        {
+          "check_id": "CAT-OPS",
+          "category": "发布连续性与审计",
+          "benchmark": "ISO/IEC 27001信息安全控制基线",
+          "representative_clauses": [
+            "Annex A 8.13、8.15"
+          ],
+          "completeness_question": "构建日志、备份、恢复和故障追踪是否覆盖？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L3-10",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "目标系统提供问答、路线、景点讲解、多模态交互和人工服务衔接。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的正式运行与异常场景内，系统可回答安全问题。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的正式运行与异常场景内，回答基于知识库并提供免责声明。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的正式运行与异常场景内，界面持续显示AI数字人标识，合成语音和导出内容保留来源信息并支持追踪。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的正式运行与异常场景内，系统在网络异常时提示重试。"
+        },
+        {
+          "id": "R5",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“导览服务闭环”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R6",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“游客交互数据生命周期”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R7",
+          "text": "范围说明：不应要求数字人替代景区紧急救援人员；正确能力是及时提示并转接。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-GUIDE",
+          "category": "导览服务闭环",
+          "benchmark": "智慧景区服务Checklist",
+          "representative_clauses": [
+            "问答、路线、讲解和服务转接"
+          ],
+          "completeness_question": "从咨询到导览完成及异常转接是否闭环？"
+        },
+        {
+          "check_id": "CAT-SAFETY",
+          "category": "安全信息与应急",
+          "benchmark": "景区安全服务Checklist",
+          "representative_clauses": [
+            "风险提示、应急信息和人工确认"
+          ],
+          "completeness_question": "天气、封路、客流和紧急求助是否可靠？"
+        },
+        {
+          "check_id": "CAT-AI",
+          "category": "AI回答可信与边界",
+          "benchmark": "生成式AI服务治理Checklist",
+          "representative_clauses": [
+            "生成式人工智能服务管理暂行办法第4、7条"
+          ],
+          "completeness_question": "回答是否有来源、置信、拒答和纠错？"
+        },
+        {
+          "check_id": "CAT-LABEL",
+          "category": "数字人生成内容标识",
+          "benchmark": "生成合成内容标识基线",
+          "representative_clauses": [
+            "标识办法第4、5条"
+          ],
+          "completeness_question": "合成形象、语音和回答是否持续可识别？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "游客交互数据生命周期",
+          "benchmark": "个人信息保护法数据治理基线",
+          "representative_clauses": [
+            "第6、17、19、47条"
+          ],
+          "completeness_question": "位置、语音、画像和对话是否有用途、期限和删除？"
+        },
+        {
+          "check_id": "CAT-CONT",
+          "category": "外部服务与离线降级",
+          "benchmark": "智慧景区连续性Checklist",
+          "representative_clauses": [
+            "接口故障、离线包和信息时效"
+          ],
+          "completeness_question": "地图、天气、模型和网络故障是否可降级？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L3-11",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "工程图纸平台支持上传、版本、审签、批注、协同、检索和归档。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的正式运行与异常场景内，系统保存历史版本。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的正式运行与异常场景内，图纸支持提交、并行会签、驳回、修改、重审、意见关闭和超时升级，并锁定生效版本。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的正式运行与异常场景内，系统支持项目归档。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的正式运行与异常场景内，系统定期备份图纸。"
+        },
+        {
+          "id": "R5",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“项目与图纸权限边界”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R6",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“文件完整性与可追溯”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R7",
+          "text": "范围说明：不应要求所有图纸都公开共享；外协访问应以最小权限和期限控制。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-VERSION",
+          "category": "图纸版本与基线",
+          "benchmark": "工程文档管理Checklist",
+          "representative_clauses": [
+            "版本、基线、变更和回退"
+          ],
+          "completeness_question": "版本关系、有效版本和回退是否明确？"
+        },
+        {
+          "check_id": "CAT-REVIEW",
+          "category": "审签与变更闭环",
+          "benchmark": "工程审签流程Checklist",
+          "representative_clauses": [
+            "提交、会签、驳回、重审和关闭"
+          ],
+          "completeness_question": "审签、意见处理和变更是否闭环？"
+        },
+        {
+          "check_id": "CAT-ROLE",
+          "category": "项目与图纸权限边界",
+          "benchmark": "工程协同权限基线",
+          "representative_clauses": [
+            "ISO A.5.15、A.5.18"
+          ],
+          "completeness_question": "项目、专业、版本和外协访问是否隔离？"
+        },
+        {
+          "check_id": "CAT-INTEGRITY",
+          "category": "文件完整性与可追溯",
+          "benchmark": "工程文件可信性Checklist",
+          "representative_clauses": [
+            "哈希、签名和操作证据"
+          ],
+          "completeness_question": "上传、转换、下载和签署是否可验证未篡改？"
+        },
+        {
+          "check_id": "CAT-ARCHIVE",
+          "category": "工程档案生命周期",
+          "benchmark": "工程档案管理Checklist",
+          "representative_clauses": [
+            "归档、保留、移交和销毁"
+          ],
+          "completeness_question": "图纸及审签证据是否按项目阶段归档？"
+        },
+        {
+          "check_id": "CAT-RECOVERY",
+          "category": "备份恢复与灾备",
+          "benchmark": "ISO/IEC 27001信息安全控制基线",
+          "representative_clauses": [
+            "Annex A 8.13、8.14"
+          ],
+          "completeness_question": "图纸、版本和证据是否有恢复目标与演练？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L3-12",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "Web单机塔防融合招募、部署、法宝、阵法、波次、战斗、结算和本地存档。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的正式运行与异常场景内，游戏覆盖初始化、流派地图选择、招募部署、战斗波次、Boss、胜负结算和重新开始。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的正式运行与异常场景内，系统描述阵法和五行效果。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的正式运行与异常场景内，系统描述灵石、招募和商店。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的正式运行与异常场景内，需求给出帧率目标。"
+        },
+        {
+          "id": "R5",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“存档完整性与迁移”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R6",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“输入可用性与暂停”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R7",
+          "text": "范围说明：文档明确是单机游戏，不应把多人联机、排行榜或云存档列为必缺。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-LOOP",
+          "category": "单局玩法闭环",
+          "benchmark": "塔防游戏产品Checklist",
+          "representative_clauses": [
+            "初始化、战斗、结算和重开"
+          ],
+          "completeness_question": "一局游戏从开始到结算重开是否闭环？"
+        },
+        {
+          "check_id": "CAT-RULE",
+          "category": "规则依赖与优先级",
+          "benchmark": "策略游戏规则Checklist",
+          "representative_clauses": [
+            "阵法、五行、法宝和状态优先级"
+          ],
+          "completeness_question": "多系统叠加时的计算顺序和边界是否明确？"
+        },
+        {
+          "check_id": "CAT-ECON",
+          "category": "经济与随机公平性",
+          "benchmark": "Roguelite经济Checklist",
+          "representative_clauses": [
+            "掉落、商店、随机种子和保底"
+          ],
+          "completeness_question": "招募、掉落和商店是否可验证且不死锁？"
+        },
+        {
+          "check_id": "CAT-SAVE",
+          "category": "存档完整性与迁移",
+          "benchmark": "单机游戏存档Checklist",
+          "representative_clauses": [
+            "原子写入、版本迁移和损坏恢复"
+          ],
+          "completeness_question": "存档写入、版本升级和损坏是否可恢复？"
+        },
+        {
+          "check_id": "CAT-ACCESS",
+          "category": "输入可用性与暂停",
+          "benchmark": "PC游戏可用性Checklist",
+          "representative_clauses": [
+            "键盘、暂停和提示"
+          ],
+          "completeness_question": "操作、暂停、说明和可访问性是否覆盖？"
+        },
+        {
+          "check_id": "CAT-QUALITY",
+          "category": "性能与规则回归",
+          "benchmark": "游戏质量Checklist",
+          "representative_clauses": [
+            "帧率、长局和规则组合测试"
+          ],
+          "completeness_question": "长局性能和复杂组合是否有验收门槛？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L3-13",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "多Agent系统采集门店需求，生成方案、原型和代码，经过确认与质量检查后交付。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的正式运行与异常场景内，系统采集配置并生成摘要。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的正式运行与异常场景内，商家预览确认功能和数据处理，实施人员审批安全测试，系统未经授权不得自动上线。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的正式运行与异常场景内，系统执行基础质量检查。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的正式运行与异常场景内，系统使用模板和依赖生成代码。"
+        },
+        {
+          "id": "R5",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“生成产物可追溯”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R6",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“商家与生成数据生命周期”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R7",
+          "text": "范围说明：当前范围明确不要求真正一键上线，不应把生产发布自动化列为缺失。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-REQ",
+          "category": "需求采集与确认闭环",
+          "benchmark": "生成式开发产品Checklist",
+          "representative_clauses": [
+            "采集、澄清、确认和变更"
+          ],
+          "completeness_question": "商家需求是否可澄清、确认、变更并追踪？"
+        },
+        {
+          "check_id": "CAT-GEN",
+          "category": "生成产物可追溯",
+          "benchmark": "生成式开发治理Checklist",
+          "representative_clauses": [
+            "模型、提示词、输入和产物版本"
+          ],
+          "completeness_question": "方案、原型和代码能否追溯到输入和生成版本？"
+        },
+        {
+          "check_id": "CAT-HUMAN",
+          "category": "人工确认与发布闸门",
+          "benchmark": "人机协同Checklist",
+          "representative_clauses": [
+            "预览、审批和禁止自动上线"
+          ],
+          "completeness_question": "高影响操作是否由商家或实施人员确认？"
+        },
+        {
+          "check_id": "CAT-QUALITY",
+          "category": "生成代码质量门槛",
+          "benchmark": "ISO/IEC 27001安全开发基线",
+          "representative_clauses": [
+            "ISO A.8.25、A.8.28、A.8.29"
+          ],
+          "completeness_question": "生成代码是否经过安全、功能和依赖测试？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "商家与生成数据生命周期",
+          "benchmark": "个人信息保护法数据治理基线",
+          "representative_clauses": [
+            "第6、17、19、47条"
+          ],
+          "completeness_question": "门店资料、素材、账号和生成物是否有用途、期限和删除？"
+        },
+        {
+          "check_id": "CAT-SUPPLY",
+          "category": "模板依赖与交付供应链",
+          "benchmark": "软件供应链安全Checklist",
+          "representative_clauses": [
+            "ISO A.8.25、A.8.30"
+          ],
+          "completeness_question": "模板、依赖、密钥和许可证是否受控？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L3-14",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "目标系统扩大推荐和自动审核规模，需要评估用户控制、申诉、标识和模型证据。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的正式运行与异常场景内，用户可确认AI草稿后发布。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的正式运行与异常场景内，系统展示推荐依据。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的正式运行与异常场景内，编辑页显示AI提示。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的正式运行与异常场景内，系统定义画像和行为数据用途、保存期限、删除入口、权限控制及审核记录保留例外。"
+        },
+        {
+          "id": "R5",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“内容治理与人工兜底”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R6",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“模型与外部服务治理”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R7",
+          "text": "范围说明：不应把每一种违规内容各自拆成独立完整性大类。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-CREATE",
+          "category": "AI辅助创作与确认",
+          "benchmark": "AI内容社区Checklist",
+          "representative_clauses": [
+            "深度合成管理规定第8、10条"
+          ],
+          "completeness_question": "AI结果是否可编辑、确认、撤回并区分最终发布？"
+        },
+        {
+          "check_id": "CAT-MOD",
+          "category": "内容治理与人工兜底",
+          "benchmark": "内容社区治理基线",
+          "representative_clauses": [
+            "算法推荐管理规定第7、9条"
+          ],
+          "completeness_question": "识别、复核、申诉和处置是否闭环？"
+        },
+        {
+          "check_id": "CAT-RECO",
+          "category": "推荐透明与用户控制",
+          "benchmark": "算法推荐管理规定",
+          "representative_clauses": [
+            "第16、17、22条"
+          ],
+          "completeness_question": "推荐告知、关闭、非个性化和标签管理是否覆盖？"
+        },
+        {
+          "check_id": "CAT-LABEL",
+          "category": "AI内容来源标识",
+          "benchmark": "生成合成内容标识基线",
+          "representative_clauses": [
+            "标识办法第4、5条"
+          ],
+          "completeness_question": "AI生成或修改内容是否可识别可追踪？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "画像与行为数据生命周期",
+          "benchmark": "个人信息保护法数据治理基线",
+          "representative_clauses": [
+            "第19、24、47、51条"
+          ],
+          "completeness_question": "画像、浏览、内容和审核记录是否有期限和删除？"
+        },
+        {
+          "check_id": "CAT-MODEL",
+          "category": "模型与外部服务治理",
+          "benchmark": "生成式AI服务治理Checklist",
+          "representative_clauses": [
+            "生成式人工智能服务管理暂行办法第4、7条"
+          ],
+          "completeness_question": "模型版本、供应商、故障和切换是否受控？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-CMPL-L3-15",
+    "task": "requirements_completeness_assessment",
+    "task_name_zh": "需求完整性评估",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "scenario": "跨校正式考试关注高并发、自动保存、监控证据、成绩争议和灾难恢复。",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "在目标系统的正式运行与异常场景内，系统支持倒计时、自动保存和收卷。"
+        },
+        {
+          "id": "R2",
+          "text": "在目标系统的正式运行与异常场景内，系统支持成绩复核和通知。"
+        },
+        {
+          "id": "R3",
+          "text": "在目标系统的正式运行与异常场景内，系统分别定义答卷、IP、切屏、成绩、申诉和备份的用途、期限、归档、删除及考试前告知。"
+        },
+        {
+          "id": "R4",
+          "text": "在目标系统的正式运行与异常场景内，系统自动备份并加密数据。"
+        },
+        {
+          "id": "R5",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“监控与审计证据”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R6",
+          "text": "在目标系统的正式运行与异常场景内，系统在帮助页展示“容量与公平降级”相关说明并预留配置入口，具体处理仍沿用运营人员线下约定。"
+        },
+        {
+          "id": "R7",
+          "text": "范围说明：不应默认所有考试都必须采集摄像头和生物特征。"
+        }
+      ],
+      "checklist": [
+        {
+          "check_id": "CAT-EXAM",
+          "category": "考试业务状态机",
+          "benchmark": "目标系统产品Checklist",
+          "representative_clauses": [
+            "创建、答题、交卷和成绩发布"
+          ],
+          "completeness_question": "考试状态、重复进入和状态锁定是否闭环？"
+        },
+        {
+          "check_id": "CAT-ANTI",
+          "category": "监控与审计证据",
+          "benchmark": "正式考试可信性Checklist",
+          "representative_clauses": [
+            "切屏监控和日志审计"
+          ],
+          "completeness_question": "监控告知、日志保护和争议调查是否覆盖？"
+        },
+        {
+          "check_id": "CAT-GRADE",
+          "category": "阅卷成绩与申诉",
+          "benchmark": "考试公平性Checklist",
+          "representative_clauses": [
+            "自动批阅、人工评阅和复核"
+          ],
+          "completeness_question": "评分、发布、复核、回滚和通知是否闭环？"
+        },
+        {
+          "check_id": "CAT-DATA",
+          "category": "考试数据生命周期",
+          "benchmark": "个人信息保护法数据治理基线",
+          "representative_clauses": [
+            "第17、19、47、55条"
+          ],
+          "completeness_question": "答卷、监控、成绩和申诉材料是否有期限和删除？"
+        },
+        {
+          "check_id": "CAT-RECOVERY",
+          "category": "备份恢复与完整性验证",
+          "benchmark": "ISO/IEC 27001业务连续性基线",
+          "representative_clauses": [
+            "Annex A 8.13、8.15、8.24"
+          ],
+          "completeness_question": "RPO/RTO、演练、日志和密钥生命周期是否覆盖？"
+        },
+        {
+          "check_id": "CAT-CAPACITY",
+          "category": "容量与公平降级",
+          "benchmark": "目标系统性能Checklist",
+          "representative_clauses": [
+            "峰值容量和一致体验"
+          ],
+          "completeness_question": "高并发、排队、降级和公平性是否可验收？"
+        }
+      ],
+      "output_schema": {
+        "overall_conclusion": "完整|基本完整|不完整",
+        "coverage": [
+          {
+            "check_id": "CAT-...",
+            "status": "covered|partial|missing|conditional_missing",
+            "evidence": "R编号及说明",
+            "rationale": "判断理由"
+          }
+        ],
+        "missing_items": [
+          {
+            "category": "缺失能力大类",
+            "related_benchmark": "对应基准",
+            "representative_clauses": [
+              "代表性条款组"
+            ],
+            "evidence": "R编号或R1-Rn",
+            "gap": "集合层面的缺失",
+            "severity": "高|中|低",
+            "suggested_requirement": "可开发、可测试的补充需求"
+          }
+        ],
+        "not_applicable": [
+          "不适用或不应报告的项目及理由"
+        ]
+      }
+    }
+  }
+]

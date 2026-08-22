@@ -1,0 +1,1802 @@
+[
+  {
+    "sample_id": "REQBENCH-EXTR-L1-01",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "input_channel": "社区帖子",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "社区帖子会话\n[用户] 昨天我以为发帖坏了，还建议你们重做一个入口。\n[客服] 后台记录显示请求成功，当前账号保存了上次的页面/操作状态。\n[用户] 按你说的恢复默认后已经能看到，历史结果也没丢。刚才是我切错了状态，不需要改产品，麻烦把工单关掉。\n[内部备注] 已复核权限、数据和操作链路，未发现持续性障碍；本次仅为使用咨询。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L1-02",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "input_channel": "社区帖子",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "社区帖子记录：用户先提出“最好把模型置信度统一调高并隐藏低分结果”。客服询问原因后，用户补充：我是导览内容运营人员，在处理数字人、语音相关流程时，碰到分享导出中持续保留AI生成标识就没有明确结果；用户无法判断结果是否可靠，也难以及时纠正不合适的结果。目前团队临时通过截图、刷新页面和群里确认来绕过，但每次都要重复核对。用户没有给出发生频率，也不能确认问题只出现在某一种账号或网络环境。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L1-03",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "input_channel": "社区帖子",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "社区帖子记录：用户先提出“最好每分钟重复发消息，直到对方点确认”。客服询问原因后，用户补充：我是断线重连玩家，在处理历史、回放数据管理时，碰到聊天举报期限就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。目前团队临时通过截图、刷新页面和群里确认来绕过，但每次都要重复核对。 另外，这周我作为房间玩家连续遇到同一个情况：做断线、故障异常处理时，碰到节点故障的适用范围和结果反馈就没有明确结果；异常发生后业务中断时间不可控，用户可能重复操作或丢失进度。用户没有给出发生频率，也不能确认问题只出现在某一种账号或网络环境。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L1-04",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "input_channel": "用户反馈",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "用户反馈：从维修人员的操作来看，通知、预约处理流程走到后半段时，碰到到场确认就没有明确结果；相关人员不能及时获知处理结果，争议只能转到线下反复沟通。我需要系统把这一步的处理条件和结果说明清楚，失败后也能继续，不想再靠人工确认。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L1-05",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "input_channel": "Issue Report",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "Issue Report记录：用户先提出“最好在首页增加一个“取消报名”按钮”。客服询问原因后，用户补充：这周我作为学生报名者连续遇到同一个情况：做活动、报名相关流程时，碰到取消报名就没有明确结果；流程停在中间状态，用户无法判断是否成功，只能重复提交或人工确认。目前团队临时通过截图、刷新页面和群里确认来绕过，但每次都要重复核对。用户没有给出发生频率，也不能确认问题只出现在某一种账号或网络环境。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L1-06",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "input_channel": "Bug 报告",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "Bug 报告：从内容管理员的操作来看，学生、教师的查看或操作走到后半段时，碰到导出权限就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。我需要系统把这一步的处理条件和结果说明清楚，失败后也能继续，不想再靠人工确认。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L1-07",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "input_channel": "Bug 报告",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "Bug 报告记录：用户先提出“最好在首页增加一个“弱网降级”按钮”。客服询问原因后，用户补充：这周我作为教学管理员连续遇到同一个情况：做直播、回放相关流程时，碰到弱网降级就没有明确结果；异常发生后业务中断时间不可控，用户可能重复操作或丢失进度。目前团队临时通过截图、刷新页面和群里确认来绕过，但每次都要重复核对。用户没有给出发生频率，也不能确认问题只出现在某一种账号或网络环境。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L1-08",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "input_channel": "用户反馈",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "用户反馈 / 多轮记录\n[用户] 最好在首页增加一个“升级”按钮，现在看起来像是页面偶尔没刷新。\n[客服] 现有功能在正常路径下可以完成，建议先退出重进；未确认是否为权限、状态同步或规则边界。\n[用户补充] 从平台运维人员的操作来看，告警、工单相关流程走到后半段时，碰到升级就没有明确结果；流程停在中间状态，用户无法判断是否成功，只能重复提交或人工确认。昨天同事用另一个角色操作时结果又不一样，所以按钮放哪里不是重点。\n[另一位用户] 我遇到的不是同一个页面，但现象有关：我是日志平台使用者，在处理脱敏、日志数据管理时，碰到备份的保存期限的适用范围和结果反馈就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。我建议加一个永久保存全部数据的勾选框。\n[研发备注] 日志只能证明请求到达，不能证明业务结果已生效；缺少可复现频率和明确适用范围。\n[用户结论] 临时绕行可以救急，但我们需要知道什么条件下算成功、失败后怎么继续，以及谁能看到最终结果。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L1-09",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "input_channel": "Bug 报告",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "Bug 报告：从考生的操作来看，切屏、日志相关流程走到后半段时，碰到日志防篡改就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。我需要系统把这一步的处理条件和结果说明清楚，失败后也能继续，不想再靠人工确认。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L1-10",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "input_channel": "Issue Report",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "Issue Report记录：用户先提出“最好加一个永久保存全部数据的勾选框”。客服询问原因后，用户补充：这周我作为企业租户管理员连续遇到同一个情况：做导出、删除数据管理时，碰到保留期限就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。目前团队临时通过截图、刷新页面和群里确认来绕过，但每次都要重复核对。用户没有给出发生频率，也不能确认问题只出现在某一种账号或网络环境。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L1-11",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "input_channel": "Issue Report",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "Issue Report：这周我作为站点维护者连续遇到同一个情况：做安全、权限的查看或操作时，碰到密钥扫描就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。我需要系统把这一步的处理条件和结果说明清楚，失败后也能继续，不想再靠人工确认。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L1-12",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "input_channel": "Bug 报告",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "Bug 报告记录：用户先提出“最好加一个永久保存全部数据的勾选框”。客服询问原因后，用户补充：我是招聘人员，在处理简历、解析相关流程时，碰到保存期限就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。目前团队临时通过截图、刷新页面和群里确认来绕过，但每次都要重复核对。用户没有给出发生频率，也不能确认问题只出现在某一种账号或网络环境。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L1-13",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "input_channel": "用户反馈",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "用户反馈记录：用户先提出“最好把模型置信度统一调高并隐藏低分结果”。客服询问原因后，用户补充：我是内容审核员，在处理AI、摘要相关流程时，碰到异常降级就没有明确结果；用户无法判断结果是否可靠，也难以及时纠正不合适的结果。目前团队临时通过截图、刷新页面和群里确认来绕过，但每次都要重复核对。用户没有给出发生频率，也不能确认问题只出现在某一种账号或网络环境。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L1-14",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "input_channel": "Issue Report",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "Issue Report：这周我作为游戏测试人员连续遇到同一个情况：做性能、帧率异常处理时，碰到长局稳定性就没有明确结果；异常发生后业务中断时间不可控，用户可能重复操作或丢失进度。我需要系统把这一步的处理条件和结果说明清楚，失败后也能继续，不想再靠人工确认。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L1-15",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "input_channel": "客服工单",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "客服工单记录：用户先提出“最好在页面上加一个强制刷新按钮”。客服询问原因后，用户补充：从小微商家的操作来看，模板、依赖相关流程走到后半段时，碰到版本固定就没有明确结果；不同页面或参与者看到的结果不一致，容易据此做出错误操作。目前团队临时通过截图、刷新页面和群里确认来绕过，但每次都要重复核对。用户没有给出发生频率，也不能确认问题只出现在某一种账号或网络环境。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L2-01",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "input_channel": "社区帖子",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "社区帖子：我是断线重连玩家，在处理历史、回放数据管理时，碰到聊天举报期限就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。我需要系统把这一步的处理条件和结果说明清楚，失败后也能继续，不想再靠人工确认。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L2-02",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "input_channel": "Bug 报告",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "Bug 报告记录：用户先提出“最好给当前账号直接加一个超级管理员开关”。客服询问原因后，用户补充：从内容管理员的操作来看，学生、教师的查看或操作走到后半段时，碰到导出权限就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。目前团队临时通过截图、刷新页面和群里确认来绕过，但每次都要重复核对。用户没有给出发生频率，也不能确认问题只出现在某一种账号或网络环境。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L2-03",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "input_channel": "Bug 报告",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "Bug 报告：这周我作为教学管理员连续遇到同一个情况：做直播、回放相关流程时，碰到弱网降级就没有明确结果；异常发生后业务中断时间不可控，用户可能重复操作或丢失进度。我需要系统把这一步的处理条件和结果说明清楚，失败后也能继续，不想再靠人工确认。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L2-04",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "input_channel": "社区帖子",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "社区帖子 / 多轮记录\n[用户] 最好每分钟重复发消息，直到对方点确认，现在看起来像是页面偶尔没刷新。\n[客服] 现有功能在正常路径下可以完成，建议先退出重进；未确认是否为权限、状态同步或规则边界。\n[用户补充] 我是活动发起人，在处理通知、驳回处理流程时，碰到申诉处理就没有明确结果；相关人员不能及时获知处理结果，争议只能转到线下反复沟通。昨天同事用另一个角色操作时结果又不一样，所以按钮放哪里不是重点。\n[研发备注] 日志只能证明请求到达，不能证明业务结果已生效；缺少可复现频率和明确适用范围。\n[用户结论] 临时绕行可以救急，但我们需要知道什么条件下算成功、失败后怎么继续，以及谁能看到最终结果。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L2-05",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "input_channel": "用户反馈",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "用户反馈：我是内容审核员，在处理AI、摘要相关流程时，碰到异常降级就没有明确结果；用户无法判断结果是否可靠，也难以及时纠正不合适的结果。我需要系统把这一步的处理条件和结果说明清楚，失败后也能继续，不想再靠人工确认。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L2-06",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "input_channel": "客服工单",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "客服工单：从小微商家的操作来看，模板、依赖相关流程走到后半段时，碰到版本固定就没有明确结果；不同页面或参与者看到的结果不一致，容易据此做出错误操作。我需要系统把这一步的处理条件和结果说明清楚，失败后也能继续，不想再靠人工确认。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L2-07",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "input_channel": "Issue Report",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "Issue Report记录：用户先提出“最好在首页增加一个“长局稳定性”按钮”。客服询问原因后，用户补充：这周我作为游戏测试人员连续遇到同一个情况：做性能、帧率异常处理时，碰到长局稳定性就没有明确结果；异常发生后业务中断时间不可控，用户可能重复操作或丢失进度。目前团队临时通过截图、刷新页面和群里确认来绕过，但每次都要重复核对。用户没有给出发生频率，也不能确认问题只出现在某一种账号或网络环境。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L2-08",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "input_channel": "社区帖子",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "社区帖子 / 多轮记录\n[用户] 最好把模型置信度统一调高并隐藏低分结果，现在看起来像是页面偶尔没刷新。\n[客服] 现有功能在正常路径下可以完成，建议先退出重进；未确认是否为权限、状态同步或规则边界。\n[用户补充] 我是导览内容运营人员，在处理数字人、语音相关流程时，碰到分享导出中持续保留AI生成标识就没有明确结果；用户无法判断结果是否可靠，也难以及时纠正不合适的结果。昨天同事用另一个角色操作时结果又不一样，所以按钮放哪里不是重点。\n[研发备注] 日志只能证明请求到达，不能证明业务结果已生效；缺少可复现频率和明确适用范围。\n[用户结论] 临时绕行可以救急，但我们需要知道什么条件下算成功、失败后怎么继续，以及谁能看到最终结果。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L2-09",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "input_channel": "Issue Report",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "Issue Report记录：用户先提出“最好在首页增加一个“密钥扫描”按钮”。客服询问原因后，用户补充：这周我作为站点维护者连续遇到同一个情况：做安全、权限的查看或操作时，碰到密钥扫描就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。目前团队临时通过截图、刷新页面和群里确认来绕过，但每次都要重复核对。 另外，从发布管理员的操作来看，权限、响应式相关流程走到后半段时，碰到无障碍验收的适用范围和结果反馈就没有明确结果；用户完成任务的成本上升，结果是否生效也缺少可确认依据。用户没有给出发生频率，也不能确认问题只出现在某一种账号或网络环境。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L2-10",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "input_channel": "客服工单",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "客服工单记录：用户先提出“最好在页面上加一个强制刷新按钮”。客服询问原因后，用户补充：这周我作为设计工程师连续遇到同一个情况：做归档、项目数据管理时，碰到各版本就没有明确结果；不同页面或参与者看到的结果不一致，容易据此做出错误操作。目前团队临时通过截图、刷新页面和群里确认来绕过，但每次都要重复核对。用户没有给出发生频率，也不能确认问题只出现在某一种账号或网络环境。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L2-11",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "input_channel": "Bug 报告",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "Bug 报告记录：用户先提出“最好在首页增加一个“日志防篡改”按钮”。客服询问原因后，用户补充：从考生的操作来看，切屏、日志相关流程走到后半段时，碰到日志防篡改就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。目前团队临时通过截图、刷新页面和群里确认来绕过，但每次都要重复核对。 另外，我是监考人员，在处理成绩、复核处理流程时，碰到完整留痕的适用范围和结果反馈就没有明确结果；相关人员不能及时获知处理结果，争议只能转到线下反复沟通。用户没有给出发生频率，也不能确认问题只出现在某一种账号或网络环境。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L2-12",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "input_channel": "客服工单",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "客服工单：我是Python开发者，在处理重构、代码相关流程时，碰到失败回滚就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。我需要系统把这一步的处理条件和结果说明清楚，失败后也能继续，不想再靠人工确认。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L2-13",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "input_channel": "用户反馈",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "用户反馈：从平台运维人员的操作来看，告警、工单相关流程走到后半段时，碰到升级就没有明确结果；流程停在中间状态，用户无法判断是否成功，只能重复提交或人工确认。我需要系统把这一步的处理条件和结果说明清楚，失败后也能继续，不想再靠人工确认。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L2-14",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "input_channel": "Issue Report",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "Issue Report：这周我作为企业租户管理员连续遇到同一个情况：做导出、删除数据管理时，碰到保留期限就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。我需要系统把这一步的处理条件和结果说明清楚，失败后也能继续，不想再靠人工确认。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L2-15",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "input_channel": "社区帖子",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "社区帖子记录：用户一开始说“发帖好像不能用了，能否改下页面”。客服核对后发现是当前账号保留了上次的页面/操作状态，指导恢复默认状态并重新进入后恢复正常。用户确认数据和操作结果都正确，只询问后续如何避免自己忘记恢复状态。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L3-01",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "input_channel": "Bug 报告",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "Bug 报告 / 多轮记录\n[用户] 最好给当前账号直接加一个超级管理员开关，现在看起来像是页面偶尔没刷新。\n[客服] 现有功能在正常路径下可以完成，建议先退出重进；未确认是否为权限、状态同步或规则边界。\n[用户补充] 从内容管理员的操作来看，学生、教师的查看或操作走到后半段时，碰到导出权限就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。昨天同事用另一个角色操作时结果又不一样，所以按钮放哪里不是重点。\n[另一位用户] 我遇到的不是同一个页面，但现象有关：我是在校学生，在处理用户、账号数据管理时，碰到互动记录的期限的适用范围和结果反馈就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。我建议加一个永久保存全部数据的勾选框。\n[研发备注] 日志只能证明请求到达，不能证明业务结果已生效；缺少可复现频率和明确适用范围。\n[用户结论] 临时绕行可以救急，但我们需要知道什么条件下算成功、失败后怎么继续，以及谁能看到最终结果。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L3-02",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "input_channel": "客服工单",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "客服工单 / 多轮记录\n[用户] 最好失败后让客户端无限自动重试，现在看起来像是页面偶尔没刷新。\n[客服] 现有功能在正常路径下可以完成，建议先退出重进；未确认是否为权限、状态同步或规则边界。\n[用户补充] 我是Python开发者，在处理重构、代码相关流程时，碰到失败回滚就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。昨天同事用另一个角色操作时结果又不一样，所以按钮放哪里不是重点。\n[研发备注] 日志只能证明请求到达，不能证明业务结果已生效；缺少可复现频率和明确适用范围。\n[用户结论] 临时绕行可以救急，但我们需要知道什么条件下算成功、失败后怎么继续，以及谁能看到最终结果。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L3-03",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "input_channel": "Issue Report",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "Issue Report / 多轮记录\n[用户] 最好在首页增加一个“取消报名”按钮，现在看起来像是页面偶尔没刷新。\n[客服] 现有功能在正常路径下可以完成，建议先退出重进；未确认是否为权限、状态同步或规则边界。\n[用户补充] 这周我作为学生报名者连续遇到同一个情况：做活动、报名相关流程时，碰到取消报名就没有明确结果；流程停在中间状态，用户无法判断是否成功，只能重复提交或人工确认。昨天同事用另一个角色操作时结果又不一样，所以按钮放哪里不是重点。\n[另一位用户] 我遇到的不是同一个页面，但现象有关：从活动审核管理员的操作来看，学生、管理员的查看或操作走到后半段时，碰到报名详情的适用范围和结果反馈就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。我建议给当前账号直接加一个超级管理员开关。\n[研发备注] 日志只能证明请求到达，不能证明业务结果已生效；缺少可复现频率和明确适用范围。\n[用户结论] 临时绕行可以救急，但我们需要知道什么条件下算成功、失败后怎么继续，以及谁能看到最终结果。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L3-04",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "input_channel": "Issue Report",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "Issue Report / 多轮记录\n[用户] 最好在首页增加一个“长局稳定性”按钮，现在看起来像是页面偶尔没刷新。\n[客服] 现有功能在正常路径下可以完成，建议先退出重进；未确认是否为权限、状态同步或规则边界。\n[用户补充] 这周我作为游戏测试人员连续遇到同一个情况：做性能、帧率异常处理时，碰到长局稳定性就没有明确结果；异常发生后业务中断时间不可控，用户可能重复操作或丢失进度。昨天同事用另一个角色操作时结果又不一样，所以按钮放哪里不是重点。\n[另一位用户] 我遇到的不是同一个页面，但现象有关：从长局玩家的操作来看，战斗、结算相关流程走到后半段时，碰到奖励确认的适用范围和结果反馈就没有明确结果；流程停在中间状态，用户无法判断是否成功，只能重复提交或人工确认。我建议在首页增加一个“奖励确认的适用范围和”按钮。\n[研发备注] 日志只能证明请求到达，不能证明业务结果已生效；缺少可复现频率和明确适用范围。\n[用户结论] 临时绕行可以救急，但我们需要知道什么条件下算成功、失败后怎么继续，以及谁能看到最终结果。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L3-05",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "input_channel": "用户反馈",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "用户反馈 / 多轮记录\n[用户] 最好每分钟重复发消息，直到对方点确认，现在看起来像是页面偶尔没刷新。\n[客服] 现有功能在正常路径下可以完成，建议先退出重进；未确认是否为权限、状态同步或规则边界。\n[用户补充] 从维修人员的操作来看，通知、预约处理流程走到后半段时，碰到到场确认就没有明确结果；相关人员不能及时获知处理结果，争议只能转到线下反复沟通。昨天同事用另一个角色操作时结果又不一样，所以按钮放哪里不是重点。\n[另一位用户] 我遇到的不是同一个页面，但现象有关：我是后勤管理员，在处理日志、备份异常处理时，碰到异常告警的适用范围和结果反馈就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。我建议失败后让客户端无限自动重试。\n[研发备注] 日志只能证明请求到达，不能证明业务结果已生效；缺少可复现频率和明确适用范围。\n[用户结论] 临时绕行可以救急，但我们需要知道什么条件下算成功、失败后怎么继续，以及谁能看到最终结果。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L3-06",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "input_channel": "Issue Report",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "Issue Report / 多轮记录\n[用户] 最好加一个永久保存全部数据的勾选框，现在看起来像是页面偶尔没刷新。\n[客服] 现有功能在正常路径下可以完成，建议先退出重进；未确认是否为权限、状态同步或规则边界。\n[用户补充] 这周我作为企业租户管理员连续遇到同一个情况：做导出、删除数据管理时，碰到保留期限就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。昨天同事用另一个角色操作时结果又不一样，所以按钮放哪里不是重点。\n[另一位用户] 我遇到的不是同一个页面，但现象有关：从租户普通成员的操作来看，套餐、计费结果处理走到后半段时，碰到幂等计费的适用范围和结果反馈就没有明确结果；不同页面或参与者看到的结果不一致，容易据此做出错误操作。我建议在页面上加一个强制刷新按钮。\n[研发备注] 日志只能证明请求到达，不能证明业务结果已生效；缺少可复现频率和明确适用范围。\n[用户结论] 临时绕行可以救急，但我们需要知道什么条件下算成功、失败后怎么继续，以及谁能看到最终结果。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L3-07",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "input_channel": "Issue Report",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "Issue Report / 多轮记录\n[用户] 最好在首页增加一个“密钥扫描”按钮，现在看起来像是页面偶尔没刷新。\n[客服] 现有功能在正常路径下可以完成，建议先退出重进；未确认是否为权限、状态同步或规则边界。\n[用户补充] 这周我作为站点维护者连续遇到同一个情况：做安全、权限的查看或操作时，碰到密钥扫描就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。昨天同事用另一个角色操作时结果又不一样，所以按钮放哪里不是重点。\n[另一位用户] 我遇到的不是同一个页面，但现象有关：从发布管理员的操作来看，权限、响应式相关流程走到后半段时，碰到无障碍验收的适用范围和结果反馈就没有明确结果；用户完成任务的成本上升，结果是否生效也缺少可确认依据。我建议在首页增加一个“无障碍验收的适用范围”按钮。\n[研发备注] 日志只能证明请求到达，不能证明业务结果已生效；缺少可复现频率和明确适用范围。\n[用户结论] 临时绕行可以救急，但我们需要知道什么条件下算成功、失败后怎么继续，以及谁能看到最终结果。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L3-08",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "input_channel": "客服工单",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "客服工单 / 多轮记录\n[用户] 最好在页面上加一个强制刷新按钮，现在看起来像是页面偶尔没刷新。\n[客服] 现有功能在正常路径下可以完成，建议先退出重进；未确认是否为权限、状态同步或规则边界。\n[用户补充] 这周我作为设计工程师连续遇到同一个情况：做归档、项目数据管理时，碰到各版本就没有明确结果；不同页面或参与者看到的结果不一致，容易据此做出错误操作。昨天同事用另一个角色操作时结果又不一样，所以按钮放哪里不是重点。\n[另一位用户] 我遇到的不是同一个页面，但现象有关：从外协人员的操作来看，备份、恢复异常处理走到后半段时，碰到恢复演练的适用范围和结果反馈就没有明确结果；异常发生后业务中断时间不可控，用户可能重复操作或丢失进度。我建议失败后让客户端无限自动重试。\n[研发备注] 日志只能证明请求到达，不能证明业务结果已生效；缺少可复现频率和明确适用范围。\n[用户结论] 临时绕行可以救急，但我们需要知道什么条件下算成功、失败后怎么继续，以及谁能看到最终结果。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L3-09",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "input_channel": "客服工单",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "客服工单 / 多轮记录\n[用户] 最好在页面上加一个强制刷新按钮，现在看起来像是页面偶尔没刷新。\n[客服] 现有功能在正常路径下可以完成，建议先退出重进；未确认是否为权限、状态同步或规则边界。\n[用户补充] 从小微商家的操作来看，模板、依赖相关流程走到后半段时，碰到版本固定就没有明确结果；不同页面或参与者看到的结果不一致，容易据此做出错误操作。昨天同事用另一个角色操作时结果又不一样，所以按钮放哪里不是重点。\n[另一位用户] 我遇到的不是同一个页面，但现象有关：我是质量评审人员，在处理需求、确认相关流程时，碰到变更追踪的适用范围和结果反馈就没有明确结果；流程停在中间状态，用户无法判断是否成功，只能重复提交或人工确认。我建议在首页增加一个“变更追踪的适用范围和”按钮。\n[研发备注] 日志只能证明请求到达，不能证明业务结果已生效；缺少可复现频率和明确适用范围。\n[用户结论] 临时绕行可以救急，但我们需要知道什么条件下算成功、失败后怎么继续，以及谁能看到最终结果。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L3-10",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "input_channel": "Issue Report",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "Issue Report记录：用户先提出“最好失败后让客户端无限自动重试”。客服询问原因后，用户补充：从帖子评论者的操作来看，发帖、评论相关流程走到后半段时，碰到失败重试就没有明确结果；流程停在中间状态，用户无法判断是否成功，只能重复提交或人工确认。目前团队临时通过截图、刷新页面和群里确认来绕过，但每次都要重复核对。用户没有给出发生频率，也不能确认问题只出现在某一种账号或网络环境。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L3-11",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "input_channel": "Bug 报告",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "Bug 报告 / 多轮记录\n[用户] 最好在首页增加一个“日志防篡改”按钮，现在看起来像是页面偶尔没刷新。\n[客服] 现有功能在正常路径下可以完成，建议先退出重进；未确认是否为权限、状态同步或规则边界。\n[用户补充] 从考生的操作来看，切屏、日志相关流程走到后半段时，碰到日志防篡改就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。昨天同事用另一个角色操作时结果又不一样，所以按钮放哪里不是重点。\n[另一位用户] 我遇到的不是同一个页面，但现象有关：我是监考人员，在处理成绩、复核处理流程时，碰到完整留痕的适用范围和结果反馈就没有明确结果；相关人员不能及时获知处理结果，争议只能转到线下反复沟通。我建议每分钟重复发消息，直到对方点确认。\n[研发备注] 日志只能证明请求到达，不能证明业务结果已生效；缺少可复现频率和明确适用范围。\n[用户结论] 临时绕行可以救急，但我们需要知道什么条件下算成功、失败后怎么继续，以及谁能看到最终结果。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L3-12",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "input_channel": "Bug 报告",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "Bug 报告 / 多轮记录\n[用户] 最好在首页增加一个“弱网降级”按钮，现在看起来像是页面偶尔没刷新。\n[客服] 现有功能在正常路径下可以完成，建议先退出重进；未确认是否为权限、状态同步或规则边界。\n[用户补充] 这周我作为教学管理员连续遇到同一个情况：做直播、回放相关流程时，碰到弱网降级就没有明确结果；异常发生后业务中断时间不可控，用户可能重复操作或丢失进度。昨天同事用另一个角色操作时结果又不一样，所以按钮放哪里不是重点。\n[另一位用户] 我遇到的不是同一个页面，但现象有关：从任课教师的操作来看，教师、学生的查看或操作走到后半段时，碰到成绩修改的适用范围和结果反馈就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。我建议给当前账号直接加一个超级管理员开关。\n[研发备注] 日志只能证明请求到达，不能证明业务结果已生效；缺少可复现频率和明确适用范围。\n[用户结论] 临时绕行可以救急，但我们需要知道什么条件下算成功、失败后怎么继续，以及谁能看到最终结果。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L3-13",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "input_channel": "Bug 报告",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "Bug 报告：我是招聘人员，在处理简历、解析相关流程时，碰到保存期限就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。我需要系统把这一步的处理条件和结果说明清楚，失败后也能继续，不想再靠人工确认。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L3-14",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "input_channel": "社区帖子",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "社区帖子 / 多轮记录\n[用户] 最好每分钟重复发消息，直到对方点确认，现在看起来像是页面偶尔没刷新。\n[客服] 现有功能在正常路径下可以完成，建议先退出重进；未确认是否为权限、状态同步或规则边界。\n[用户补充] 我是断线重连玩家，在处理历史、回放数据管理时，碰到聊天举报期限就没有明确结果；权限或数据边界难以确认，增加误操作、信息暴露和追责风险。昨天同事用另一个角色操作时结果又不一样，所以按钮放哪里不是重点。\n[研发备注] 日志只能证明请求到达，不能证明业务结果已生效；缺少可复现频率和明确适用范围。\n[用户结论] 临时绕行可以救急，但我们需要知道什么条件下算成功、失败后怎么继续，以及谁能看到最终结果。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "REQBENCH-EXTR-L3-15",
+    "task": "requirements_extraction",
+    "task_name_zh": "需求抽取",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "input_channel": "客服工单",
+      "task_instruction": "从用户反馈、Issue、工单、客服记录或社区帖子中提取可沉淀的候选产品需求。不要照抄用户提出的按钮、脚本、开关等表层方案；应识别用户角色、使用场景、当前障碍、真实目标和影响，并用原文证据支撑判断。信息不足时列出待确认项，不得臆造。若文本只是操作咨询、已解决的配置问题、状态询问或一般评价，candidate_requirements应为空。只输出符合output_schema的JSON对象。",
+      "user_feedback": "客服工单记录：用户一开始说“人工好像不能用了，能否改下页面”。客服核对后发现是当前账号保留了上次的页面/操作状态，指导恢复默认状态并重新进入后恢复正常。用户确认数据和操作结果都正确，只询问后续如何避免自己忘记恢复状态。",
+      "output_schema": {
+        "should_extract": true,
+        "candidate_requirements": [
+          {
+            "requirement_id": "CR1",
+            "title": "候选需求标题",
+            "requirement_type": "新能力|现有能力改进|体验|性能稳定性|权限安全合规|集成兼容|缺陷|文档服务",
+            "user_role": "原文可支持的用户或角色；未知则写未知",
+            "scenario": "需求发生的场景",
+            "current_problem": "当前障碍或异常",
+            "user_goal": "用户真正要完成的目标",
+            "impact": "原文明确或可谨慎推断的影响",
+            "requirement_statement": "不绑定具体实现方案的候选需求陈述",
+            "user_proposed_solution": "用户提出的方案；没有则写未提出",
+            "evidence_quotes": [
+              "输入中的原文短引"
+            ],
+            "root_cause_rationale": "为何这是根因需求而不是照抄方案",
+            "uncertainties": [
+              "仍需确认的信息"
+            ],
+            "confidence": "高|中|低"
+          }
+        ],
+        "non_requirement_signals": [
+          "未形成候选需求的内容及理由"
+        ]
+      }
+    }
+  }
+]

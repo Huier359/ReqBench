@@ -1,0 +1,6071 @@
+[
+  {
+    "sample_id": "REQBENCH-TRAC-L1-01",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-1-01",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "评审反馈、缺陷或业务规则调整",
+        "review_stage": "需求评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "AIF-06",
+        "requirement_title": "AI内容质量评分",
+        "change_type": "修改",
+        "before": "质量总分仅展示，不参与排序",
+        "after": "质量总分作为相关推荐的首要排序权重"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "AIF-01",
+            "title": "校园身份注册与登录"
+          },
+          {
+            "id": "AIF-02",
+            "title": "内容创作与提交"
+          },
+          {
+            "id": "AIF-03",
+            "title": "AI内容润色"
+          },
+          {
+            "id": "AIF-04",
+            "title": "AI辅助内容审核"
+          },
+          {
+            "id": "AIF-05",
+            "title": "内容发布与展示"
+          },
+          {
+            "id": "AIF-06",
+            "title": "AI内容质量评分"
+          },
+          {
+            "id": "AIF-07",
+            "title": "智能内容推荐"
+          },
+          {
+            "id": "AIF-08",
+            "title": "同主题内容聚合"
+          }
+        ],
+        "edges": [
+          {
+            "from": "AIF-01",
+            "relation": "授权",
+            "to": "AIF-02"
+          },
+          {
+            "from": "AIF-02",
+            "relation": "提供原文",
+            "to": "AIF-03"
+          },
+          {
+            "from": "AIF-03",
+            "relation": "提交候选内容",
+            "to": "AIF-04"
+          },
+          {
+            "from": "AIF-04",
+            "relation": "审核通过后上架",
+            "to": "AIF-05"
+          },
+          {
+            "from": "AIF-05",
+            "relation": "提供已发布内容",
+            "to": "AIF-06"
+          },
+          {
+            "from": "AIF-06",
+            "relation": "提供排序权重",
+            "to": "AIF-07"
+          },
+          {
+            "from": "AIF-05",
+            "relation": "提供内容库",
+            "to": "AIF-08"
+          },
+          {
+            "from": "AIF-08",
+            "relation": "提供专题信号",
+            "to": "AIF-07"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-1-01；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：需求评审\n变化对象：AIF-06 AI内容质量评分\n变化类型：修改\n变更前：质量总分仅展示，不参与排序\n变更后：质量总分作为相关推荐的首要排序权重\n已有追踪关系：AIF-01-授权->AIF-02；AIF-02-提供原文->AIF-03；AIF-03-提交候选内容->AIF-04；AIF-04-审核通过后上架->AIF-05；AIF-05-提供已发布内容->AIF-06；AIF-06-提供排序权重->AIF-07；AIF-05-提供内容库->AIF-08；AIF-08-提供专题信号->AIF-07\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L1-02",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-1-17",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "产品规划或业务方提出新增能力",
+        "review_stage": "需求评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "XUE-04",
+        "requirement_title": "课中互动答题",
+        "change_type": "新增",
+        "before": "学生提交后不可修改",
+        "after": "教师结束答题前允许修改一次"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "XUE-01",
+            "title": "用户登录"
+          },
+          {
+            "id": "XUE-02",
+            "title": "教师创建课程"
+          },
+          {
+            "id": "XUE-03",
+            "title": "课件管理"
+          },
+          {
+            "id": "XUE-04",
+            "title": "课中互动答题"
+          },
+          {
+            "id": "XUE-05",
+            "title": "课堂报告"
+          },
+          {
+            "id": "XUE-06",
+            "title": "教师发布作业"
+          },
+          {
+            "id": "XUE-07",
+            "title": "学生提交作业"
+          },
+          {
+            "id": "XUE-08",
+            "title": "作业批阅"
+          },
+          {
+            "id": "XUE-09",
+            "title": "成绩统计分析"
+          }
+        ],
+        "edges": [
+          {
+            "from": "XUE-01",
+            "relation": "授权教师操作",
+            "to": "XUE-02"
+          },
+          {
+            "from": "XUE-02",
+            "relation": "建立课程空间",
+            "to": "XUE-03"
+          },
+          {
+            "from": "XUE-02",
+            "relation": "建立课程空间",
+            "to": "XUE-06"
+          },
+          {
+            "from": "XUE-03",
+            "relation": "提供课堂题目",
+            "to": "XUE-04"
+          },
+          {
+            "from": "XUE-04",
+            "relation": "产生答题数据",
+            "to": "XUE-05"
+          },
+          {
+            "from": "XUE-06",
+            "relation": "开放作业",
+            "to": "XUE-07"
+          },
+          {
+            "from": "XUE-07",
+            "relation": "提供答卷",
+            "to": "XUE-08"
+          },
+          {
+            "from": "XUE-08",
+            "relation": "提供得分",
+            "to": "XUE-09"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-1-17；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：需求评审\n变化对象：XUE-04 课中互动答题\n变化类型：新增\n变更前：学生提交后不可修改\n变更后：教师结束答题前允许修改一次\n已有追踪关系：XUE-01-授权教师操作->XUE-02；XUE-02-建立课程空间->XUE-03；XUE-02-建立课程空间->XUE-06；XUE-03-提供课堂题目->XUE-04；XUE-04-产生答题数据->XUE-05；XUE-06-开放作业->XUE-07；XUE-07-提供答卷->XUE-08；XUE-08-提供得分->XUE-09\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L1-03",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-1-20",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "生命周期、审批或运行条件变化",
+        "review_stage": "需求评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "SCN-06",
+        "requirement_title": "数字人形象管理",
+        "change_type": "状态变更",
+        "before": "数字人形象草稿",
+        "after": "形象发布为当前生效版本"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "SCN-01",
+            "title": "多模态输入与ASR"
+          },
+          {
+            "id": "SCN-02",
+            "title": "景区知识库管理"
+          },
+          {
+            "id": "SCN-03",
+            "title": "智能问答与讲解"
+          },
+          {
+            "id": "SCN-04",
+            "title": "数字人语音口型输出"
+          },
+          {
+            "id": "SCN-05",
+            "title": "个性化路线推荐"
+          },
+          {
+            "id": "SCN-06",
+            "title": "数字人形象管理"
+          },
+          {
+            "id": "SCN-07",
+            "title": "交互日志"
+          },
+          {
+            "id": "SCN-08",
+            "title": "游客感受度报告"
+          },
+          {
+            "id": "SCN-09",
+            "title": "运营数据大屏"
+          }
+        ],
+        "edges": [
+          {
+            "from": "SCN-01",
+            "relation": "提供识别文本",
+            "to": "SCN-03"
+          },
+          {
+            "from": "SCN-02",
+            "relation": "提供检索知识",
+            "to": "SCN-03"
+          },
+          {
+            "from": "SCN-03",
+            "relation": "提供回答文本",
+            "to": "SCN-04"
+          },
+          {
+            "from": "SCN-03",
+            "relation": "产生问答记录",
+            "to": "SCN-07"
+          },
+          {
+            "from": "SCN-05",
+            "relation": "产生推荐记录",
+            "to": "SCN-07"
+          },
+          {
+            "from": "SCN-06",
+            "relation": "配置渲染形象",
+            "to": "SCN-04"
+          },
+          {
+            "from": "SCN-07",
+            "relation": "提供情感与关注点数据",
+            "to": "SCN-08"
+          },
+          {
+            "from": "SCN-07",
+            "relation": "提供运营指标",
+            "to": "SCN-09"
+          },
+          {
+            "from": "SCN-08",
+            "relation": "提供趋势结论",
+            "to": "SCN-09"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-1-20；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：需求评审\n变化对象：SCN-06 数字人形象管理\n变化类型：状态变更\n变更前：数字人形象草稿\n变更后：形象发布为当前生效版本\n已有追踪关系：SCN-01-提供识别文本->SCN-03；SCN-02-提供检索知识->SCN-03；SCN-03-提供回答文本->SCN-04；SCN-03-产生问答记录->SCN-07；SCN-05-产生推荐记录->SCN-07；SCN-06-配置渲染形象->SCN-04；SCN-07-提供情感与关注点数据->SCN-08；SCN-07-提供运营指标->SCN-09；SCN-08-提供趋势结论->SCN-09\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L1-04",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-1-18",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "评审反馈、缺陷或业务规则调整",
+        "review_stage": "需求评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "MKD-09",
+        "requirement_title": "本地开发服务器",
+        "change_type": "修改",
+        "before": "文件变更后完整重建站点",
+        "after": "仅重建受影响页面"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "MKD-01",
+            "title": "项目初始化"
+          },
+          {
+            "id": "MKD-02",
+            "title": "配置管理"
+          },
+          {
+            "id": "MKD-03",
+            "title": "导航结构管理"
+          },
+          {
+            "id": "MKD-04",
+            "title": "页面处理与渲染"
+          },
+          {
+            "id": "MKD-05",
+            "title": "主题系统"
+          },
+          {
+            "id": "MKD-06",
+            "title": "插件系统"
+          },
+          {
+            "id": "MKD-07",
+            "title": "静态站点构建"
+          },
+          {
+            "id": "MKD-08",
+            "title": "全文搜索"
+          },
+          {
+            "id": "MKD-09",
+            "title": "本地开发服务器"
+          },
+          {
+            "id": "MKD-10",
+            "title": "GitHub Pages部署"
+          }
+        ],
+        "edges": [
+          {
+            "from": "MKD-01",
+            "relation": "生成配置入口",
+            "to": "MKD-02"
+          },
+          {
+            "from": "MKD-02",
+            "relation": "配置导航",
+            "to": "MKD-03"
+          },
+          {
+            "from": "MKD-03",
+            "relation": "创建页面对象",
+            "to": "MKD-04"
+          },
+          {
+            "from": "MKD-04",
+            "relation": "提供页面内容",
+            "to": "MKD-08"
+          },
+          {
+            "from": "MKD-04",
+            "relation": "提供渲染上下文",
+            "to": "MKD-07"
+          },
+          {
+            "from": "MKD-05",
+            "relation": "提供模板",
+            "to": "MKD-07"
+          },
+          {
+            "from": "MKD-06",
+            "relation": "介入构建事件",
+            "to": "MKD-07"
+          },
+          {
+            "from": "MKD-06",
+            "relation": "介入页面事件",
+            "to": "MKD-04"
+          },
+          {
+            "from": "MKD-06",
+            "relation": "注入搜索能力",
+            "to": "MKD-08"
+          },
+          {
+            "from": "MKD-07",
+            "relation": "提供站点目录",
+            "to": "MKD-09"
+          },
+          {
+            "from": "MKD-07",
+            "relation": "提供部署产物",
+            "to": "MKD-10"
+          },
+          {
+            "from": "MKD-09",
+            "relation": "提出增量重建约束",
+            "to": "MKD-07"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-1-18；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：需求评审\n变化对象：MKD-09 本地开发服务器\n变化类型：修改\n变更前：文件变更后完整重建站点\n变更后：仅重建受影响页面\n已有追踪关系：MKD-01-生成配置入口->MKD-02；MKD-02-配置导航->MKD-03；MKD-03-创建页面对象->MKD-04；MKD-04-提供页面内容->MKD-08；MKD-04-提供渲染上下文->MKD-07；MKD-05-提供模板->MKD-07；MKD-06-介入构建事件->MKD-07；MKD-06-介入页面事件->MKD-04；MKD-06-注入搜索能力->MKD-08；MKD-07-提供站点目录->MKD-09；MKD-07-提供部署产物->MKD-10；MKD-09-提出增量重建约束->MKD-07\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L1-05",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-3-18",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/架构评审",
+        "change_trigger": "范围收缩或合规/运维约束",
+        "review_stage": "变更影响评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "AIF-06",
+        "requirement_title": "AI内容质量评分",
+        "change_type": "删除",
+        "before": "质量评分同时提供推荐权重和低质复审线索",
+        "after": "删除质量评分模块，推荐仅依赖行为与专题信号"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "AIF-01",
+            "title": "校园身份注册与登录"
+          },
+          {
+            "id": "AIF-02",
+            "title": "内容创作与提交"
+          },
+          {
+            "id": "AIF-03",
+            "title": "AI内容润色"
+          },
+          {
+            "id": "AIF-04",
+            "title": "AI辅助内容审核"
+          },
+          {
+            "id": "AIF-05",
+            "title": "内容发布与展示"
+          },
+          {
+            "id": "AIF-06",
+            "title": "AI内容质量评分"
+          },
+          {
+            "id": "AIF-07",
+            "title": "智能内容推荐"
+          },
+          {
+            "id": "AIF-08",
+            "title": "同主题内容聚合"
+          }
+        ],
+        "edges": [
+          {
+            "from": "AIF-01",
+            "relation": "授权",
+            "to": "AIF-02"
+          },
+          {
+            "from": "AIF-02",
+            "relation": "提供原文",
+            "to": "AIF-03"
+          },
+          {
+            "from": "AIF-03",
+            "relation": "提交候选内容",
+            "to": "AIF-04"
+          },
+          {
+            "from": "AIF-04",
+            "relation": "审核通过后上架",
+            "to": "AIF-05"
+          },
+          {
+            "from": "AIF-05",
+            "relation": "提供已发布内容",
+            "to": "AIF-06"
+          },
+          {
+            "from": "AIF-06",
+            "relation": "提供排序权重",
+            "to": "AIF-07"
+          },
+          {
+            "from": "AIF-05",
+            "relation": "提供内容库",
+            "to": "AIF-08"
+          },
+          {
+            "from": "AIF-08",
+            "relation": "提供专题信号",
+            "to": "AIF-07"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-3-18；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：变更影响评审\n变化对象：AIF-06 AI内容质量评分\n变化类型：删除\n变更前：质量评分同时提供推荐权重和低质复审线索\n变更后：删除质量评分模块，推荐仅依赖行为与专题信号\n已有追踪关系：AIF-01-授权->AIF-02；AIF-02-提供原文->AIF-03；AIF-03-提交候选内容->AIF-04；AIF-04-审核通过后上架->AIF-05；AIF-05-提供已发布内容->AIF-06；AIF-06-提供排序权重->AIF-07；AIF-05-提供内容库->AIF-08；AIF-08-提供专题信号->AIF-07\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L1-06",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-2-18",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "评审反馈、缺陷或业务规则调整",
+        "review_stage": "概要设计联审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "EXM-09",
+        "requirement_title": "试题难度与区分度分析",
+        "change_type": "修改",
+        "before": "难度与区分度基于最终得分",
+        "after": "剔除缺考和作弊作废答卷后计算"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "EXM-01",
+            "title": "题库管理"
+          },
+          {
+            "id": "EXM-02",
+            "title": "考试与试卷配置"
+          },
+          {
+            "id": "EXM-03",
+            "title": "学生答题记录"
+          },
+          {
+            "id": "EXM-04",
+            "title": "客观题自动批阅"
+          },
+          {
+            "id": "EXM-05",
+            "title": "主观题人工评阅"
+          },
+          {
+            "id": "EXM-06",
+            "title": "成绩合成"
+          },
+          {
+            "id": "EXM-07",
+            "title": "学生成绩查询"
+          },
+          {
+            "id": "EXM-08",
+            "title": "成绩分析"
+          },
+          {
+            "id": "EXM-09",
+            "title": "试题难度与区分度分析"
+          },
+          {
+            "id": "EXM-10",
+            "title": "成绩报告导出"
+          },
+          {
+            "id": "EXM-11",
+            "title": "成绩复核与申诉"
+          }
+        ],
+        "edges": [
+          {
+            "from": "EXM-01",
+            "relation": "提供题目与标准答案",
+            "to": "EXM-02"
+          },
+          {
+            "from": "EXM-02",
+            "relation": "生成答卷结构",
+            "to": "EXM-03"
+          },
+          {
+            "from": "EXM-02",
+            "relation": "提供标准答案",
+            "to": "EXM-04"
+          },
+          {
+            "from": "EXM-03",
+            "relation": "提供学生答案",
+            "to": "EXM-04"
+          },
+          {
+            "from": "EXM-03",
+            "relation": "提供主观题答案",
+            "to": "EXM-05"
+          },
+          {
+            "from": "EXM-04",
+            "relation": "提供客观题得分",
+            "to": "EXM-06"
+          },
+          {
+            "from": "EXM-05",
+            "relation": "提供主观题得分",
+            "to": "EXM-06"
+          },
+          {
+            "from": "EXM-06",
+            "relation": "提供最终成绩",
+            "to": "EXM-07"
+          },
+          {
+            "from": "EXM-06",
+            "relation": "提供全量成绩",
+            "to": "EXM-08"
+          },
+          {
+            "from": "EXM-03",
+            "relation": "提供逐题作答",
+            "to": "EXM-09"
+          },
+          {
+            "from": "EXM-06",
+            "relation": "提供逐题得分",
+            "to": "EXM-09"
+          },
+          {
+            "from": "EXM-08",
+            "relation": "提供统计结果",
+            "to": "EXM-10"
+          },
+          {
+            "from": "EXM-09",
+            "relation": "提供试题分析",
+            "to": "EXM-10"
+          },
+          {
+            "from": "EXM-07",
+            "relation": "发起复核依据",
+            "to": "EXM-11"
+          },
+          {
+            "from": "EXM-05",
+            "relation": "提供原始评阅记录",
+            "to": "EXM-11"
+          },
+          {
+            "from": "EXM-11",
+            "relation": "调整后重新统计",
+            "to": "EXM-08"
+          },
+          {
+            "from": "EXM-11",
+            "relation": "触发客观题重阅",
+            "to": "EXM-04"
+          },
+          {
+            "from": "EXM-11",
+            "relation": "触发成绩重算",
+            "to": "EXM-06"
+          },
+          {
+            "from": "EXM-11",
+            "relation": "撤回已发布成绩",
+            "to": "EXM-07"
+          },
+          {
+            "from": "EXM-11",
+            "relation": "触发试题指标重算",
+            "to": "EXM-09"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-2-18；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：概要设计联审\n变化对象：EXM-09 试题难度与区分度分析\n变化类型：修改\n变更前：难度与区分度基于最终得分\n变更后：剔除缺考和作弊作废答卷后计算\n已有追踪关系：EXM-01-提供题目与标准答案->EXM-02；EXM-02-生成答卷结构->EXM-03；EXM-02-提供标准答案->EXM-04；EXM-03-提供学生答案->EXM-04；EXM-03-提供主观题答案->EXM-05；EXM-04-提供客观题得分->EXM-06；EXM-05-提供主观题得分->EXM-06；EXM-06-提供最终成绩->EXM-07；EXM-06-提供全量成绩->EXM-08；EXM-03-提供逐题作答->EXM-09；EXM-06-提供逐题得分->EXM-09；EXM-08-提供统计结果->EXM-10；EXM-09-提供试题分析->EXM-10；EXM-07-发起复核依据->EXM-11；EXM-05-提供原始评阅记录->EXM-11；EXM-11-调整后重新统计->EXM-08；EXM-11-触发客观题重阅->EXM-04；EXM-11-触发成绩重算->EXM-06；EXM-11-撤回已发布成绩->EXM-07；EXM-11-触发试题指标重算->EXM-09\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L1-07",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-1-19",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "评审反馈、缺陷或业务规则调整",
+        "review_stage": "需求评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "REP-07",
+        "requirement_title": "重点待处理提醒",
+        "change_type": "修改",
+        "before": "重点工单超过24小时提醒",
+        "after": "紧急工单4小时、普通工单24小时提醒"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "REP-01",
+            "title": "学生提交报修"
+          },
+          {
+            "id": "REP-02",
+            "title": "宿管审核工单"
+          },
+          {
+            "id": "REP-03",
+            "title": "指派维修人员"
+          },
+          {
+            "id": "REP-04",
+            "title": "派工通知"
+          },
+          {
+            "id": "REP-05",
+            "title": "维修人员处理工单"
+          },
+          {
+            "id": "REP-06",
+            "title": "工单状态看板"
+          },
+          {
+            "id": "REP-07",
+            "title": "重点待处理提醒"
+          },
+          {
+            "id": "REP-08",
+            "title": "维修绩效"
+          },
+          {
+            "id": "REP-09",
+            "title": "数据统计"
+          }
+        ],
+        "edges": [
+          {
+            "from": "REP-01",
+            "relation": "进入审核队列",
+            "to": "REP-02"
+          },
+          {
+            "from": "REP-02",
+            "relation": "审核通过后派单",
+            "to": "REP-03"
+          },
+          {
+            "from": "REP-03",
+            "relation": "生成派工消息",
+            "to": "REP-04"
+          },
+          {
+            "from": "REP-03",
+            "relation": "建立维修任务",
+            "to": "REP-05"
+          },
+          {
+            "from": "REP-05",
+            "relation": "更新工单状态",
+            "to": "REP-06"
+          },
+          {
+            "from": "REP-05",
+            "relation": "提供处理时长",
+            "to": "REP-08"
+          },
+          {
+            "from": "REP-05",
+            "relation": "提供完成记录",
+            "to": "REP-09"
+          },
+          {
+            "from": "REP-06",
+            "relation": "提供超时状态",
+            "to": "REP-07"
+          },
+          {
+            "from": "REP-07",
+            "relation": "要求紧急度标识",
+            "to": "REP-06"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-1-19；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：需求评审\n变化对象：REP-07 重点待处理提醒\n变化类型：修改\n变更前：重点工单超过24小时提醒\n变更后：紧急工单4小时、普通工单24小时提醒\n已有追踪关系：REP-01-进入审核队列->REP-02；REP-02-审核通过后派单->REP-03；REP-03-生成派工消息->REP-04；REP-03-建立维修任务->REP-05；REP-05-更新工单状态->REP-06；REP-05-提供处理时长->REP-08；REP-05-提供完成记录->REP-09；REP-06-提供超时状态->REP-07；REP-07-要求紧急度标识->REP-06\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L1-08",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-1-06",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "产品规划或业务方提出新增能力",
+        "review_stage": "需求评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "SAA-10",
+        "requirement_title": "通用审批流程",
+        "change_type": "新增",
+        "before": "审批通过后仅更新对象状态",
+        "after": "审批通过后同时发送站内通知"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "SAA-01",
+            "title": "用户注册与账号激活"
+          },
+          {
+            "id": "SAA-02",
+            "title": "企业创建与租户开通"
+          },
+          {
+            "id": "SAA-03",
+            "title": "成员邀请与审批"
+          },
+          {
+            "id": "SAA-04",
+            "title": "团队与空间管理"
+          },
+          {
+            "id": "SAA-05",
+            "title": "角色权限与访客授权"
+          },
+          {
+            "id": "SAA-06",
+            "title": "任务管理"
+          },
+          {
+            "id": "SAA-07",
+            "title": "文档中心"
+          },
+          {
+            "id": "SAA-08",
+            "title": "仓库资源接入"
+          },
+          {
+            "id": "SAA-09",
+            "title": "协作资源图谱"
+          },
+          {
+            "id": "SAA-10",
+            "title": "通用审批流程"
+          },
+          {
+            "id": "SAA-11",
+            "title": "通知中心"
+          },
+          {
+            "id": "SAA-12",
+            "title": "多租户隔离与审计"
+          },
+          {
+            "id": "SAA-13",
+            "title": "大模型智能协作"
+          }
+        ],
+        "edges": [
+          {
+            "from": "SAA-01",
+            "relation": "创建开通主体",
+            "to": "SAA-02"
+          },
+          {
+            "from": "SAA-02",
+            "relation": "建立租户边界",
+            "to": "SAA-03"
+          },
+          {
+            "from": "SAA-02",
+            "relation": "建立组织空间",
+            "to": "SAA-04"
+          },
+          {
+            "from": "SAA-03",
+            "relation": "提供成员身份",
+            "to": "SAA-05"
+          },
+          {
+            "from": "SAA-04",
+            "relation": "提供资源容器",
+            "to": "SAA-05"
+          },
+          {
+            "from": "SAA-04",
+            "relation": "承载业务对象",
+            "to": "SAA-06"
+          },
+          {
+            "from": "SAA-04",
+            "relation": "承载业务对象",
+            "to": "SAA-07"
+          },
+          {
+            "from": "SAA-04",
+            "relation": "承载业务对象",
+            "to": "SAA-08"
+          },
+          {
+            "from": "SAA-05",
+            "relation": "控制访问",
+            "to": "SAA-06"
+          },
+          {
+            "from": "SAA-05",
+            "relation": "控制访问",
+            "to": "SAA-07"
+          },
+          {
+            "from": "SAA-05",
+            "relation": "控制访问",
+            "to": "SAA-08"
+          },
+          {
+            "from": "SAA-06",
+            "relation": "提供任务节点",
+            "to": "SAA-09"
+          },
+          {
+            "from": "SAA-07",
+            "relation": "提供文档节点",
+            "to": "SAA-09"
+          },
+          {
+            "from": "SAA-08",
+            "relation": "提供仓库节点",
+            "to": "SAA-09"
+          },
+          {
+            "from": "SAA-06",
+            "relation": "进入审批",
+            "to": "SAA-10"
+          },
+          {
+            "from": "SAA-07",
+            "relation": "进入审批",
+            "to": "SAA-10"
+          },
+          {
+            "from": "SAA-10",
+            "relation": "产生状态事件",
+            "to": "SAA-11"
+          },
+          {
+            "from": "SAA-05",
+            "relation": "约束智能操作",
+            "to": "SAA-13"
+          },
+          {
+            "from": "SAA-09",
+            "relation": "提供协作上下文",
+            "to": "SAA-13"
+          },
+          {
+            "from": "SAA-13",
+            "relation": "记录智能操作",
+            "to": "SAA-12"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-1-06；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：需求评审\n变化对象：SAA-10 通用审批流程\n变化类型：新增\n变更前：审批通过后仅更新对象状态\n变更后：审批通过后同时发送站内通知\n已有追踪关系：SAA-01-创建开通主体->SAA-02；SAA-02-建立租户边界->SAA-03；SAA-02-建立组织空间->SAA-04；SAA-03-提供成员身份->SAA-05；SAA-04-提供资源容器->SAA-05；SAA-04-承载业务对象->SAA-06；SAA-04-承载业务对象->SAA-07；SAA-04-承载业务对象->SAA-08；SAA-05-控制访问->SAA-06；SAA-05-控制访问->SAA-07；SAA-05-控制访问->SAA-08；SAA-06-提供任务节点->SAA-09；SAA-07-提供文档节点->SAA-09；SAA-08-提供仓库节点->SAA-09；SAA-06-进入审批->SAA-10；SAA-07-进入审批->SAA-10；SAA-10-产生状态事件->SAA-11；SAA-05-约束智能操作->SAA-13；SAA-09-提供协作上下文->SAA-13；SAA-13-记录智能操作->SAA-12\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L1-09",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-2-17",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "生命周期、审批或运行条件变化",
+        "review_stage": "概要设计联审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "XUE-07",
+        "requirement_title": "学生提交作业",
+        "change_type": "状态变更",
+        "before": "提交后状态为已提交并可批阅",
+        "after": "提交后先进行附件安全扫描，扫描通过才进入可批阅"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "XUE-01",
+            "title": "用户登录"
+          },
+          {
+            "id": "XUE-02",
+            "title": "教师创建课程"
+          },
+          {
+            "id": "XUE-03",
+            "title": "课件管理"
+          },
+          {
+            "id": "XUE-04",
+            "title": "课中互动答题"
+          },
+          {
+            "id": "XUE-05",
+            "title": "课堂报告"
+          },
+          {
+            "id": "XUE-06",
+            "title": "教师发布作业"
+          },
+          {
+            "id": "XUE-07",
+            "title": "学生提交作业"
+          },
+          {
+            "id": "XUE-08",
+            "title": "作业批阅"
+          },
+          {
+            "id": "XUE-09",
+            "title": "成绩统计分析"
+          }
+        ],
+        "edges": [
+          {
+            "from": "XUE-01",
+            "relation": "授权教师操作",
+            "to": "XUE-02"
+          },
+          {
+            "from": "XUE-02",
+            "relation": "建立课程空间",
+            "to": "XUE-03"
+          },
+          {
+            "from": "XUE-02",
+            "relation": "建立课程空间",
+            "to": "XUE-06"
+          },
+          {
+            "from": "XUE-03",
+            "relation": "提供课堂题目",
+            "to": "XUE-04"
+          },
+          {
+            "from": "XUE-04",
+            "relation": "产生答题数据",
+            "to": "XUE-05"
+          },
+          {
+            "from": "XUE-06",
+            "relation": "开放作业",
+            "to": "XUE-07"
+          },
+          {
+            "from": "XUE-07",
+            "relation": "提供答卷",
+            "to": "XUE-08"
+          },
+          {
+            "from": "XUE-08",
+            "relation": "提供得分",
+            "to": "XUE-09"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-2-17；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：概要设计联审\n变化对象：XUE-07 学生提交作业\n变化类型：状态变更\n变更前：提交后状态为已提交并可批阅\n变更后：提交后先进行附件安全扫描，扫描通过才进入可批阅\n已有追踪关系：XUE-01-授权教师操作->XUE-02；XUE-02-建立课程空间->XUE-03；XUE-02-建立课程空间->XUE-06；XUE-03-提供课堂题目->XUE-04；XUE-04-产生答题数据->XUE-05；XUE-06-开放作业->XUE-07；XUE-07-提供答卷->XUE-08；XUE-08-提供得分->XUE-09\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L1-10",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-3-03",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/架构评审",
+        "change_trigger": "重复能力治理或流程统一",
+        "review_stage": "变更影响评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "META-05",
+        "requirement_title": "Markdown报告生成",
+        "change_type": "合并",
+        "before": "报告生成与自动重构分别输出",
+        "after": "合并为单一交付包；报告失败时不得阻断已验证的重构代码，但交付包状态必须为不完整"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "META-01",
+            "title": "用户注册与登录"
+          },
+          {
+            "id": "META-02",
+            "title": "代码输入与样例加载"
+          },
+          {
+            "id": "META-03",
+            "title": "代码静态分析"
+          },
+          {
+            "id": "META-04",
+            "title": "问题列表与严重级别展示"
+          },
+          {
+            "id": "META-05",
+            "title": "Markdown报告生成"
+          },
+          {
+            "id": "META-06",
+            "title": "自动重构输出"
+          },
+          {
+            "id": "META-07",
+            "title": "历史任务查询"
+          }
+        ],
+        "edges": [
+          {
+            "from": "META-01",
+            "relation": "确定任务归属",
+            "to": "META-07"
+          },
+          {
+            "from": "META-02",
+            "relation": "提供规范化源码",
+            "to": "META-03"
+          },
+          {
+            "from": "META-03",
+            "relation": "提供发现项",
+            "to": "META-04"
+          },
+          {
+            "from": "META-03",
+            "relation": "提供分析结果",
+            "to": "META-05"
+          },
+          {
+            "from": "META-03",
+            "relation": "提供定位信息",
+            "to": "META-06"
+          },
+          {
+            "from": "META-05",
+            "relation": "持久化报告引用",
+            "to": "META-07"
+          },
+          {
+            "from": "META-05",
+            "relation": "与重构结果组成交付包",
+            "to": "META-06"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-3-03；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：变更影响评审\n变化对象：META-05 Markdown报告生成\n变化类型：合并\n变更前：报告生成与自动重构分别输出\n变更后：合并为单一交付包；报告失败时不得阻断已验证的重构代码，但交付包状态必须为不完整\n已有追踪关系：META-01-确定任务归属->META-07；META-02-提供规范化源码->META-03；META-03-提供发现项->META-04；META-03-提供分析结果->META-05；META-03-提供定位信息->META-06；META-05-持久化报告引用->META-07；META-05-与重构结果组成交付包->META-06\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L1-11",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-2-11",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "生命周期、审批或运行条件变化",
+        "review_stage": "概要设计联审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "DRW-11",
+        "requirement_title": "离线使用与同步",
+        "change_type": "状态变更",
+        "before": "离线记录同步成功后立即标记已同步",
+        "after": "部分记录冲突时批次状态为部分成功，冲突项留在本地"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "DRW-01",
+            "title": "上传图纸新版本"
+          },
+          {
+            "id": "DRW-02",
+            "title": "图纸版本对比"
+          },
+          {
+            "id": "DRW-03",
+            "title": "图纸知识图谱"
+          },
+          {
+            "id": "DRW-04",
+            "title": "智能变更影响分析"
+          },
+          {
+            "id": "DRW-05",
+            "title": "审批图纸版本"
+          },
+          {
+            "id": "DRW-06",
+            "title": "变更预警通知"
+          },
+          {
+            "id": "DRW-07",
+            "title": "图纸问题标注"
+          },
+          {
+            "id": "DRW-08",
+            "title": "自动生成协作任务"
+          },
+          {
+            "id": "DRW-09",
+            "title": "问题进度跟踪"
+          },
+          {
+            "id": "DRW-10",
+            "title": "移动端查看图纸"
+          },
+          {
+            "id": "DRW-11",
+            "title": "离线使用与同步"
+          }
+        ],
+        "edges": [
+          {
+            "from": "DRW-01",
+            "relation": "提供新旧版本",
+            "to": "DRW-02"
+          },
+          {
+            "from": "DRW-02",
+            "relation": "提供图形差异",
+            "to": "DRW-04"
+          },
+          {
+            "from": "DRW-03",
+            "relation": "提供关联对象",
+            "to": "DRW-04"
+          },
+          {
+            "from": "DRW-04",
+            "relation": "提供影响报告",
+            "to": "DRW-05"
+          },
+          {
+            "from": "DRW-04",
+            "relation": "触发预警",
+            "to": "DRW-06"
+          },
+          {
+            "from": "DRW-07",
+            "relation": "生成结构化问题",
+            "to": "DRW-08"
+          },
+          {
+            "from": "DRW-08",
+            "relation": "建立处理任务",
+            "to": "DRW-09"
+          },
+          {
+            "from": "DRW-10",
+            "relation": "提供现场图纸",
+            "to": "DRW-07"
+          },
+          {
+            "from": "DRW-10",
+            "relation": "缓存图纸",
+            "to": "DRW-11"
+          },
+          {
+            "from": "DRW-11",
+            "relation": "回传离线标注",
+            "to": "DRW-07"
+          },
+          {
+            "from": "DRW-10",
+            "relation": "展示待审批版本",
+            "to": "DRW-05"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-2-11；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：概要设计联审\n变化对象：DRW-11 离线使用与同步\n变化类型：状态变更\n变更前：离线记录同步成功后立即标记已同步\n变更后：部分记录冲突时批次状态为部分成功，冲突项留在本地\n已有追踪关系：DRW-01-提供新旧版本->DRW-02；DRW-02-提供图形差异->DRW-04；DRW-03-提供关联对象->DRW-04；DRW-04-提供影响报告->DRW-05；DRW-04-触发预警->DRW-06；DRW-07-生成结构化问题->DRW-08；DRW-08-建立处理任务->DRW-09；DRW-10-提供现场图纸->DRW-07；DRW-10-缓存图纸->DRW-11；DRW-11-回传离线标注->DRW-07；DRW-10-展示待审批版本->DRW-05\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L1-12",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-1-14",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "评审反馈、缺陷或业务规则调整",
+        "review_stage": "需求评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "EVT-07",
+        "requirement_title": "名额管理",
+        "change_type": "修改",
+        "before": "活动名额上限100人",
+        "after": "名额上限调整为150人"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "EVT-01",
+            "title": "用户注册与登录"
+          },
+          {
+            "id": "EVT-02",
+            "title": "活动创建与提交审核"
+          },
+          {
+            "id": "EVT-03",
+            "title": "活动审核与发布"
+          },
+          {
+            "id": "EVT-04",
+            "title": "活动浏览与搜索"
+          },
+          {
+            "id": "EVT-05",
+            "title": "活动报名"
+          },
+          {
+            "id": "EVT-06",
+            "title": "取消报名"
+          },
+          {
+            "id": "EVT-07",
+            "title": "名额管理"
+          },
+          {
+            "id": "EVT-08",
+            "title": "报名统计与执行名单"
+          }
+        ],
+        "edges": [
+          {
+            "from": "EVT-01",
+            "relation": "确认发起人",
+            "to": "EVT-02"
+          },
+          {
+            "from": "EVT-02",
+            "relation": "进入审核",
+            "to": "EVT-03"
+          },
+          {
+            "from": "EVT-03",
+            "relation": "发布活动",
+            "to": "EVT-04"
+          },
+          {
+            "from": "EVT-03",
+            "relation": "开放报名",
+            "to": "EVT-05"
+          },
+          {
+            "from": "EVT-07",
+            "relation": "约束可报名数",
+            "to": "EVT-05"
+          },
+          {
+            "from": "EVT-05",
+            "relation": "产生报名记录",
+            "to": "EVT-06"
+          },
+          {
+            "from": "EVT-05",
+            "relation": "汇总参与者",
+            "to": "EVT-08"
+          },
+          {
+            "from": "EVT-05",
+            "relation": "占用或释放名额",
+            "to": "EVT-07"
+          },
+          {
+            "from": "EVT-06",
+            "relation": "释放名额并更新名单",
+            "to": "EVT-08"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-1-14；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：需求评审\n变化对象：EVT-07 名额管理\n变化类型：修改\n变更前：活动名额上限100人\n变更后：名额上限调整为150人\n已有追踪关系：EVT-01-确认发起人->EVT-02；EVT-02-进入审核->EVT-03；EVT-03-发布活动->EVT-04；EVT-03-开放报名->EVT-05；EVT-07-约束可报名数->EVT-05；EVT-05-产生报名记录->EVT-06；EVT-05-汇总参与者->EVT-08；EVT-05-占用或释放名额->EVT-07；EVT-06-释放名额并更新名单->EVT-08\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L1-13",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-1-02",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "评审反馈、缺陷或业务规则调整",
+        "review_stage": "需求评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "LOG-04",
+        "requirement_title": "异常检测引擎",
+        "change_type": "修改",
+        "before": "同类异常5分钟内不重复触发",
+        "after": "去抖窗口调整为10分钟"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "LOG-01",
+            "title": "数据源配置与连接测试"
+          },
+          {
+            "id": "LOG-02",
+            "title": "数据采集与统一存储"
+          },
+          {
+            "id": "LOG-03",
+            "title": "实时监测总览"
+          },
+          {
+            "id": "LOG-04",
+            "title": "异常检测引擎"
+          },
+          {
+            "id": "LOG-05",
+            "title": "告警管理"
+          },
+          {
+            "id": "LOG-06",
+            "title": "AI巡检报告"
+          },
+          {
+            "id": "LOG-07",
+            "title": "报告追问"
+          },
+          {
+            "id": "LOG-08",
+            "title": "Webhook事件联动"
+          }
+        ],
+        "edges": [
+          {
+            "from": "LOG-01",
+            "relation": "提供可用数据源",
+            "to": "LOG-02"
+          },
+          {
+            "from": "LOG-02",
+            "relation": "提供窗口数据",
+            "to": "LOG-03"
+          },
+          {
+            "from": "LOG-02",
+            "relation": "提供统一数据点",
+            "to": "LOG-04"
+          },
+          {
+            "from": "LOG-04",
+            "relation": "生成异常事件",
+            "to": "LOG-05"
+          },
+          {
+            "from": "LOG-02",
+            "relation": "提供分析上下文",
+            "to": "LOG-06"
+          },
+          {
+            "from": "LOG-05",
+            "relation": "触发高风险分析",
+            "to": "LOG-06"
+          },
+          {
+            "from": "LOG-06",
+            "relation": "提供对话上下文",
+            "to": "LOG-07"
+          },
+          {
+            "from": "LOG-05",
+            "relation": "触发外部通知",
+            "to": "LOG-08"
+          },
+          {
+            "from": "LOG-06",
+            "relation": "触发诊断联动",
+            "to": "LOG-08"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-1-02；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：需求评审\n变化对象：LOG-04 异常检测引擎\n变化类型：修改\n变更前：同类异常5分钟内不重复触发\n变更后：去抖窗口调整为10分钟\n已有追踪关系：LOG-01-提供可用数据源->LOG-02；LOG-02-提供窗口数据->LOG-03；LOG-02-提供统一数据点->LOG-04；LOG-04-生成异常事件->LOG-05；LOG-02-提供分析上下文->LOG-06；LOG-05-触发高风险分析->LOG-06；LOG-06-提供对话上下文->LOG-07；LOG-05-触发外部通知->LOG-08；LOG-06-触发诊断联动->LOG-08\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L1-14",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-3-10",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/架构评审",
+        "change_trigger": "范围收缩或合规/运维约束",
+        "review_stage": "变更影响评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "SCN-07",
+        "requirement_title": "交互日志",
+        "change_type": "删除",
+        "before": "保存脱敏交互日志用于报告和大屏",
+        "after": "出于隐私要求删除逐条交互日志，仅保留小时级聚合计数"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "SCN-01",
+            "title": "多模态输入与ASR"
+          },
+          {
+            "id": "SCN-02",
+            "title": "景区知识库管理"
+          },
+          {
+            "id": "SCN-03",
+            "title": "智能问答与讲解"
+          },
+          {
+            "id": "SCN-04",
+            "title": "数字人语音口型输出"
+          },
+          {
+            "id": "SCN-05",
+            "title": "个性化路线推荐"
+          },
+          {
+            "id": "SCN-06",
+            "title": "数字人形象管理"
+          },
+          {
+            "id": "SCN-07",
+            "title": "交互日志"
+          },
+          {
+            "id": "SCN-08",
+            "title": "游客感受度报告"
+          },
+          {
+            "id": "SCN-09",
+            "title": "运营数据大屏"
+          }
+        ],
+        "edges": [
+          {
+            "from": "SCN-01",
+            "relation": "提供识别文本",
+            "to": "SCN-03"
+          },
+          {
+            "from": "SCN-02",
+            "relation": "提供检索知识",
+            "to": "SCN-03"
+          },
+          {
+            "from": "SCN-03",
+            "relation": "提供回答文本",
+            "to": "SCN-04"
+          },
+          {
+            "from": "SCN-03",
+            "relation": "产生问答记录",
+            "to": "SCN-07"
+          },
+          {
+            "from": "SCN-05",
+            "relation": "产生推荐记录",
+            "to": "SCN-07"
+          },
+          {
+            "from": "SCN-06",
+            "relation": "配置渲染形象",
+            "to": "SCN-04"
+          },
+          {
+            "from": "SCN-07",
+            "relation": "提供情感与关注点数据",
+            "to": "SCN-08"
+          },
+          {
+            "from": "SCN-07",
+            "relation": "提供运营指标",
+            "to": "SCN-09"
+          },
+          {
+            "from": "SCN-08",
+            "relation": "提供趋势结论",
+            "to": "SCN-09"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-3-10；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：变更影响评审\n变化对象：SCN-07 交互日志\n变化类型：删除\n变更前：保存脱敏交互日志用于报告和大屏\n变更后：出于隐私要求删除逐条交互日志，仅保留小时级聚合计数\n已有追踪关系：SCN-01-提供识别文本->SCN-03；SCN-02-提供检索知识->SCN-03；SCN-03-提供回答文本->SCN-04；SCN-03-产生问答记录->SCN-07；SCN-05-产生推荐记录->SCN-07；SCN-06-配置渲染形象->SCN-04；SCN-07-提供情感与关注点数据->SCN-08；SCN-07-提供运营指标->SCN-09；SCN-08-提供趋势结论->SCN-09\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L1-15",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L1",
+    "difficulty_zh": "低",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-3-13",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/架构评审",
+        "change_trigger": "重复能力治理或流程统一",
+        "review_stage": "变更影响评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "WAL-07",
+        "requirement_title": "内容举报",
+        "change_type": "合并",
+        "before": "帖子举报和评论举报分别进入审核",
+        "after": "合并为统一举报单，可关联多个内容对象且允许撤回"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "WAL-01",
+            "title": "用户注册与登录"
+          },
+          {
+            "id": "WAL-02",
+            "title": "校园身份认证"
+          },
+          {
+            "id": "WAL-03",
+            "title": "信息发布"
+          },
+          {
+            "id": "WAL-04",
+            "title": "关键词过滤"
+          },
+          {
+            "id": "WAL-05",
+            "title": "分类浏览与搜索"
+          },
+          {
+            "id": "WAL-06",
+            "title": "评论与点赞"
+          },
+          {
+            "id": "WAL-07",
+            "title": "内容举报"
+          },
+          {
+            "id": "WAL-08",
+            "title": "后台内容审核"
+          },
+          {
+            "id": "WAL-09",
+            "title": "违规通知"
+          },
+          {
+            "id": "WAL-10",
+            "title": "个人中心"
+          }
+        ],
+        "edges": [
+          {
+            "from": "WAL-01",
+            "relation": "建立用户身份",
+            "to": "WAL-02"
+          },
+          {
+            "from": "WAL-02",
+            "relation": "授权发布",
+            "to": "WAL-03"
+          },
+          {
+            "from": "WAL-04",
+            "relation": "发布前过滤",
+            "to": "WAL-03"
+          },
+          {
+            "from": "WAL-03",
+            "relation": "提供审核对象",
+            "to": "WAL-08"
+          },
+          {
+            "from": "WAL-08",
+            "relation": "提供可见内容",
+            "to": "WAL-05"
+          },
+          {
+            "from": "WAL-03",
+            "relation": "提供互动对象",
+            "to": "WAL-06"
+          },
+          {
+            "from": "WAL-03",
+            "relation": "提供举报对象",
+            "to": "WAL-07"
+          },
+          {
+            "from": "WAL-06",
+            "relation": "提供举报对象",
+            "to": "WAL-07"
+          },
+          {
+            "from": "WAL-07",
+            "relation": "触发复审",
+            "to": "WAL-08"
+          },
+          {
+            "from": "WAL-08",
+            "relation": "产生处理结果",
+            "to": "WAL-09"
+          },
+          {
+            "from": "WAL-03",
+            "relation": "形成用户内容",
+            "to": "WAL-10"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-3-13；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：变更影响评审\n变化对象：WAL-07 内容举报\n变化类型：合并\n变更前：帖子举报和评论举报分别进入审核\n变更后：合并为统一举报单，可关联多个内容对象且允许撤回\n已有追踪关系：WAL-01-建立用户身份->WAL-02；WAL-02-授权发布->WAL-03；WAL-04-发布前过滤->WAL-03；WAL-03-提供审核对象->WAL-08；WAL-08-提供可见内容->WAL-05；WAL-03-提供互动对象->WAL-06；WAL-03-提供举报对象->WAL-07；WAL-06-提供举报对象->WAL-07；WAL-07-触发复审->WAL-08；WAL-08-产生处理结果->WAL-09；WAL-03-形成用户内容->WAL-10\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L2-01",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-1-10",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "评审反馈、缺陷或业务规则调整",
+        "review_stage": "需求评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "SCN-02",
+        "requirement_title": "景区知识库管理",
+        "change_type": "修改",
+        "before": "知识文档发布后立即生效",
+        "after": "知识文档需管理员审核通过后生效"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "SCN-01",
+            "title": "多模态输入与ASR"
+          },
+          {
+            "id": "SCN-02",
+            "title": "景区知识库管理"
+          },
+          {
+            "id": "SCN-03",
+            "title": "智能问答与讲解"
+          },
+          {
+            "id": "SCN-04",
+            "title": "数字人语音口型输出"
+          },
+          {
+            "id": "SCN-05",
+            "title": "个性化路线推荐"
+          },
+          {
+            "id": "SCN-06",
+            "title": "数字人形象管理"
+          },
+          {
+            "id": "SCN-07",
+            "title": "交互日志"
+          },
+          {
+            "id": "SCN-08",
+            "title": "游客感受度报告"
+          },
+          {
+            "id": "SCN-09",
+            "title": "运营数据大屏"
+          }
+        ],
+        "edges": [
+          {
+            "from": "SCN-01",
+            "relation": "提供识别文本",
+            "to": "SCN-03"
+          },
+          {
+            "from": "SCN-02",
+            "relation": "提供检索知识",
+            "to": "SCN-03"
+          },
+          {
+            "from": "SCN-03",
+            "relation": "提供回答文本",
+            "to": "SCN-04"
+          },
+          {
+            "from": "SCN-03",
+            "relation": "产生问答记录",
+            "to": "SCN-07"
+          },
+          {
+            "from": "SCN-05",
+            "relation": "产生推荐记录",
+            "to": "SCN-07"
+          },
+          {
+            "from": "SCN-06",
+            "relation": "配置渲染形象",
+            "to": "SCN-04"
+          },
+          {
+            "from": "SCN-07",
+            "relation": "提供情感与关注点数据",
+            "to": "SCN-08"
+          },
+          {
+            "from": "SCN-07",
+            "relation": "提供运营指标",
+            "to": "SCN-09"
+          },
+          {
+            "from": "SCN-08",
+            "relation": "提供趋势结论",
+            "to": "SCN-09"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-1-10；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：需求评审\n变化对象：SCN-02 景区知识库管理\n变化类型：修改\n变更前：知识文档发布后立即生效\n变更后：知识文档需管理员审核通过后生效\n已有追踪关系：SCN-01-提供识别文本->SCN-03；SCN-02-提供检索知识->SCN-03；SCN-03-提供回答文本->SCN-04；SCN-03-产生问答记录->SCN-07；SCN-05-产生推荐记录->SCN-07；SCN-06-配置渲染形象->SCN-04；SCN-07-提供情感与关注点数据->SCN-08；SCN-07-提供运营指标->SCN-09；SCN-08-提供趋势结论->SCN-09\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L2-02",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-2-10",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "产品规划或业务方提出新增能力",
+        "review_stage": "概要设计联审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "SCN-03",
+        "requirement_title": "智能问答与讲解",
+        "change_type": "新增",
+        "before": "事实问答仅输出自然语言答案",
+        "after": "事实问答必须附知识来源与置信度；低于0.7转人工提示"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "SCN-01",
+            "title": "多模态输入与ASR"
+          },
+          {
+            "id": "SCN-02",
+            "title": "景区知识库管理"
+          },
+          {
+            "id": "SCN-03",
+            "title": "智能问答与讲解"
+          },
+          {
+            "id": "SCN-04",
+            "title": "数字人语音口型输出"
+          },
+          {
+            "id": "SCN-05",
+            "title": "个性化路线推荐"
+          },
+          {
+            "id": "SCN-06",
+            "title": "数字人形象管理"
+          },
+          {
+            "id": "SCN-07",
+            "title": "交互日志"
+          },
+          {
+            "id": "SCN-08",
+            "title": "游客感受度报告"
+          },
+          {
+            "id": "SCN-09",
+            "title": "运营数据大屏"
+          }
+        ],
+        "edges": [
+          {
+            "from": "SCN-01",
+            "relation": "提供识别文本",
+            "to": "SCN-03"
+          },
+          {
+            "from": "SCN-02",
+            "relation": "提供检索知识",
+            "to": "SCN-03"
+          },
+          {
+            "from": "SCN-03",
+            "relation": "提供回答文本",
+            "to": "SCN-04"
+          },
+          {
+            "from": "SCN-03",
+            "relation": "产生问答记录",
+            "to": "SCN-07"
+          },
+          {
+            "from": "SCN-05",
+            "relation": "产生推荐记录",
+            "to": "SCN-07"
+          },
+          {
+            "from": "SCN-06",
+            "relation": "配置渲染形象",
+            "to": "SCN-04"
+          },
+          {
+            "from": "SCN-07",
+            "relation": "提供情感与关注点数据",
+            "to": "SCN-08"
+          },
+          {
+            "from": "SCN-07",
+            "relation": "提供运营指标",
+            "to": "SCN-09"
+          },
+          {
+            "from": "SCN-08",
+            "relation": "提供趋势结论",
+            "to": "SCN-09"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-2-10；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：概要设计联审\n变化对象：SCN-03 智能问答与讲解\n变化类型：新增\n变更前：事实问答仅输出自然语言答案\n变更后：事实问答必须附知识来源与置信度；低于0.7转人工提示\n已有追踪关系：SCN-01-提供识别文本->SCN-03；SCN-02-提供检索知识->SCN-03；SCN-03-提供回答文本->SCN-04；SCN-03-产生问答记录->SCN-07；SCN-05-产生推荐记录->SCN-07；SCN-06-配置渲染形象->SCN-04；SCN-07-提供情感与关注点数据->SCN-08；SCN-07-提供运营指标->SCN-09；SCN-08-提供趋势结论->SCN-09\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L2-03",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-2-15",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "评审反馈、缺陷或业务规则调整",
+        "review_stage": "概要设计联审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "JOB-05",
+        "requirement_title": "技能识别与胜任力评估",
+        "change_type": "修改",
+        "before": "技能仅标记已具备/未具备",
+        "after": "技能增加熟练度与证据来源，并区分推断和明确陈述"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "JOB-01",
+            "title": "简历上传与结构化解析"
+          },
+          {
+            "id": "JOB-02",
+            "title": "简历分析与优化"
+          },
+          {
+            "id": "JOB-03",
+            "title": "招聘方职位发布"
+          },
+          {
+            "id": "JOB-04",
+            "title": "职位搜索与推荐"
+          },
+          {
+            "id": "JOB-05",
+            "title": "技能识别与胜任力评估"
+          },
+          {
+            "id": "JOB-06",
+            "title": "岗位-简历匹配"
+          },
+          {
+            "id": "JOB-07",
+            "title": "职位投递"
+          },
+          {
+            "id": "JOB-08",
+            "title": "投递进度跟踪"
+          },
+          {
+            "id": "JOB-09",
+            "title": "用户偏好记忆"
+          },
+          {
+            "id": "JOB-10",
+            "title": "求职知识问答"
+          }
+        ],
+        "edges": [
+          {
+            "from": "JOB-01",
+            "relation": "提供结构化履历",
+            "to": "JOB-02"
+          },
+          {
+            "from": "JOB-01",
+            "relation": "提供经历技能",
+            "to": "JOB-05"
+          },
+          {
+            "from": "JOB-03",
+            "relation": "提供岗位数据",
+            "to": "JOB-04"
+          },
+          {
+            "from": "JOB-03",
+            "relation": "提供岗位要求",
+            "to": "JOB-06"
+          },
+          {
+            "from": "JOB-05",
+            "relation": "提供技能画像",
+            "to": "JOB-06"
+          },
+          {
+            "from": "JOB-02",
+            "relation": "提供优化版本",
+            "to": "JOB-06"
+          },
+          {
+            "from": "JOB-04",
+            "relation": "提供候选职位",
+            "to": "JOB-07"
+          },
+          {
+            "from": "JOB-06",
+            "relation": "提供投递建议",
+            "to": "JOB-07"
+          },
+          {
+            "from": "JOB-07",
+            "relation": "产生进度记录",
+            "to": "JOB-08"
+          },
+          {
+            "from": "JOB-08",
+            "relation": "沉淀行为偏好",
+            "to": "JOB-09"
+          },
+          {
+            "from": "JOB-09",
+            "relation": "个性化推荐",
+            "to": "JOB-04"
+          },
+          {
+            "from": "JOB-10",
+            "relation": "辅助简历优化",
+            "to": "JOB-02"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-2-15；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：概要设计联审\n变化对象：JOB-05 技能识别与胜任力评估\n变化类型：修改\n变更前：技能仅标记已具备/未具备\n变更后：技能增加熟练度与证据来源，并区分推断和明确陈述\n已有追踪关系：JOB-01-提供结构化履历->JOB-02；JOB-01-提供经历技能->JOB-05；JOB-03-提供岗位数据->JOB-04；JOB-03-提供岗位要求->JOB-06；JOB-05-提供技能画像->JOB-06；JOB-02-提供优化版本->JOB-06；JOB-04-提供候选职位->JOB-07；JOB-06-提供投递建议->JOB-07；JOB-07-产生进度记录->JOB-08；JOB-08-沉淀行为偏好->JOB-09；JOB-09-个性化推荐->JOB-04；JOB-10-辅助简历优化->JOB-02\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L2-04",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-2-05",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "评审反馈、缺陷或业务规则调整",
+        "review_stage": "概要设计联审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "OBU-03",
+        "requirement_title": "课表与考试查询",
+        "change_type": "修改",
+        "before": "课表仅返回课程时间地点",
+        "after": "课表同时返回课程签到入口和作业待办摘要"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "OBU-01",
+            "title": "统一登录与认证"
+          },
+          {
+            "id": "OBU-02",
+            "title": "首页信息聚合"
+          },
+          {
+            "id": "OBU-03",
+            "title": "课表与考试查询"
+          },
+          {
+            "id": "OBU-04",
+            "title": "选课与退课"
+          },
+          {
+            "id": "OBU-05",
+            "title": "作业查询与提交"
+          },
+          {
+            "id": "OBU-06",
+            "title": "云盘文件管理"
+          },
+          {
+            "id": "OBU-07",
+            "title": "课堂签到"
+          },
+          {
+            "id": "OBU-08",
+            "title": "教学评价"
+          },
+          {
+            "id": "OBU-09",
+            "title": "WiFi登录"
+          }
+        ],
+        "edges": [
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-02"
+          },
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-03"
+          },
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-04"
+          },
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-05"
+          },
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-06"
+          },
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-07"
+          },
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-08"
+          },
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-09"
+          },
+          {
+            "from": "OBU-03",
+            "relation": "提供课程上下文",
+            "to": "OBU-02"
+          },
+          {
+            "from": "OBU-05",
+            "relation": "提供待办信息",
+            "to": "OBU-02"
+          },
+          {
+            "from": "OBU-07",
+            "relation": "提供签到状态",
+            "to": "OBU-02"
+          },
+          {
+            "from": "OBU-03",
+            "relation": "嵌入签到入口",
+            "to": "OBU-07"
+          },
+          {
+            "from": "OBU-03",
+            "relation": "嵌入作业摘要",
+            "to": "OBU-05"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-2-05；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：概要设计联审\n变化对象：OBU-03 课表与考试查询\n变化类型：修改\n变更前：课表仅返回课程时间地点\n变更后：课表同时返回课程签到入口和作业待办摘要\n已有追踪关系：OBU-01-统一会话授权->OBU-02；OBU-01-统一会话授权->OBU-03；OBU-01-统一会话授权->OBU-04；OBU-01-统一会话授权->OBU-05；OBU-01-统一会话授权->OBU-06；OBU-01-统一会话授权->OBU-07；OBU-01-统一会话授权->OBU-08；OBU-01-统一会话授权->OBU-09；OBU-03-提供课程上下文->OBU-02；OBU-05-提供待办信息->OBU-02；OBU-07-提供签到状态->OBU-02；OBU-03-嵌入签到入口->OBU-07；OBU-03-嵌入作业摘要->OBU-05\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L2-05",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-3-14",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/架构评审",
+        "change_trigger": "需求粒度过大或职责边界需要重划",
+        "review_stage": "变更影响评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "EVT-05",
+        "requirement_title": "活动报名",
+        "change_type": "拆分",
+        "before": "报名成功即占用名额并进入执行名单",
+        "after": "拆分为申请报名与确认参加；需负责人确认后占用正式名额，超时自动释放"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "EVT-01",
+            "title": "用户注册与登录"
+          },
+          {
+            "id": "EVT-02",
+            "title": "活动创建与提交审核"
+          },
+          {
+            "id": "EVT-03",
+            "title": "活动审核与发布"
+          },
+          {
+            "id": "EVT-04",
+            "title": "活动浏览与搜索"
+          },
+          {
+            "id": "EVT-05",
+            "title": "活动报名"
+          },
+          {
+            "id": "EVT-06",
+            "title": "取消报名"
+          },
+          {
+            "id": "EVT-07",
+            "title": "名额管理"
+          },
+          {
+            "id": "EVT-08",
+            "title": "报名统计与执行名单"
+          }
+        ],
+        "edges": [
+          {
+            "from": "EVT-01",
+            "relation": "确认发起人",
+            "to": "EVT-02"
+          },
+          {
+            "from": "EVT-02",
+            "relation": "进入审核",
+            "to": "EVT-03"
+          },
+          {
+            "from": "EVT-03",
+            "relation": "发布活动",
+            "to": "EVT-04"
+          },
+          {
+            "from": "EVT-03",
+            "relation": "开放报名",
+            "to": "EVT-05"
+          },
+          {
+            "from": "EVT-07",
+            "relation": "约束可报名数",
+            "to": "EVT-05"
+          },
+          {
+            "from": "EVT-05",
+            "relation": "产生报名记录",
+            "to": "EVT-06"
+          },
+          {
+            "from": "EVT-05",
+            "relation": "汇总参与者",
+            "to": "EVT-08"
+          },
+          {
+            "from": "EVT-05",
+            "relation": "占用或释放名额",
+            "to": "EVT-07"
+          },
+          {
+            "from": "EVT-06",
+            "relation": "释放名额并更新名单",
+            "to": "EVT-08"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-3-14；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：变更影响评审\n变化对象：EVT-05 活动报名\n变化类型：拆分\n变更前：报名成功即占用名额并进入执行名单\n变更后：拆分为申请报名与确认参加；需负责人确认后占用正式名额，超时自动释放\n已有追踪关系：EVT-01-确认发起人->EVT-02；EVT-02-进入审核->EVT-03；EVT-03-发布活动->EVT-04；EVT-03-开放报名->EVT-05；EVT-07-约束可报名数->EVT-05；EVT-05-产生报名记录->EVT-06；EVT-05-汇总参与者->EVT-08；EVT-05-占用或释放名额->EVT-07；EVT-06-释放名额并更新名单->EVT-08\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L2-06",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-1-04",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "评审反馈、缺陷或业务规则调整",
+        "review_stage": "需求评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "MKD-02",
+        "requirement_title": "配置管理",
+        "change_type": "修改",
+        "before": "site_dir默认值为site",
+        "after": "site_dir默认值改为public"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "MKD-01",
+            "title": "项目初始化"
+          },
+          {
+            "id": "MKD-02",
+            "title": "配置管理"
+          },
+          {
+            "id": "MKD-03",
+            "title": "导航结构管理"
+          },
+          {
+            "id": "MKD-04",
+            "title": "页面处理与渲染"
+          },
+          {
+            "id": "MKD-05",
+            "title": "主题系统"
+          },
+          {
+            "id": "MKD-06",
+            "title": "插件系统"
+          },
+          {
+            "id": "MKD-07",
+            "title": "静态站点构建"
+          },
+          {
+            "id": "MKD-08",
+            "title": "全文搜索"
+          },
+          {
+            "id": "MKD-09",
+            "title": "本地开发服务器"
+          },
+          {
+            "id": "MKD-10",
+            "title": "GitHub Pages部署"
+          }
+        ],
+        "edges": [
+          {
+            "from": "MKD-01",
+            "relation": "生成配置入口",
+            "to": "MKD-02"
+          },
+          {
+            "from": "MKD-02",
+            "relation": "配置导航",
+            "to": "MKD-03"
+          },
+          {
+            "from": "MKD-03",
+            "relation": "创建页面对象",
+            "to": "MKD-04"
+          },
+          {
+            "from": "MKD-04",
+            "relation": "提供页面内容",
+            "to": "MKD-08"
+          },
+          {
+            "from": "MKD-04",
+            "relation": "提供渲染上下文",
+            "to": "MKD-07"
+          },
+          {
+            "from": "MKD-05",
+            "relation": "提供模板",
+            "to": "MKD-07"
+          },
+          {
+            "from": "MKD-06",
+            "relation": "介入构建事件",
+            "to": "MKD-07"
+          },
+          {
+            "from": "MKD-06",
+            "relation": "介入页面事件",
+            "to": "MKD-04"
+          },
+          {
+            "from": "MKD-06",
+            "relation": "注入搜索能力",
+            "to": "MKD-08"
+          },
+          {
+            "from": "MKD-07",
+            "relation": "提供站点目录",
+            "to": "MKD-09"
+          },
+          {
+            "from": "MKD-07",
+            "relation": "提供部署产物",
+            "to": "MKD-10"
+          },
+          {
+            "from": "MKD-09",
+            "relation": "提出增量重建约束",
+            "to": "MKD-07"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-1-04；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：需求评审\n变化对象：MKD-02 配置管理\n变化类型：修改\n变更前：site_dir默认值为site\n变更后：site_dir默认值改为public\n已有追踪关系：MKD-01-生成配置入口->MKD-02；MKD-02-配置导航->MKD-03；MKD-03-创建页面对象->MKD-04；MKD-04-提供页面内容->MKD-08；MKD-04-提供渲染上下文->MKD-07；MKD-05-提供模板->MKD-07；MKD-06-介入构建事件->MKD-07；MKD-06-介入页面事件->MKD-04；MKD-06-注入搜索能力->MKD-08；MKD-07-提供站点目录->MKD-09；MKD-07-提供部署产物->MKD-10；MKD-09-提出增量重建约束->MKD-07\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L2-07",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-3-15",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/架构评审",
+        "change_trigger": "重复能力治理或流程统一",
+        "review_stage": "变更影响评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "JOB-02",
+        "requirement_title": "简历分析与优化",
+        "change_type": "合并",
+        "before": "简历优化与岗位匹配为两个独立任务",
+        "after": "合并为针对职位的一键优化匹配；生成新简历版本后自动重算匹配，但不得自动投递"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "JOB-01",
+            "title": "简历上传与结构化解析"
+          },
+          {
+            "id": "JOB-02",
+            "title": "简历分析与优化"
+          },
+          {
+            "id": "JOB-03",
+            "title": "招聘方职位发布"
+          },
+          {
+            "id": "JOB-04",
+            "title": "职位搜索与推荐"
+          },
+          {
+            "id": "JOB-05",
+            "title": "技能识别与胜任力评估"
+          },
+          {
+            "id": "JOB-06",
+            "title": "岗位-简历匹配"
+          },
+          {
+            "id": "JOB-07",
+            "title": "职位投递"
+          },
+          {
+            "id": "JOB-08",
+            "title": "投递进度跟踪"
+          },
+          {
+            "id": "JOB-09",
+            "title": "用户偏好记忆"
+          },
+          {
+            "id": "JOB-10",
+            "title": "求职知识问答"
+          }
+        ],
+        "edges": [
+          {
+            "from": "JOB-01",
+            "relation": "提供结构化履历",
+            "to": "JOB-02"
+          },
+          {
+            "from": "JOB-01",
+            "relation": "提供经历技能",
+            "to": "JOB-05"
+          },
+          {
+            "from": "JOB-03",
+            "relation": "提供岗位数据",
+            "to": "JOB-04"
+          },
+          {
+            "from": "JOB-03",
+            "relation": "提供岗位要求",
+            "to": "JOB-06"
+          },
+          {
+            "from": "JOB-05",
+            "relation": "提供技能画像",
+            "to": "JOB-06"
+          },
+          {
+            "from": "JOB-02",
+            "relation": "提供优化版本",
+            "to": "JOB-06"
+          },
+          {
+            "from": "JOB-04",
+            "relation": "提供候选职位",
+            "to": "JOB-07"
+          },
+          {
+            "from": "JOB-06",
+            "relation": "提供投递建议",
+            "to": "JOB-07"
+          },
+          {
+            "from": "JOB-07",
+            "relation": "产生进度记录",
+            "to": "JOB-08"
+          },
+          {
+            "from": "JOB-08",
+            "relation": "沉淀行为偏好",
+            "to": "JOB-09"
+          },
+          {
+            "from": "JOB-09",
+            "relation": "个性化推荐",
+            "to": "JOB-04"
+          },
+          {
+            "from": "JOB-10",
+            "relation": "辅助简历优化",
+            "to": "JOB-02"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-3-15；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：变更影响评审\n变化对象：JOB-02 简历分析与优化\n变化类型：合并\n变更前：简历优化与岗位匹配为两个独立任务\n变更后：合并为针对职位的一键优化匹配；生成新简历版本后自动重算匹配，但不得自动投递\n已有追踪关系：JOB-01-提供结构化履历->JOB-02；JOB-01-提供经历技能->JOB-05；JOB-03-提供岗位数据->JOB-04；JOB-03-提供岗位要求->JOB-06；JOB-05-提供技能画像->JOB-06；JOB-02-提供优化版本->JOB-06；JOB-04-提供候选职位->JOB-07；JOB-06-提供投递建议->JOB-07；JOB-07-产生进度记录->JOB-08；JOB-08-沉淀行为偏好->JOB-09；JOB-09-个性化推荐->JOB-04；JOB-10-辅助简历优化->JOB-02\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L2-08",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-2-14",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "生命周期、审批或运行条件变化",
+        "review_stage": "概要设计联审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "EVT-03",
+        "requirement_title": "活动审核与发布",
+        "change_type": "状态变更",
+        "before": "审核通过立即发布并开放报名",
+        "after": "审核通过后进入定时发布，发布时间到达才开放报名"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "EVT-01",
+            "title": "用户注册与登录"
+          },
+          {
+            "id": "EVT-02",
+            "title": "活动创建与提交审核"
+          },
+          {
+            "id": "EVT-03",
+            "title": "活动审核与发布"
+          },
+          {
+            "id": "EVT-04",
+            "title": "活动浏览与搜索"
+          },
+          {
+            "id": "EVT-05",
+            "title": "活动报名"
+          },
+          {
+            "id": "EVT-06",
+            "title": "取消报名"
+          },
+          {
+            "id": "EVT-07",
+            "title": "名额管理"
+          },
+          {
+            "id": "EVT-08",
+            "title": "报名统计与执行名单"
+          }
+        ],
+        "edges": [
+          {
+            "from": "EVT-01",
+            "relation": "确认发起人",
+            "to": "EVT-02"
+          },
+          {
+            "from": "EVT-02",
+            "relation": "进入审核",
+            "to": "EVT-03"
+          },
+          {
+            "from": "EVT-03",
+            "relation": "发布活动",
+            "to": "EVT-04"
+          },
+          {
+            "from": "EVT-03",
+            "relation": "开放报名",
+            "to": "EVT-05"
+          },
+          {
+            "from": "EVT-07",
+            "relation": "约束可报名数",
+            "to": "EVT-05"
+          },
+          {
+            "from": "EVT-05",
+            "relation": "产生报名记录",
+            "to": "EVT-06"
+          },
+          {
+            "from": "EVT-05",
+            "relation": "汇总参与者",
+            "to": "EVT-08"
+          },
+          {
+            "from": "EVT-05",
+            "relation": "占用或释放名额",
+            "to": "EVT-07"
+          },
+          {
+            "from": "EVT-06",
+            "relation": "释放名额并更新名单",
+            "to": "EVT-08"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-2-14；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：概要设计联审\n变化对象：EVT-03 活动审核与发布\n变化类型：状态变更\n变更前：审核通过立即发布并开放报名\n变更后：审核通过后进入定时发布，发布时间到达才开放报名\n已有追踪关系：EVT-01-确认发起人->EVT-02；EVT-02-进入审核->EVT-03；EVT-03-发布活动->EVT-04；EVT-03-开放报名->EVT-05；EVT-07-约束可报名数->EVT-05；EVT-05-产生报名记录->EVT-06；EVT-05-汇总参与者->EVT-08；EVT-05-占用或释放名额->EVT-07；EVT-06-释放名额并更新名单->EVT-08\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L2-09",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-1-08",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "评审反馈、缺陷或业务规则调整",
+        "review_stage": "需求评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "EXM-04",
+        "requirement_title": "客观题自动批阅",
+        "change_type": "修改",
+        "before": "客观题错选得0分",
+        "after": "多选题少选得部分分，错选仍为0分"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "EXM-01",
+            "title": "题库管理"
+          },
+          {
+            "id": "EXM-02",
+            "title": "考试与试卷配置"
+          },
+          {
+            "id": "EXM-03",
+            "title": "学生答题记录"
+          },
+          {
+            "id": "EXM-04",
+            "title": "客观题自动批阅"
+          },
+          {
+            "id": "EXM-05",
+            "title": "主观题人工评阅"
+          },
+          {
+            "id": "EXM-06",
+            "title": "成绩合成"
+          },
+          {
+            "id": "EXM-07",
+            "title": "学生成绩查询"
+          },
+          {
+            "id": "EXM-08",
+            "title": "成绩分析"
+          },
+          {
+            "id": "EXM-09",
+            "title": "试题难度与区分度分析"
+          },
+          {
+            "id": "EXM-10",
+            "title": "成绩报告导出"
+          },
+          {
+            "id": "EXM-11",
+            "title": "成绩复核与申诉"
+          }
+        ],
+        "edges": [
+          {
+            "from": "EXM-01",
+            "relation": "提供题目与标准答案",
+            "to": "EXM-02"
+          },
+          {
+            "from": "EXM-02",
+            "relation": "生成答卷结构",
+            "to": "EXM-03"
+          },
+          {
+            "from": "EXM-02",
+            "relation": "提供标准答案",
+            "to": "EXM-04"
+          },
+          {
+            "from": "EXM-03",
+            "relation": "提供学生答案",
+            "to": "EXM-04"
+          },
+          {
+            "from": "EXM-03",
+            "relation": "提供主观题答案",
+            "to": "EXM-05"
+          },
+          {
+            "from": "EXM-04",
+            "relation": "提供客观题得分",
+            "to": "EXM-06"
+          },
+          {
+            "from": "EXM-05",
+            "relation": "提供主观题得分",
+            "to": "EXM-06"
+          },
+          {
+            "from": "EXM-06",
+            "relation": "提供最终成绩",
+            "to": "EXM-07"
+          },
+          {
+            "from": "EXM-06",
+            "relation": "提供全量成绩",
+            "to": "EXM-08"
+          },
+          {
+            "from": "EXM-03",
+            "relation": "提供逐题作答",
+            "to": "EXM-09"
+          },
+          {
+            "from": "EXM-06",
+            "relation": "提供逐题得分",
+            "to": "EXM-09"
+          },
+          {
+            "from": "EXM-08",
+            "relation": "提供统计结果",
+            "to": "EXM-10"
+          },
+          {
+            "from": "EXM-09",
+            "relation": "提供试题分析",
+            "to": "EXM-10"
+          },
+          {
+            "from": "EXM-07",
+            "relation": "发起复核依据",
+            "to": "EXM-11"
+          },
+          {
+            "from": "EXM-05",
+            "relation": "提供原始评阅记录",
+            "to": "EXM-11"
+          },
+          {
+            "from": "EXM-11",
+            "relation": "调整后重新统计",
+            "to": "EXM-08"
+          },
+          {
+            "from": "EXM-11",
+            "relation": "触发客观题重阅",
+            "to": "EXM-04"
+          },
+          {
+            "from": "EXM-11",
+            "relation": "触发成绩重算",
+            "to": "EXM-06"
+          },
+          {
+            "from": "EXM-11",
+            "relation": "撤回已发布成绩",
+            "to": "EXM-07"
+          },
+          {
+            "from": "EXM-11",
+            "relation": "触发试题指标重算",
+            "to": "EXM-09"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-1-08；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：需求评审\n变化对象：EXM-04 客观题自动批阅\n变化类型：修改\n变更前：客观题错选得0分\n变更后：多选题少选得部分分，错选仍为0分\n已有追踪关系：EXM-01-提供题目与标准答案->EXM-02；EXM-02-生成答卷结构->EXM-03；EXM-02-提供标准答案->EXM-04；EXM-03-提供学生答案->EXM-04；EXM-03-提供主观题答案->EXM-05；EXM-04-提供客观题得分->EXM-06；EXM-05-提供主观题得分->EXM-06；EXM-06-提供最终成绩->EXM-07；EXM-06-提供全量成绩->EXM-08；EXM-03-提供逐题作答->EXM-09；EXM-06-提供逐题得分->EXM-09；EXM-08-提供统计结果->EXM-10；EXM-09-提供试题分析->EXM-10；EXM-07-发起复核依据->EXM-11；EXM-05-提供原始评阅记录->EXM-11；EXM-11-调整后重新统计->EXM-08；EXM-11-触发客观题重阅->EXM-04；EXM-11-触发成绩重算->EXM-06；EXM-11-撤回已发布成绩->EXM-07；EXM-11-触发试题指标重算->EXM-09\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L2-10",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-2-16",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "生命周期、审批或运行条件变化",
+        "review_stage": "概要设计联审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "SHP-05",
+        "requirement_title": "原型预览与结果确认",
+        "change_type": "状态变更",
+        "before": "商家确认后方案状态为confirmed",
+        "after": "新增有条件确认：允许带待补资料项进入生成，但不得通过最终测试"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "SHP-01",
+            "title": "商家需求采集与项目建档"
+          },
+          {
+            "id": "SHP-02",
+            "title": "行业模板与案例推荐"
+          },
+          {
+            "id": "SHP-03",
+            "title": "定制项配置管理"
+          },
+          {
+            "id": "SHP-04",
+            "title": "页面结构与功能方案生成"
+          },
+          {
+            "id": "SHP-05",
+            "title": "原型预览与结果确认"
+          },
+          {
+            "id": "SHP-06",
+            "title": "Agent团队协同编排"
+          },
+          {
+            "id": "SHP-07",
+            "title": "代码与交付物生成"
+          },
+          {
+            "id": "SHP-08",
+            "title": "质量校验与测试"
+          },
+          {
+            "id": "SHP-09",
+            "title": "版本管理与迭代修改"
+          },
+          {
+            "id": "SHP-10",
+            "title": "项目展示与过程留痕"
+          }
+        ],
+        "edges": [
+          {
+            "from": "SHP-01",
+            "relation": "提供行业与门店信息",
+            "to": "SHP-02"
+          },
+          {
+            "from": "SHP-01",
+            "relation": "建立项目档案",
+            "to": "SHP-09"
+          },
+          {
+            "from": "SHP-02",
+            "relation": "提供模板基线",
+            "to": "SHP-03"
+          },
+          {
+            "from": "SHP-03",
+            "relation": "提供确认配置",
+            "to": "SHP-04"
+          },
+          {
+            "from": "SHP-04",
+            "relation": "提供方案",
+            "to": "SHP-05"
+          },
+          {
+            "from": "SHP-05",
+            "relation": "确认生成基线",
+            "to": "SHP-07"
+          },
+          {
+            "from": "SHP-06",
+            "relation": "编排生成流程",
+            "to": "SHP-07"
+          },
+          {
+            "from": "SHP-07",
+            "relation": "提供待验产物",
+            "to": "SHP-08"
+          },
+          {
+            "from": "SHP-08",
+            "relation": "决定是否交付",
+            "to": "SHP-10"
+          },
+          {
+            "from": "SHP-09",
+            "relation": "触发重新生成",
+            "to": "SHP-04"
+          },
+          {
+            "from": "SHP-09",
+            "relation": "触发复测",
+            "to": "SHP-08"
+          },
+          {
+            "from": "SHP-06",
+            "relation": "记录协作过程",
+            "to": "SHP-10"
+          },
+          {
+            "from": "SHP-02",
+            "relation": "形成模板版本基线",
+            "to": "SHP-09"
+          },
+          {
+            "from": "SHP-05",
+            "relation": "确立项目版本基线",
+            "to": "SHP-09"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-2-16；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：概要设计联审\n变化对象：SHP-05 原型预览与结果确认\n变化类型：状态变更\n变更前：商家确认后方案状态为confirmed\n变更后：新增有条件确认：允许带待补资料项进入生成，但不得通过最终测试\n已有追踪关系：SHP-01-提供行业与门店信息->SHP-02；SHP-01-建立项目档案->SHP-09；SHP-02-提供模板基线->SHP-03；SHP-03-提供确认配置->SHP-04；SHP-04-提供方案->SHP-05；SHP-05-确认生成基线->SHP-07；SHP-06-编排生成流程->SHP-07；SHP-07-提供待验产物->SHP-08；SHP-08-决定是否交付->SHP-10；SHP-09-触发重新生成->SHP-04；SHP-09-触发复测->SHP-08；SHP-06-记录协作过程->SHP-10；SHP-02-形成模板版本基线->SHP-09；SHP-05-确立项目版本基线->SHP-09\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L2-11",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-2-12",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "生命周期、审批或运行条件变化",
+        "review_stage": "概要设计联审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "REP-05",
+        "requirement_title": "维修人员处理工单",
+        "change_type": "状态变更",
+        "before": "维修完成后直接变为已完成",
+        "after": "维修完成后进入待学生确认，48小时未确认自动完成"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "REP-01",
+            "title": "学生提交报修"
+          },
+          {
+            "id": "REP-02",
+            "title": "宿管审核工单"
+          },
+          {
+            "id": "REP-03",
+            "title": "指派维修人员"
+          },
+          {
+            "id": "REP-04",
+            "title": "派工通知"
+          },
+          {
+            "id": "REP-05",
+            "title": "维修人员处理工单"
+          },
+          {
+            "id": "REP-06",
+            "title": "工单状态看板"
+          },
+          {
+            "id": "REP-07",
+            "title": "重点待处理提醒"
+          },
+          {
+            "id": "REP-08",
+            "title": "维修绩效"
+          },
+          {
+            "id": "REP-09",
+            "title": "数据统计"
+          }
+        ],
+        "edges": [
+          {
+            "from": "REP-01",
+            "relation": "进入审核队列",
+            "to": "REP-02"
+          },
+          {
+            "from": "REP-02",
+            "relation": "审核通过后派单",
+            "to": "REP-03"
+          },
+          {
+            "from": "REP-03",
+            "relation": "生成派工消息",
+            "to": "REP-04"
+          },
+          {
+            "from": "REP-03",
+            "relation": "建立维修任务",
+            "to": "REP-05"
+          },
+          {
+            "from": "REP-05",
+            "relation": "更新工单状态",
+            "to": "REP-06"
+          },
+          {
+            "from": "REP-05",
+            "relation": "提供处理时长",
+            "to": "REP-08"
+          },
+          {
+            "from": "REP-05",
+            "relation": "提供完成记录",
+            "to": "REP-09"
+          },
+          {
+            "from": "REP-06",
+            "relation": "提供超时状态",
+            "to": "REP-07"
+          },
+          {
+            "from": "REP-07",
+            "relation": "要求紧急度标识",
+            "to": "REP-06"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-2-12；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：概要设计联审\n变化对象：REP-05 维修人员处理工单\n变化类型：状态变更\n变更前：维修完成后直接变为已完成\n变更后：维修完成后进入待学生确认，48小时未确认自动完成\n已有追踪关系：REP-01-进入审核队列->REP-02；REP-02-审核通过后派单->REP-03；REP-03-生成派工消息->REP-04；REP-03-建立维修任务->REP-05；REP-05-更新工单状态->REP-06；REP-05-提供处理时长->REP-08；REP-05-提供完成记录->REP-09；REP-06-提供超时状态->REP-07；REP-07-要求紧急度标识->REP-06\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L2-12",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-2-20",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "评审反馈、缺陷或业务规则调整",
+        "review_stage": "概要设计联审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "DRW-10",
+        "requirement_title": "移动端查看图纸",
+        "change_type": "修改",
+        "before": "移动端默认打开最新已发布图纸",
+        "after": "允许打开待审批版本，但必须显示醒目标记且禁止离线缓存"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "DRW-01",
+            "title": "上传图纸新版本"
+          },
+          {
+            "id": "DRW-02",
+            "title": "图纸版本对比"
+          },
+          {
+            "id": "DRW-03",
+            "title": "图纸知识图谱"
+          },
+          {
+            "id": "DRW-04",
+            "title": "智能变更影响分析"
+          },
+          {
+            "id": "DRW-05",
+            "title": "审批图纸版本"
+          },
+          {
+            "id": "DRW-06",
+            "title": "变更预警通知"
+          },
+          {
+            "id": "DRW-07",
+            "title": "图纸问题标注"
+          },
+          {
+            "id": "DRW-08",
+            "title": "自动生成协作任务"
+          },
+          {
+            "id": "DRW-09",
+            "title": "问题进度跟踪"
+          },
+          {
+            "id": "DRW-10",
+            "title": "移动端查看图纸"
+          },
+          {
+            "id": "DRW-11",
+            "title": "离线使用与同步"
+          }
+        ],
+        "edges": [
+          {
+            "from": "DRW-01",
+            "relation": "提供新旧版本",
+            "to": "DRW-02"
+          },
+          {
+            "from": "DRW-02",
+            "relation": "提供图形差异",
+            "to": "DRW-04"
+          },
+          {
+            "from": "DRW-03",
+            "relation": "提供关联对象",
+            "to": "DRW-04"
+          },
+          {
+            "from": "DRW-04",
+            "relation": "提供影响报告",
+            "to": "DRW-05"
+          },
+          {
+            "from": "DRW-04",
+            "relation": "触发预警",
+            "to": "DRW-06"
+          },
+          {
+            "from": "DRW-07",
+            "relation": "生成结构化问题",
+            "to": "DRW-08"
+          },
+          {
+            "from": "DRW-08",
+            "relation": "建立处理任务",
+            "to": "DRW-09"
+          },
+          {
+            "from": "DRW-10",
+            "relation": "提供现场图纸",
+            "to": "DRW-07"
+          },
+          {
+            "from": "DRW-10",
+            "relation": "缓存图纸",
+            "to": "DRW-11"
+          },
+          {
+            "from": "DRW-11",
+            "relation": "回传离线标注",
+            "to": "DRW-07"
+          },
+          {
+            "from": "DRW-10",
+            "relation": "展示待审批版本",
+            "to": "DRW-05"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-2-20；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：概要设计联审\n变化对象：DRW-10 移动端查看图纸\n变化类型：修改\n变更前：移动端默认打开最新已发布图纸\n变更后：允许打开待审批版本，但必须显示醒目标记且禁止离线缓存\n已有追踪关系：DRW-01-提供新旧版本->DRW-02；DRW-02-提供图形差异->DRW-04；DRW-03-提供关联对象->DRW-04；DRW-04-提供影响报告->DRW-05；DRW-04-触发预警->DRW-06；DRW-07-生成结构化问题->DRW-08；DRW-08-建立处理任务->DRW-09；DRW-10-提供现场图纸->DRW-07；DRW-10-缓存图纸->DRW-11；DRW-11-回传离线标注->DRW-07；DRW-10-展示待审批版本->DRW-05\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L2-13",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-2-03",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "生命周期、审批或运行条件变化",
+        "review_stage": "概要设计联审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "META-03",
+        "requirement_title": "代码静态分析",
+        "change_type": "状态变更",
+        "before": "分析成功后生成完整issues数组",
+        "after": "部分规则超时时状态为partial_success并返回已完成规则结果"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "META-01",
+            "title": "用户注册与登录"
+          },
+          {
+            "id": "META-02",
+            "title": "代码输入与样例加载"
+          },
+          {
+            "id": "META-03",
+            "title": "代码静态分析"
+          },
+          {
+            "id": "META-04",
+            "title": "问题列表与严重级别展示"
+          },
+          {
+            "id": "META-05",
+            "title": "Markdown报告生成"
+          },
+          {
+            "id": "META-06",
+            "title": "自动重构输出"
+          },
+          {
+            "id": "META-07",
+            "title": "历史任务查询"
+          }
+        ],
+        "edges": [
+          {
+            "from": "META-01",
+            "relation": "确定任务归属",
+            "to": "META-07"
+          },
+          {
+            "from": "META-02",
+            "relation": "提供规范化源码",
+            "to": "META-03"
+          },
+          {
+            "from": "META-03",
+            "relation": "提供发现项",
+            "to": "META-04"
+          },
+          {
+            "from": "META-03",
+            "relation": "提供分析结果",
+            "to": "META-05"
+          },
+          {
+            "from": "META-03",
+            "relation": "提供定位信息",
+            "to": "META-06"
+          },
+          {
+            "from": "META-05",
+            "relation": "持久化报告引用",
+            "to": "META-07"
+          },
+          {
+            "from": "META-05",
+            "relation": "与重构结果组成交付包",
+            "to": "META-06"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-2-03；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：概要设计联审\n变化对象：META-03 代码静态分析\n变化类型：状态变更\n变更前：分析成功后生成完整issues数组\n变更后：部分规则超时时状态为partial_success并返回已完成规则结果\n已有追踪关系：META-01-确定任务归属->META-07；META-02-提供规范化源码->META-03；META-03-提供发现项->META-04；META-03-提供分析结果->META-05；META-03-提供定位信息->META-06；META-05-持久化报告引用->META-07；META-05-与重构结果组成交付包->META-06\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L2-14",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-1-12",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "评审反馈、缺陷或业务规则调整",
+        "review_stage": "需求评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "REP-03",
+        "requirement_title": "指派维修人员",
+        "change_type": "修改",
+        "before": "派单后仅维修人员收到通知",
+        "after": "派单后学生和维修人员都收到通知"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "REP-01",
+            "title": "学生提交报修"
+          },
+          {
+            "id": "REP-02",
+            "title": "宿管审核工单"
+          },
+          {
+            "id": "REP-03",
+            "title": "指派维修人员"
+          },
+          {
+            "id": "REP-04",
+            "title": "派工通知"
+          },
+          {
+            "id": "REP-05",
+            "title": "维修人员处理工单"
+          },
+          {
+            "id": "REP-06",
+            "title": "工单状态看板"
+          },
+          {
+            "id": "REP-07",
+            "title": "重点待处理提醒"
+          },
+          {
+            "id": "REP-08",
+            "title": "维修绩效"
+          },
+          {
+            "id": "REP-09",
+            "title": "数据统计"
+          }
+        ],
+        "edges": [
+          {
+            "from": "REP-01",
+            "relation": "进入审核队列",
+            "to": "REP-02"
+          },
+          {
+            "from": "REP-02",
+            "relation": "审核通过后派单",
+            "to": "REP-03"
+          },
+          {
+            "from": "REP-03",
+            "relation": "生成派工消息",
+            "to": "REP-04"
+          },
+          {
+            "from": "REP-03",
+            "relation": "建立维修任务",
+            "to": "REP-05"
+          },
+          {
+            "from": "REP-05",
+            "relation": "更新工单状态",
+            "to": "REP-06"
+          },
+          {
+            "from": "REP-05",
+            "relation": "提供处理时长",
+            "to": "REP-08"
+          },
+          {
+            "from": "REP-05",
+            "relation": "提供完成记录",
+            "to": "REP-09"
+          },
+          {
+            "from": "REP-06",
+            "relation": "提供超时状态",
+            "to": "REP-07"
+          },
+          {
+            "from": "REP-07",
+            "relation": "要求紧急度标识",
+            "to": "REP-06"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-1-12；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：需求评审\n变化对象：REP-03 指派维修人员\n变化类型：修改\n变更前：派单后仅维修人员收到通知\n变更后：派单后学生和维修人员都收到通知\n已有追踪关系：REP-01-进入审核队列->REP-02；REP-02-审核通过后派单->REP-03；REP-03-生成派工消息->REP-04；REP-03-建立维修任务->REP-05；REP-05-更新工单状态->REP-06；REP-05-提供处理时长->REP-08；REP-05-提供完成记录->REP-09；REP-06-提供超时状态->REP-07；REP-07-要求紧急度标识->REP-06\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L2-15",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L2",
+    "difficulty_zh": "中",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-3-19",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/架构评审",
+        "change_trigger": "评审反馈、缺陷或业务规则调整",
+        "review_stage": "变更影响评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "MON-11",
+        "requirement_title": "历史记录与回放",
+        "change_type": "修改",
+        "before": "回放按操作日志确定性重演",
+        "after": "允许对旧对局应用新版规则进行模拟回放"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "MON-01",
+            "title": "用户注册与登录"
+          },
+          {
+            "id": "MON-02",
+            "title": "创建游戏房间"
+          },
+          {
+            "id": "MON-03",
+            "title": "加入游戏房间"
+          },
+          {
+            "id": "MON-04",
+            "title": "开始游戏"
+          },
+          {
+            "id": "MON-05",
+            "title": "回合管理"
+          },
+          {
+            "id": "MON-06",
+            "title": "掷骰子移动"
+          },
+          {
+            "id": "MON-07",
+            "title": "地产与经济交易"
+          },
+          {
+            "id": "MON-08",
+            "title": "支付过路费"
+          },
+          {
+            "id": "MON-09",
+            "title": "破产判定"
+          },
+          {
+            "id": "MON-10",
+            "title": "游戏结束判定"
+          },
+          {
+            "id": "MON-11",
+            "title": "历史记录与回放"
+          }
+        ],
+        "edges": [
+          {
+            "from": "MON-01",
+            "relation": "认证房主",
+            "to": "MON-02"
+          },
+          {
+            "from": "MON-01",
+            "relation": "认证玩家",
+            "to": "MON-03"
+          },
+          {
+            "from": "MON-02",
+            "relation": "提供房间配置",
+            "to": "MON-04"
+          },
+          {
+            "from": "MON-03",
+            "relation": "提供玩家列表",
+            "to": "MON-04"
+          },
+          {
+            "from": "MON-04",
+            "relation": "初始化顺序",
+            "to": "MON-05"
+          },
+          {
+            "from": "MON-05",
+            "relation": "驱动行动",
+            "to": "MON-06"
+          },
+          {
+            "from": "MON-06",
+            "relation": "触发地块事件",
+            "to": "MON-07"
+          },
+          {
+            "from": "MON-07",
+            "relation": "计算租金",
+            "to": "MON-08"
+          },
+          {
+            "from": "MON-08",
+            "relation": "触发资不抵债检查",
+            "to": "MON-09"
+          },
+          {
+            "from": "MON-09",
+            "relation": "触发胜负检查",
+            "to": "MON-10"
+          },
+          {
+            "from": "MON-05",
+            "relation": "记录操作序列",
+            "to": "MON-11"
+          },
+          {
+            "from": "MON-10",
+            "relation": "封存对局结果",
+            "to": "MON-11"
+          },
+          {
+            "from": "MON-11",
+            "relation": "模拟回放复用回合规则",
+            "to": "MON-05"
+          },
+          {
+            "from": "MON-11",
+            "relation": "模拟回放复用经济规则",
+            "to": "MON-07"
+          },
+          {
+            "from": "MON-11",
+            "relation": "模拟回放复用租金规则",
+            "to": "MON-08"
+          },
+          {
+            "from": "MON-11",
+            "relation": "模拟回放复用破产规则",
+            "to": "MON-09"
+          },
+          {
+            "from": "MON-11",
+            "relation": "模拟回放复用结算规则",
+            "to": "MON-10"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-3-19；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：变更影响评审\n变化对象：MON-11 历史记录与回放\n变化类型：修改\n变更前：回放按操作日志确定性重演\n变更后：允许对旧对局应用新版规则进行模拟回放\n已有追踪关系：MON-01-认证房主->MON-02；MON-01-认证玩家->MON-03；MON-02-提供房间配置->MON-04；MON-03-提供玩家列表->MON-04；MON-04-初始化顺序->MON-05；MON-05-驱动行动->MON-06；MON-06-触发地块事件->MON-07；MON-07-计算租金->MON-08；MON-08-触发资不抵债检查->MON-09；MON-09-触发胜负检查->MON-10；MON-05-记录操作序列->MON-11；MON-10-封存对局结果->MON-11；MON-11-模拟回放复用回合规则->MON-05；MON-11-模拟回放复用经济规则->MON-07；MON-11-模拟回放复用租金规则->MON-08；MON-11-模拟回放复用破产规则->MON-09；MON-11-模拟回放复用结算规则->MON-10\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L3-01",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-2-02",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "生命周期、审批或运行条件变化",
+        "review_stage": "概要设计联审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "LOG-01",
+        "requirement_title": "数据源配置与连接测试",
+        "change_type": "状态变更",
+        "before": "数据源active且连接正常",
+        "after": "数据源状态变为degraded，允许展示旧数据但禁止触发新告警"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "LOG-01",
+            "title": "数据源配置与连接测试"
+          },
+          {
+            "id": "LOG-02",
+            "title": "数据采集与统一存储"
+          },
+          {
+            "id": "LOG-03",
+            "title": "实时监测总览"
+          },
+          {
+            "id": "LOG-04",
+            "title": "异常检测引擎"
+          },
+          {
+            "id": "LOG-05",
+            "title": "告警管理"
+          },
+          {
+            "id": "LOG-06",
+            "title": "AI巡检报告"
+          },
+          {
+            "id": "LOG-07",
+            "title": "报告追问"
+          },
+          {
+            "id": "LOG-08",
+            "title": "Webhook事件联动"
+          }
+        ],
+        "edges": [
+          {
+            "from": "LOG-01",
+            "relation": "提供可用数据源",
+            "to": "LOG-02"
+          },
+          {
+            "from": "LOG-02",
+            "relation": "提供窗口数据",
+            "to": "LOG-03"
+          },
+          {
+            "from": "LOG-02",
+            "relation": "提供统一数据点",
+            "to": "LOG-04"
+          },
+          {
+            "from": "LOG-04",
+            "relation": "生成异常事件",
+            "to": "LOG-05"
+          },
+          {
+            "from": "LOG-02",
+            "relation": "提供分析上下文",
+            "to": "LOG-06"
+          },
+          {
+            "from": "LOG-05",
+            "relation": "触发高风险分析",
+            "to": "LOG-06"
+          },
+          {
+            "from": "LOG-06",
+            "relation": "提供对话上下文",
+            "to": "LOG-07"
+          },
+          {
+            "from": "LOG-05",
+            "relation": "触发外部通知",
+            "to": "LOG-08"
+          },
+          {
+            "from": "LOG-06",
+            "relation": "触发诊断联动",
+            "to": "LOG-08"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-2-02；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：概要设计联审\n变化对象：LOG-01 数据源配置与连接测试\n变化类型：状态变更\n变更前：数据源active且连接正常\n变更后：数据源状态变为degraded，允许展示旧数据但禁止触发新告警\n已有追踪关系：LOG-01-提供可用数据源->LOG-02；LOG-02-提供窗口数据->LOG-03；LOG-02-提供统一数据点->LOG-04；LOG-04-生成异常事件->LOG-05；LOG-02-提供分析上下文->LOG-06；LOG-05-触发高风险分析->LOG-06；LOG-06-提供对话上下文->LOG-07；LOG-05-触发外部通知->LOG-08；LOG-06-触发诊断联动->LOG-08\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L3-02",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-3-02",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/架构评审",
+        "change_trigger": "范围收缩或合规/运维约束",
+        "review_stage": "变更影响评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "LOG-02",
+        "requirement_title": "数据采集与统一存储",
+        "change_type": "删除",
+        "before": "统一数据点保留24小时并供监测、检测和AI分析复用",
+        "after": "删除统一缓存层，各数据源由下游模块直接读取"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "LOG-01",
+            "title": "数据源配置与连接测试"
+          },
+          {
+            "id": "LOG-02",
+            "title": "数据采集与统一存储"
+          },
+          {
+            "id": "LOG-03",
+            "title": "实时监测总览"
+          },
+          {
+            "id": "LOG-04",
+            "title": "异常检测引擎"
+          },
+          {
+            "id": "LOG-05",
+            "title": "告警管理"
+          },
+          {
+            "id": "LOG-06",
+            "title": "AI巡检报告"
+          },
+          {
+            "id": "LOG-07",
+            "title": "报告追问"
+          },
+          {
+            "id": "LOG-08",
+            "title": "Webhook事件联动"
+          }
+        ],
+        "edges": [
+          {
+            "from": "LOG-01",
+            "relation": "提供可用数据源",
+            "to": "LOG-02"
+          },
+          {
+            "from": "LOG-02",
+            "relation": "提供窗口数据",
+            "to": "LOG-03"
+          },
+          {
+            "from": "LOG-02",
+            "relation": "提供统一数据点",
+            "to": "LOG-04"
+          },
+          {
+            "from": "LOG-04",
+            "relation": "生成异常事件",
+            "to": "LOG-05"
+          },
+          {
+            "from": "LOG-02",
+            "relation": "提供分析上下文",
+            "to": "LOG-06"
+          },
+          {
+            "from": "LOG-05",
+            "relation": "触发高风险分析",
+            "to": "LOG-06"
+          },
+          {
+            "from": "LOG-06",
+            "relation": "提供对话上下文",
+            "to": "LOG-07"
+          },
+          {
+            "from": "LOG-05",
+            "relation": "触发外部通知",
+            "to": "LOG-08"
+          },
+          {
+            "from": "LOG-06",
+            "relation": "触发诊断联动",
+            "to": "LOG-08"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-3-02；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：变更影响评审\n变化对象：LOG-02 数据采集与统一存储\n变化类型：删除\n变更前：统一数据点保留24小时并供监测、检测和AI分析复用\n变更后：删除统一缓存层，各数据源由下游模块直接读取\n已有追踪关系：LOG-01-提供可用数据源->LOG-02；LOG-02-提供窗口数据->LOG-03；LOG-02-提供统一数据点->LOG-04；LOG-04-生成异常事件->LOG-05；LOG-02-提供分析上下文->LOG-06；LOG-05-触发高风险分析->LOG-06；LOG-06-提供对话上下文->LOG-07；LOG-05-触发外部通知->LOG-08；LOG-06-触发诊断联动->LOG-08\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L3-03",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-2-08",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "生命周期、审批或运行条件变化",
+        "review_stage": "概要设计联审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "EXM-05",
+        "requirement_title": "主观题人工评阅",
+        "change_type": "状态变更",
+        "before": "主观题已评阅即进入成绩合成",
+        "after": "新增待复核状态，复核完成前不得发布总成绩"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "EXM-01",
+            "title": "题库管理"
+          },
+          {
+            "id": "EXM-02",
+            "title": "考试与试卷配置"
+          },
+          {
+            "id": "EXM-03",
+            "title": "学生答题记录"
+          },
+          {
+            "id": "EXM-04",
+            "title": "客观题自动批阅"
+          },
+          {
+            "id": "EXM-05",
+            "title": "主观题人工评阅"
+          },
+          {
+            "id": "EXM-06",
+            "title": "成绩合成"
+          },
+          {
+            "id": "EXM-07",
+            "title": "学生成绩查询"
+          },
+          {
+            "id": "EXM-08",
+            "title": "成绩分析"
+          },
+          {
+            "id": "EXM-09",
+            "title": "试题难度与区分度分析"
+          },
+          {
+            "id": "EXM-10",
+            "title": "成绩报告导出"
+          },
+          {
+            "id": "EXM-11",
+            "title": "成绩复核与申诉"
+          }
+        ],
+        "edges": [
+          {
+            "from": "EXM-01",
+            "relation": "提供题目与标准答案",
+            "to": "EXM-02"
+          },
+          {
+            "from": "EXM-02",
+            "relation": "生成答卷结构",
+            "to": "EXM-03"
+          },
+          {
+            "from": "EXM-02",
+            "relation": "提供标准答案",
+            "to": "EXM-04"
+          },
+          {
+            "from": "EXM-03",
+            "relation": "提供学生答案",
+            "to": "EXM-04"
+          },
+          {
+            "from": "EXM-03",
+            "relation": "提供主观题答案",
+            "to": "EXM-05"
+          },
+          {
+            "from": "EXM-04",
+            "relation": "提供客观题得分",
+            "to": "EXM-06"
+          },
+          {
+            "from": "EXM-05",
+            "relation": "提供主观题得分",
+            "to": "EXM-06"
+          },
+          {
+            "from": "EXM-06",
+            "relation": "提供最终成绩",
+            "to": "EXM-07"
+          },
+          {
+            "from": "EXM-06",
+            "relation": "提供全量成绩",
+            "to": "EXM-08"
+          },
+          {
+            "from": "EXM-03",
+            "relation": "提供逐题作答",
+            "to": "EXM-09"
+          },
+          {
+            "from": "EXM-06",
+            "relation": "提供逐题得分",
+            "to": "EXM-09"
+          },
+          {
+            "from": "EXM-08",
+            "relation": "提供统计结果",
+            "to": "EXM-10"
+          },
+          {
+            "from": "EXM-09",
+            "relation": "提供试题分析",
+            "to": "EXM-10"
+          },
+          {
+            "from": "EXM-07",
+            "relation": "发起复核依据",
+            "to": "EXM-11"
+          },
+          {
+            "from": "EXM-05",
+            "relation": "提供原始评阅记录",
+            "to": "EXM-11"
+          },
+          {
+            "from": "EXM-11",
+            "relation": "调整后重新统计",
+            "to": "EXM-08"
+          },
+          {
+            "from": "EXM-11",
+            "relation": "触发客观题重阅",
+            "to": "EXM-04"
+          },
+          {
+            "from": "EXM-11",
+            "relation": "触发成绩重算",
+            "to": "EXM-06"
+          },
+          {
+            "from": "EXM-11",
+            "relation": "撤回已发布成绩",
+            "to": "EXM-07"
+          },
+          {
+            "from": "EXM-11",
+            "relation": "触发试题指标重算",
+            "to": "EXM-09"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-2-08；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：概要设计联审\n变化对象：EXM-05 主观题人工评阅\n变化类型：状态变更\n变更前：主观题已评阅即进入成绩合成\n变更后：新增待复核状态，复核完成前不得发布总成绩\n已有追踪关系：EXM-01-提供题目与标准答案->EXM-02；EXM-02-生成答卷结构->EXM-03；EXM-02-提供标准答案->EXM-04；EXM-03-提供学生答案->EXM-04；EXM-03-提供主观题答案->EXM-05；EXM-04-提供客观题得分->EXM-06；EXM-05-提供主观题得分->EXM-06；EXM-06-提供最终成绩->EXM-07；EXM-06-提供全量成绩->EXM-08；EXM-03-提供逐题作答->EXM-09；EXM-06-提供逐题得分->EXM-09；EXM-08-提供统计结果->EXM-10；EXM-09-提供试题分析->EXM-10；EXM-07-发起复核依据->EXM-11；EXM-05-提供原始评阅记录->EXM-11；EXM-11-调整后重新统计->EXM-08；EXM-11-触发客观题重阅->EXM-04；EXM-11-触发成绩重算->EXM-06；EXM-11-撤回已发布成绩->EXM-07；EXM-11-触发试题指标重算->EXM-09\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L3-04",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-3-16",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/架构评审",
+        "change_trigger": "重复能力治理或流程统一",
+        "review_stage": "变更影响评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "SHP-02",
+        "requirement_title": "行业模板与案例推荐",
+        "change_type": "合并",
+        "before": "行业模板与版本管理分别维护模板基线和项目迭代",
+        "after": "合并为可版本化模板实例；模板升级可选择性合并到存量项目"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "SHP-01",
+            "title": "商家需求采集与项目建档"
+          },
+          {
+            "id": "SHP-02",
+            "title": "行业模板与案例推荐"
+          },
+          {
+            "id": "SHP-03",
+            "title": "定制项配置管理"
+          },
+          {
+            "id": "SHP-04",
+            "title": "页面结构与功能方案生成"
+          },
+          {
+            "id": "SHP-05",
+            "title": "原型预览与结果确认"
+          },
+          {
+            "id": "SHP-06",
+            "title": "Agent团队协同编排"
+          },
+          {
+            "id": "SHP-07",
+            "title": "代码与交付物生成"
+          },
+          {
+            "id": "SHP-08",
+            "title": "质量校验与测试"
+          },
+          {
+            "id": "SHP-09",
+            "title": "版本管理与迭代修改"
+          },
+          {
+            "id": "SHP-10",
+            "title": "项目展示与过程留痕"
+          }
+        ],
+        "edges": [
+          {
+            "from": "SHP-01",
+            "relation": "提供行业与门店信息",
+            "to": "SHP-02"
+          },
+          {
+            "from": "SHP-01",
+            "relation": "建立项目档案",
+            "to": "SHP-09"
+          },
+          {
+            "from": "SHP-02",
+            "relation": "提供模板基线",
+            "to": "SHP-03"
+          },
+          {
+            "from": "SHP-03",
+            "relation": "提供确认配置",
+            "to": "SHP-04"
+          },
+          {
+            "from": "SHP-04",
+            "relation": "提供方案",
+            "to": "SHP-05"
+          },
+          {
+            "from": "SHP-05",
+            "relation": "确认生成基线",
+            "to": "SHP-07"
+          },
+          {
+            "from": "SHP-06",
+            "relation": "编排生成流程",
+            "to": "SHP-07"
+          },
+          {
+            "from": "SHP-07",
+            "relation": "提供待验产物",
+            "to": "SHP-08"
+          },
+          {
+            "from": "SHP-08",
+            "relation": "决定是否交付",
+            "to": "SHP-10"
+          },
+          {
+            "from": "SHP-09",
+            "relation": "触发重新生成",
+            "to": "SHP-04"
+          },
+          {
+            "from": "SHP-09",
+            "relation": "触发复测",
+            "to": "SHP-08"
+          },
+          {
+            "from": "SHP-06",
+            "relation": "记录协作过程",
+            "to": "SHP-10"
+          },
+          {
+            "from": "SHP-02",
+            "relation": "形成模板版本基线",
+            "to": "SHP-09"
+          },
+          {
+            "from": "SHP-05",
+            "relation": "确立项目版本基线",
+            "to": "SHP-09"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-3-16；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：变更影响评审\n变化对象：SHP-02 行业模板与案例推荐\n变化类型：合并\n变更前：行业模板与版本管理分别维护模板基线和项目迭代\n变更后：合并为可版本化模板实例；模板升级可选择性合并到存量项目\n已有追踪关系：SHP-01-提供行业与门店信息->SHP-02；SHP-01-建立项目档案->SHP-09；SHP-02-提供模板基线->SHP-03；SHP-03-提供确认配置->SHP-04；SHP-04-提供方案->SHP-05；SHP-05-确认生成基线->SHP-07；SHP-06-编排生成流程->SHP-07；SHP-07-提供待验产物->SHP-08；SHP-08-决定是否交付->SHP-10；SHP-09-触发重新生成->SHP-04；SHP-09-触发复测->SHP-08；SHP-06-记录协作过程->SHP-10；SHP-02-形成模板版本基线->SHP-09；SHP-05-确立项目版本基线->SHP-09\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L3-05",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-2-07",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "生命周期、审批或运行条件变化",
+        "review_stage": "概要设计联审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "MON-03",
+        "requirement_title": "加入游戏房间",
+        "change_type": "状态变更",
+        "before": "玩家加入后状态为ready",
+        "after": "加入后默认spectator，手动准备后才转为ready"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "MON-01",
+            "title": "用户注册与登录"
+          },
+          {
+            "id": "MON-02",
+            "title": "创建游戏房间"
+          },
+          {
+            "id": "MON-03",
+            "title": "加入游戏房间"
+          },
+          {
+            "id": "MON-04",
+            "title": "开始游戏"
+          },
+          {
+            "id": "MON-05",
+            "title": "回合管理"
+          },
+          {
+            "id": "MON-06",
+            "title": "掷骰子移动"
+          },
+          {
+            "id": "MON-07",
+            "title": "地产与经济交易"
+          },
+          {
+            "id": "MON-08",
+            "title": "支付过路费"
+          },
+          {
+            "id": "MON-09",
+            "title": "破产判定"
+          },
+          {
+            "id": "MON-10",
+            "title": "游戏结束判定"
+          },
+          {
+            "id": "MON-11",
+            "title": "历史记录与回放"
+          }
+        ],
+        "edges": [
+          {
+            "from": "MON-01",
+            "relation": "认证房主",
+            "to": "MON-02"
+          },
+          {
+            "from": "MON-01",
+            "relation": "认证玩家",
+            "to": "MON-03"
+          },
+          {
+            "from": "MON-02",
+            "relation": "提供房间配置",
+            "to": "MON-04"
+          },
+          {
+            "from": "MON-03",
+            "relation": "提供玩家列表",
+            "to": "MON-04"
+          },
+          {
+            "from": "MON-04",
+            "relation": "初始化顺序",
+            "to": "MON-05"
+          },
+          {
+            "from": "MON-05",
+            "relation": "驱动行动",
+            "to": "MON-06"
+          },
+          {
+            "from": "MON-06",
+            "relation": "触发地块事件",
+            "to": "MON-07"
+          },
+          {
+            "from": "MON-07",
+            "relation": "计算租金",
+            "to": "MON-08"
+          },
+          {
+            "from": "MON-08",
+            "relation": "触发资不抵债检查",
+            "to": "MON-09"
+          },
+          {
+            "from": "MON-09",
+            "relation": "触发胜负检查",
+            "to": "MON-10"
+          },
+          {
+            "from": "MON-05",
+            "relation": "记录操作序列",
+            "to": "MON-11"
+          },
+          {
+            "from": "MON-10",
+            "relation": "封存对局结果",
+            "to": "MON-11"
+          },
+          {
+            "from": "MON-11",
+            "relation": "模拟回放复用回合规则",
+            "to": "MON-05"
+          },
+          {
+            "from": "MON-11",
+            "relation": "模拟回放复用经济规则",
+            "to": "MON-07"
+          },
+          {
+            "from": "MON-11",
+            "relation": "模拟回放复用租金规则",
+            "to": "MON-08"
+          },
+          {
+            "from": "MON-11",
+            "relation": "模拟回放复用破产规则",
+            "to": "MON-09"
+          },
+          {
+            "from": "MON-11",
+            "relation": "模拟回放复用结算规则",
+            "to": "MON-10"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-2-07；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：概要设计联审\n变化对象：MON-03 加入游戏房间\n变化类型：状态变更\n变更前：玩家加入后状态为ready\n变更后：加入后默认spectator，手动准备后才转为ready\n已有追踪关系：MON-01-认证房主->MON-02；MON-01-认证玩家->MON-03；MON-02-提供房间配置->MON-04；MON-03-提供玩家列表->MON-04；MON-04-初始化顺序->MON-05；MON-05-驱动行动->MON-06；MON-06-触发地块事件->MON-07；MON-07-计算租金->MON-08；MON-08-触发资不抵债检查->MON-09；MON-09-触发胜负检查->MON-10；MON-05-记录操作序列->MON-11；MON-10-封存对局结果->MON-11；MON-11-模拟回放复用回合规则->MON-05；MON-11-模拟回放复用经济规则->MON-07；MON-11-模拟回放复用租金规则->MON-08；MON-11-模拟回放复用破产规则->MON-09；MON-11-模拟回放复用结算规则->MON-10\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L3-06",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-2-06",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "评审反馈、缺陷或业务规则调整",
+        "review_stage": "概要设计联审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "SAA-05",
+        "requirement_title": "角色权限与访客授权",
+        "change_type": "修改",
+        "before": "外部访客只读文档",
+        "after": "外部访客可评论文档但不可查看团队任务"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "SAA-01",
+            "title": "用户注册与账号激活"
+          },
+          {
+            "id": "SAA-02",
+            "title": "企业创建与租户开通"
+          },
+          {
+            "id": "SAA-03",
+            "title": "成员邀请与审批"
+          },
+          {
+            "id": "SAA-04",
+            "title": "团队与空间管理"
+          },
+          {
+            "id": "SAA-05",
+            "title": "角色权限与访客授权"
+          },
+          {
+            "id": "SAA-06",
+            "title": "任务管理"
+          },
+          {
+            "id": "SAA-07",
+            "title": "文档中心"
+          },
+          {
+            "id": "SAA-08",
+            "title": "仓库资源接入"
+          },
+          {
+            "id": "SAA-09",
+            "title": "协作资源图谱"
+          },
+          {
+            "id": "SAA-10",
+            "title": "通用审批流程"
+          },
+          {
+            "id": "SAA-11",
+            "title": "通知中心"
+          },
+          {
+            "id": "SAA-12",
+            "title": "多租户隔离与审计"
+          },
+          {
+            "id": "SAA-13",
+            "title": "大模型智能协作"
+          }
+        ],
+        "edges": [
+          {
+            "from": "SAA-01",
+            "relation": "创建开通主体",
+            "to": "SAA-02"
+          },
+          {
+            "from": "SAA-02",
+            "relation": "建立租户边界",
+            "to": "SAA-03"
+          },
+          {
+            "from": "SAA-02",
+            "relation": "建立组织空间",
+            "to": "SAA-04"
+          },
+          {
+            "from": "SAA-03",
+            "relation": "提供成员身份",
+            "to": "SAA-05"
+          },
+          {
+            "from": "SAA-04",
+            "relation": "提供资源容器",
+            "to": "SAA-05"
+          },
+          {
+            "from": "SAA-04",
+            "relation": "承载业务对象",
+            "to": "SAA-06"
+          },
+          {
+            "from": "SAA-04",
+            "relation": "承载业务对象",
+            "to": "SAA-07"
+          },
+          {
+            "from": "SAA-04",
+            "relation": "承载业务对象",
+            "to": "SAA-08"
+          },
+          {
+            "from": "SAA-05",
+            "relation": "控制访问",
+            "to": "SAA-06"
+          },
+          {
+            "from": "SAA-05",
+            "relation": "控制访问",
+            "to": "SAA-07"
+          },
+          {
+            "from": "SAA-05",
+            "relation": "控制访问",
+            "to": "SAA-08"
+          },
+          {
+            "from": "SAA-06",
+            "relation": "提供任务节点",
+            "to": "SAA-09"
+          },
+          {
+            "from": "SAA-07",
+            "relation": "提供文档节点",
+            "to": "SAA-09"
+          },
+          {
+            "from": "SAA-08",
+            "relation": "提供仓库节点",
+            "to": "SAA-09"
+          },
+          {
+            "from": "SAA-06",
+            "relation": "进入审批",
+            "to": "SAA-10"
+          },
+          {
+            "from": "SAA-07",
+            "relation": "进入审批",
+            "to": "SAA-10"
+          },
+          {
+            "from": "SAA-10",
+            "relation": "产生状态事件",
+            "to": "SAA-11"
+          },
+          {
+            "from": "SAA-05",
+            "relation": "约束智能操作",
+            "to": "SAA-13"
+          },
+          {
+            "from": "SAA-09",
+            "relation": "提供协作上下文",
+            "to": "SAA-13"
+          },
+          {
+            "from": "SAA-13",
+            "relation": "记录智能操作",
+            "to": "SAA-12"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-2-06；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：概要设计联审\n变化对象：SAA-05 角色权限与访客授权\n变化类型：修改\n变更前：外部访客只读文档\n变更后：外部访客可评论文档但不可查看团队任务\n已有追踪关系：SAA-01-创建开通主体->SAA-02；SAA-02-建立租户边界->SAA-03；SAA-02-建立组织空间->SAA-04；SAA-03-提供成员身份->SAA-05；SAA-04-提供资源容器->SAA-05；SAA-04-承载业务对象->SAA-06；SAA-04-承载业务对象->SAA-07；SAA-04-承载业务对象->SAA-08；SAA-05-控制访问->SAA-06；SAA-05-控制访问->SAA-07；SAA-05-控制访问->SAA-08；SAA-06-提供任务节点->SAA-09；SAA-07-提供文档节点->SAA-09；SAA-08-提供仓库节点->SAA-09；SAA-06-进入审批->SAA-10；SAA-07-进入审批->SAA-10；SAA-10-产生状态事件->SAA-11；SAA-05-约束智能操作->SAA-13；SAA-09-提供协作上下文->SAA-13；SAA-13-记录智能操作->SAA-12\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L3-07",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-3-12",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/架构评审",
+        "change_trigger": "需求粒度过大或职责边界需要重划",
+        "review_stage": "变更影响评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "REP-02",
+        "requirement_title": "宿管审核工单",
+        "change_type": "拆分",
+        "before": "宿管统一审核报修真实性和维修类别",
+        "after": "拆分为内容初审与专业分类复审；仅双重通过后派单"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "REP-01",
+            "title": "学生提交报修"
+          },
+          {
+            "id": "REP-02",
+            "title": "宿管审核工单"
+          },
+          {
+            "id": "REP-03",
+            "title": "指派维修人员"
+          },
+          {
+            "id": "REP-04",
+            "title": "派工通知"
+          },
+          {
+            "id": "REP-05",
+            "title": "维修人员处理工单"
+          },
+          {
+            "id": "REP-06",
+            "title": "工单状态看板"
+          },
+          {
+            "id": "REP-07",
+            "title": "重点待处理提醒"
+          },
+          {
+            "id": "REP-08",
+            "title": "维修绩效"
+          },
+          {
+            "id": "REP-09",
+            "title": "数据统计"
+          }
+        ],
+        "edges": [
+          {
+            "from": "REP-01",
+            "relation": "进入审核队列",
+            "to": "REP-02"
+          },
+          {
+            "from": "REP-02",
+            "relation": "审核通过后派单",
+            "to": "REP-03"
+          },
+          {
+            "from": "REP-03",
+            "relation": "生成派工消息",
+            "to": "REP-04"
+          },
+          {
+            "from": "REP-03",
+            "relation": "建立维修任务",
+            "to": "REP-05"
+          },
+          {
+            "from": "REP-05",
+            "relation": "更新工单状态",
+            "to": "REP-06"
+          },
+          {
+            "from": "REP-05",
+            "relation": "提供处理时长",
+            "to": "REP-08"
+          },
+          {
+            "from": "REP-05",
+            "relation": "提供完成记录",
+            "to": "REP-09"
+          },
+          {
+            "from": "REP-06",
+            "relation": "提供超时状态",
+            "to": "REP-07"
+          },
+          {
+            "from": "REP-07",
+            "relation": "要求紧急度标识",
+            "to": "REP-06"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-3-12；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：变更影响评审\n变化对象：REP-02 宿管审核工单\n变化类型：拆分\n变更前：宿管统一审核报修真实性和维修类别\n变更后：拆分为内容初审与专业分类复审；仅双重通过后派单\n已有追踪关系：REP-01-进入审核队列->REP-02；REP-02-审核通过后派单->REP-03；REP-03-生成派工消息->REP-04；REP-03-建立维修任务->REP-05；REP-05-更新工单状态->REP-06；REP-05-提供处理时长->REP-08；REP-05-提供完成记录->REP-09；REP-06-提供超时状态->REP-07；REP-07-要求紧急度标识->REP-06\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L3-08",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-2-19",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "生命周期、审批或运行条件变化",
+        "review_stage": "概要设计联审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "SAA-03",
+        "requirement_title": "成员邀请与审批",
+        "change_type": "状态变更",
+        "before": "邀请审批通过即成为正式成员",
+        "after": "审批通过后先处于pending_activation，激活前不可继承团队权限"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "SAA-01",
+            "title": "用户注册与账号激活"
+          },
+          {
+            "id": "SAA-02",
+            "title": "企业创建与租户开通"
+          },
+          {
+            "id": "SAA-03",
+            "title": "成员邀请与审批"
+          },
+          {
+            "id": "SAA-04",
+            "title": "团队与空间管理"
+          },
+          {
+            "id": "SAA-05",
+            "title": "角色权限与访客授权"
+          },
+          {
+            "id": "SAA-06",
+            "title": "任务管理"
+          },
+          {
+            "id": "SAA-07",
+            "title": "文档中心"
+          },
+          {
+            "id": "SAA-08",
+            "title": "仓库资源接入"
+          },
+          {
+            "id": "SAA-09",
+            "title": "协作资源图谱"
+          },
+          {
+            "id": "SAA-10",
+            "title": "通用审批流程"
+          },
+          {
+            "id": "SAA-11",
+            "title": "通知中心"
+          },
+          {
+            "id": "SAA-12",
+            "title": "多租户隔离与审计"
+          },
+          {
+            "id": "SAA-13",
+            "title": "大模型智能协作"
+          }
+        ],
+        "edges": [
+          {
+            "from": "SAA-01",
+            "relation": "创建开通主体",
+            "to": "SAA-02"
+          },
+          {
+            "from": "SAA-02",
+            "relation": "建立租户边界",
+            "to": "SAA-03"
+          },
+          {
+            "from": "SAA-02",
+            "relation": "建立组织空间",
+            "to": "SAA-04"
+          },
+          {
+            "from": "SAA-03",
+            "relation": "提供成员身份",
+            "to": "SAA-05"
+          },
+          {
+            "from": "SAA-04",
+            "relation": "提供资源容器",
+            "to": "SAA-05"
+          },
+          {
+            "from": "SAA-04",
+            "relation": "承载业务对象",
+            "to": "SAA-06"
+          },
+          {
+            "from": "SAA-04",
+            "relation": "承载业务对象",
+            "to": "SAA-07"
+          },
+          {
+            "from": "SAA-04",
+            "relation": "承载业务对象",
+            "to": "SAA-08"
+          },
+          {
+            "from": "SAA-05",
+            "relation": "控制访问",
+            "to": "SAA-06"
+          },
+          {
+            "from": "SAA-05",
+            "relation": "控制访问",
+            "to": "SAA-07"
+          },
+          {
+            "from": "SAA-05",
+            "relation": "控制访问",
+            "to": "SAA-08"
+          },
+          {
+            "from": "SAA-06",
+            "relation": "提供任务节点",
+            "to": "SAA-09"
+          },
+          {
+            "from": "SAA-07",
+            "relation": "提供文档节点",
+            "to": "SAA-09"
+          },
+          {
+            "from": "SAA-08",
+            "relation": "提供仓库节点",
+            "to": "SAA-09"
+          },
+          {
+            "from": "SAA-06",
+            "relation": "进入审批",
+            "to": "SAA-10"
+          },
+          {
+            "from": "SAA-07",
+            "relation": "进入审批",
+            "to": "SAA-10"
+          },
+          {
+            "from": "SAA-10",
+            "relation": "产生状态事件",
+            "to": "SAA-11"
+          },
+          {
+            "from": "SAA-05",
+            "relation": "约束智能操作",
+            "to": "SAA-13"
+          },
+          {
+            "from": "SAA-09",
+            "relation": "提供协作上下文",
+            "to": "SAA-13"
+          },
+          {
+            "from": "SAA-13",
+            "relation": "记录智能操作",
+            "to": "SAA-12"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-2-19；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：概要设计联审\n变化对象：SAA-03 成员邀请与审批\n变化类型：状态变更\n变更前：邀请审批通过即成为正式成员\n变更后：审批通过后先处于pending_activation，激活前不可继承团队权限\n已有追踪关系：SAA-01-创建开通主体->SAA-02；SAA-02-建立租户边界->SAA-03；SAA-02-建立组织空间->SAA-04；SAA-03-提供成员身份->SAA-05；SAA-04-提供资源容器->SAA-05；SAA-04-承载业务对象->SAA-06；SAA-04-承载业务对象->SAA-07；SAA-04-承载业务对象->SAA-08；SAA-05-控制访问->SAA-06；SAA-05-控制访问->SAA-07；SAA-05-控制访问->SAA-08；SAA-06-提供任务节点->SAA-09；SAA-07-提供文档节点->SAA-09；SAA-08-提供仓库节点->SAA-09；SAA-06-进入审批->SAA-10；SAA-07-进入审批->SAA-10；SAA-10-产生状态事件->SAA-11；SAA-05-约束智能操作->SAA-13；SAA-09-提供协作上下文->SAA-13；SAA-13-记录智能操作->SAA-12\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L3-09",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-3-06",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/架构评审",
+        "change_trigger": "需求粒度过大或职责边界需要重划",
+        "review_stage": "变更影响评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "SAA-04",
+        "requirement_title": "团队与空间管理",
+        "change_type": "拆分",
+        "before": "团队与空间为同一资源边界",
+        "after": "拆分为组织团队和项目空间；成员可跨空间，权限不得自动继承"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "SAA-01",
+            "title": "用户注册与账号激活"
+          },
+          {
+            "id": "SAA-02",
+            "title": "企业创建与租户开通"
+          },
+          {
+            "id": "SAA-03",
+            "title": "成员邀请与审批"
+          },
+          {
+            "id": "SAA-04",
+            "title": "团队与空间管理"
+          },
+          {
+            "id": "SAA-05",
+            "title": "角色权限与访客授权"
+          },
+          {
+            "id": "SAA-06",
+            "title": "任务管理"
+          },
+          {
+            "id": "SAA-07",
+            "title": "文档中心"
+          },
+          {
+            "id": "SAA-08",
+            "title": "仓库资源接入"
+          },
+          {
+            "id": "SAA-09",
+            "title": "协作资源图谱"
+          },
+          {
+            "id": "SAA-10",
+            "title": "通用审批流程"
+          },
+          {
+            "id": "SAA-11",
+            "title": "通知中心"
+          },
+          {
+            "id": "SAA-12",
+            "title": "多租户隔离与审计"
+          },
+          {
+            "id": "SAA-13",
+            "title": "大模型智能协作"
+          }
+        ],
+        "edges": [
+          {
+            "from": "SAA-01",
+            "relation": "创建开通主体",
+            "to": "SAA-02"
+          },
+          {
+            "from": "SAA-02",
+            "relation": "建立租户边界",
+            "to": "SAA-03"
+          },
+          {
+            "from": "SAA-02",
+            "relation": "建立组织空间",
+            "to": "SAA-04"
+          },
+          {
+            "from": "SAA-03",
+            "relation": "提供成员身份",
+            "to": "SAA-05"
+          },
+          {
+            "from": "SAA-04",
+            "relation": "提供资源容器",
+            "to": "SAA-05"
+          },
+          {
+            "from": "SAA-04",
+            "relation": "承载业务对象",
+            "to": "SAA-06"
+          },
+          {
+            "from": "SAA-04",
+            "relation": "承载业务对象",
+            "to": "SAA-07"
+          },
+          {
+            "from": "SAA-04",
+            "relation": "承载业务对象",
+            "to": "SAA-08"
+          },
+          {
+            "from": "SAA-05",
+            "relation": "控制访问",
+            "to": "SAA-06"
+          },
+          {
+            "from": "SAA-05",
+            "relation": "控制访问",
+            "to": "SAA-07"
+          },
+          {
+            "from": "SAA-05",
+            "relation": "控制访问",
+            "to": "SAA-08"
+          },
+          {
+            "from": "SAA-06",
+            "relation": "提供任务节点",
+            "to": "SAA-09"
+          },
+          {
+            "from": "SAA-07",
+            "relation": "提供文档节点",
+            "to": "SAA-09"
+          },
+          {
+            "from": "SAA-08",
+            "relation": "提供仓库节点",
+            "to": "SAA-09"
+          },
+          {
+            "from": "SAA-06",
+            "relation": "进入审批",
+            "to": "SAA-10"
+          },
+          {
+            "from": "SAA-07",
+            "relation": "进入审批",
+            "to": "SAA-10"
+          },
+          {
+            "from": "SAA-10",
+            "relation": "产生状态事件",
+            "to": "SAA-11"
+          },
+          {
+            "from": "SAA-05",
+            "relation": "约束智能操作",
+            "to": "SAA-13"
+          },
+          {
+            "from": "SAA-09",
+            "relation": "提供协作上下文",
+            "to": "SAA-13"
+          },
+          {
+            "from": "SAA-13",
+            "relation": "记录智能操作",
+            "to": "SAA-12"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-3-06；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：变更影响评审\n变化对象：SAA-04 团队与空间管理\n变化类型：拆分\n变更前：团队与空间为同一资源边界\n变更后：拆分为组织团队和项目空间；成员可跨空间，权限不得自动继承\n已有追踪关系：SAA-01-创建开通主体->SAA-02；SAA-02-建立租户边界->SAA-03；SAA-02-建立组织空间->SAA-04；SAA-03-提供成员身份->SAA-05；SAA-04-提供资源容器->SAA-05；SAA-04-承载业务对象->SAA-06；SAA-04-承载业务对象->SAA-07；SAA-04-承载业务对象->SAA-08；SAA-05-控制访问->SAA-06；SAA-05-控制访问->SAA-07；SAA-05-控制访问->SAA-08；SAA-06-提供任务节点->SAA-09；SAA-07-提供文档节点->SAA-09；SAA-08-提供仓库节点->SAA-09；SAA-06-进入审批->SAA-10；SAA-07-进入审批->SAA-10；SAA-10-产生状态事件->SAA-11；SAA-05-约束智能操作->SAA-13；SAA-09-提供协作上下文->SAA-13；SAA-13-记录智能操作->SAA-12\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L3-10",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-1-05",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "生命周期、审批或运行条件变化",
+        "review_stage": "需求评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "OBU-01",
+        "requirement_title": "统一登录与认证",
+        "change_type": "状态变更",
+        "before": "登录会话有效",
+        "after": "会话过期"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "OBU-01",
+            "title": "统一登录与认证"
+          },
+          {
+            "id": "OBU-02",
+            "title": "首页信息聚合"
+          },
+          {
+            "id": "OBU-03",
+            "title": "课表与考试查询"
+          },
+          {
+            "id": "OBU-04",
+            "title": "选课与退课"
+          },
+          {
+            "id": "OBU-05",
+            "title": "作业查询与提交"
+          },
+          {
+            "id": "OBU-06",
+            "title": "云盘文件管理"
+          },
+          {
+            "id": "OBU-07",
+            "title": "课堂签到"
+          },
+          {
+            "id": "OBU-08",
+            "title": "教学评价"
+          },
+          {
+            "id": "OBU-09",
+            "title": "WiFi登录"
+          }
+        ],
+        "edges": [
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-02"
+          },
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-03"
+          },
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-04"
+          },
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-05"
+          },
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-06"
+          },
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-07"
+          },
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-08"
+          },
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-09"
+          },
+          {
+            "from": "OBU-03",
+            "relation": "提供课程上下文",
+            "to": "OBU-02"
+          },
+          {
+            "from": "OBU-05",
+            "relation": "提供待办信息",
+            "to": "OBU-02"
+          },
+          {
+            "from": "OBU-07",
+            "relation": "提供签到状态",
+            "to": "OBU-02"
+          },
+          {
+            "from": "OBU-03",
+            "relation": "嵌入签到入口",
+            "to": "OBU-07"
+          },
+          {
+            "from": "OBU-03",
+            "relation": "嵌入作业摘要",
+            "to": "OBU-05"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-1-05；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：需求评审\n变化对象：OBU-01 统一登录与认证\n变化类型：状态变更\n变更前：登录会话有效\n变更后：会话过期\n已有追踪关系：OBU-01-统一会话授权->OBU-02；OBU-01-统一会话授权->OBU-03；OBU-01-统一会话授权->OBU-04；OBU-01-统一会话授权->OBU-05；OBU-01-统一会话授权->OBU-06；OBU-01-统一会话授权->OBU-07；OBU-01-统一会话授权->OBU-08；OBU-01-统一会话授权->OBU-09；OBU-03-提供课程上下文->OBU-02；OBU-05-提供待办信息->OBU-02；OBU-07-提供签到状态->OBU-02；OBU-03-嵌入签到入口->OBU-07；OBU-03-嵌入作业摘要->OBU-05\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L3-11",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-1-15",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "产品规划或业务方提出新增能力",
+        "review_stage": "需求评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "JOB-01",
+        "requirement_title": "简历上传与结构化解析",
+        "change_type": "新增",
+        "before": "仅支持PDF和DOCX简历",
+        "after": "新增图片简历OCR解析"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "JOB-01",
+            "title": "简历上传与结构化解析"
+          },
+          {
+            "id": "JOB-02",
+            "title": "简历分析与优化"
+          },
+          {
+            "id": "JOB-03",
+            "title": "招聘方职位发布"
+          },
+          {
+            "id": "JOB-04",
+            "title": "职位搜索与推荐"
+          },
+          {
+            "id": "JOB-05",
+            "title": "技能识别与胜任力评估"
+          },
+          {
+            "id": "JOB-06",
+            "title": "岗位-简历匹配"
+          },
+          {
+            "id": "JOB-07",
+            "title": "职位投递"
+          },
+          {
+            "id": "JOB-08",
+            "title": "投递进度跟踪"
+          },
+          {
+            "id": "JOB-09",
+            "title": "用户偏好记忆"
+          },
+          {
+            "id": "JOB-10",
+            "title": "求职知识问答"
+          }
+        ],
+        "edges": [
+          {
+            "from": "JOB-01",
+            "relation": "提供结构化履历",
+            "to": "JOB-02"
+          },
+          {
+            "from": "JOB-01",
+            "relation": "提供经历技能",
+            "to": "JOB-05"
+          },
+          {
+            "from": "JOB-03",
+            "relation": "提供岗位数据",
+            "to": "JOB-04"
+          },
+          {
+            "from": "JOB-03",
+            "relation": "提供岗位要求",
+            "to": "JOB-06"
+          },
+          {
+            "from": "JOB-05",
+            "relation": "提供技能画像",
+            "to": "JOB-06"
+          },
+          {
+            "from": "JOB-02",
+            "relation": "提供优化版本",
+            "to": "JOB-06"
+          },
+          {
+            "from": "JOB-04",
+            "relation": "提供候选职位",
+            "to": "JOB-07"
+          },
+          {
+            "from": "JOB-06",
+            "relation": "提供投递建议",
+            "to": "JOB-07"
+          },
+          {
+            "from": "JOB-07",
+            "relation": "产生进度记录",
+            "to": "JOB-08"
+          },
+          {
+            "from": "JOB-08",
+            "relation": "沉淀行为偏好",
+            "to": "JOB-09"
+          },
+          {
+            "from": "JOB-09",
+            "relation": "个性化推荐",
+            "to": "JOB-04"
+          },
+          {
+            "from": "JOB-10",
+            "relation": "辅助简历优化",
+            "to": "JOB-02"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-1-15；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：需求评审\n变化对象：JOB-01 简历上传与结构化解析\n变化类型：新增\n变更前：仅支持PDF和DOCX简历\n变更后：新增图片简历OCR解析\n已有追踪关系：JOB-01-提供结构化履历->JOB-02；JOB-01-提供经历技能->JOB-05；JOB-03-提供岗位数据->JOB-04；JOB-03-提供岗位要求->JOB-06；JOB-05-提供技能画像->JOB-06；JOB-02-提供优化版本->JOB-06；JOB-04-提供候选职位->JOB-07；JOB-06-提供投递建议->JOB-07；JOB-07-产生进度记录->JOB-08；JOB-08-沉淀行为偏好->JOB-09；JOB-09-个性化推荐->JOB-04；JOB-10-辅助简历优化->JOB-02\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L3-12",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-1-09",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "评审反馈、缺陷或业务规则调整",
+        "review_stage": "需求评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "END-05",
+        "requirement_title": "法宝系统",
+        "change_type": "修改",
+        "before": "法宝只修改基础攻击属性",
+        "after": "法宝新增阵法范围加成"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "END-01",
+            "title": "游戏初始化与主菜单"
+          },
+          {
+            "id": "END-02",
+            "title": "宗门道统与关卡开始"
+          },
+          {
+            "id": "END-03",
+            "title": "修士招募与经济"
+          },
+          {
+            "id": "END-04",
+            "title": "修士部署"
+          },
+          {
+            "id": "END-05",
+            "title": "法宝系统"
+          },
+          {
+            "id": "END-06",
+            "title": "阵法连携"
+          },
+          {
+            "id": "END-07",
+            "title": "五行与地脉风水"
+          },
+          {
+            "id": "END-08",
+            "title": "敌人波次"
+          },
+          {
+            "id": "END-09",
+            "title": "战斗与符箓"
+          },
+          {
+            "id": "END-10",
+            "title": "境界突破与渡劫"
+          },
+          {
+            "id": "END-11",
+            "title": "关底Boss"
+          },
+          {
+            "id": "END-12",
+            "title": "游戏结算"
+          },
+          {
+            "id": "END-13",
+            "title": "本地存档"
+          },
+          {
+            "id": "END-14",
+            "title": "局外宗门建设"
+          }
+        ],
+        "edges": [
+          {
+            "from": "END-01",
+            "relation": "进入关卡",
+            "to": "END-02"
+          },
+          {
+            "from": "END-02",
+            "relation": "初始化经济",
+            "to": "END-03"
+          },
+          {
+            "from": "END-03",
+            "relation": "提供修士",
+            "to": "END-04"
+          },
+          {
+            "from": "END-03",
+            "relation": "提供合成材料",
+            "to": "END-10"
+          },
+          {
+            "from": "END-04",
+            "relation": "提供站位",
+            "to": "END-06"
+          },
+          {
+            "from": "END-04",
+            "relation": "提供战斗单位",
+            "to": "END-09"
+          },
+          {
+            "from": "END-05",
+            "relation": "修改战斗属性",
+            "to": "END-09"
+          },
+          {
+            "from": "END-05",
+            "relation": "修改连携效果",
+            "to": "END-06"
+          },
+          {
+            "from": "END-06",
+            "relation": "修改伤害计算",
+            "to": "END-09"
+          },
+          {
+            "from": "END-07",
+            "relation": "修改伤害与控制",
+            "to": "END-09"
+          },
+          {
+            "from": "END-08",
+            "relation": "提供敌人目标",
+            "to": "END-09"
+          },
+          {
+            "from": "END-08",
+            "relation": "触发Boss阶段",
+            "to": "END-11"
+          },
+          {
+            "from": "END-09",
+            "relation": "产生战斗结果",
+            "to": "END-12"
+          },
+          {
+            "from": "END-11",
+            "relation": "产生关底结果",
+            "to": "END-12"
+          },
+          {
+            "from": "END-12",
+            "relation": "写入进度",
+            "to": "END-13"
+          },
+          {
+            "from": "END-12",
+            "relation": "发放局外资源",
+            "to": "END-14"
+          },
+          {
+            "from": "END-14",
+            "relation": "影响新局初始值",
+            "to": "END-01"
+          },
+          {
+            "from": "END-10",
+            "relation": "解锁法宝槽",
+            "to": "END-05"
+          },
+          {
+            "from": "END-10",
+            "relation": "改变战斗能力",
+            "to": "END-09"
+          },
+          {
+            "from": "END-07",
+            "relation": "改变阵法环境加成",
+            "to": "END-06"
+          },
+          {
+            "from": "END-07",
+            "relation": "约束Boss元素规则",
+            "to": "END-11"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-1-09；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：需求评审\n变化对象：END-05 法宝系统\n变化类型：修改\n变更前：法宝只修改基础攻击属性\n变更后：法宝新增阵法范围加成\n已有追踪关系：END-01-进入关卡->END-02；END-02-初始化经济->END-03；END-03-提供修士->END-04；END-03-提供合成材料->END-10；END-04-提供站位->END-06；END-04-提供战斗单位->END-09；END-05-修改战斗属性->END-09；END-05-修改连携效果->END-06；END-06-修改伤害计算->END-09；END-07-修改伤害与控制->END-09；END-08-提供敌人目标->END-09；END-08-触发Boss阶段->END-11；END-09-产生战斗结果->END-12；END-11-产生关底结果->END-12；END-12-写入进度->END-13；END-12-发放局外资源->END-14；END-14-影响新局初始值->END-01；END-10-解锁法宝槽->END-05；END-10-改变战斗能力->END-09；END-07-改变阵法环境加成->END-06；END-07-约束Boss元素规则->END-11\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L3-13",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-2-09",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/需求评审",
+        "change_trigger": "生命周期、审批或运行条件变化",
+        "review_stage": "概要设计联审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "END-10",
+        "requirement_title": "境界突破与渡劫",
+        "change_type": "状态变更",
+        "before": "渡劫成功后立即获得第二法宝槽",
+        "after": "渡劫进入不稳定状态，需存活一波后解锁第二槽"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "END-01",
+            "title": "游戏初始化与主菜单"
+          },
+          {
+            "id": "END-02",
+            "title": "宗门道统与关卡开始"
+          },
+          {
+            "id": "END-03",
+            "title": "修士招募与经济"
+          },
+          {
+            "id": "END-04",
+            "title": "修士部署"
+          },
+          {
+            "id": "END-05",
+            "title": "法宝系统"
+          },
+          {
+            "id": "END-06",
+            "title": "阵法连携"
+          },
+          {
+            "id": "END-07",
+            "title": "五行与地脉风水"
+          },
+          {
+            "id": "END-08",
+            "title": "敌人波次"
+          },
+          {
+            "id": "END-09",
+            "title": "战斗与符箓"
+          },
+          {
+            "id": "END-10",
+            "title": "境界突破与渡劫"
+          },
+          {
+            "id": "END-11",
+            "title": "关底Boss"
+          },
+          {
+            "id": "END-12",
+            "title": "游戏结算"
+          },
+          {
+            "id": "END-13",
+            "title": "本地存档"
+          },
+          {
+            "id": "END-14",
+            "title": "局外宗门建设"
+          }
+        ],
+        "edges": [
+          {
+            "from": "END-01",
+            "relation": "进入关卡",
+            "to": "END-02"
+          },
+          {
+            "from": "END-02",
+            "relation": "初始化经济",
+            "to": "END-03"
+          },
+          {
+            "from": "END-03",
+            "relation": "提供修士",
+            "to": "END-04"
+          },
+          {
+            "from": "END-03",
+            "relation": "提供合成材料",
+            "to": "END-10"
+          },
+          {
+            "from": "END-04",
+            "relation": "提供站位",
+            "to": "END-06"
+          },
+          {
+            "from": "END-04",
+            "relation": "提供战斗单位",
+            "to": "END-09"
+          },
+          {
+            "from": "END-05",
+            "relation": "修改战斗属性",
+            "to": "END-09"
+          },
+          {
+            "from": "END-05",
+            "relation": "修改连携效果",
+            "to": "END-06"
+          },
+          {
+            "from": "END-06",
+            "relation": "修改伤害计算",
+            "to": "END-09"
+          },
+          {
+            "from": "END-07",
+            "relation": "修改伤害与控制",
+            "to": "END-09"
+          },
+          {
+            "from": "END-08",
+            "relation": "提供敌人目标",
+            "to": "END-09"
+          },
+          {
+            "from": "END-08",
+            "relation": "触发Boss阶段",
+            "to": "END-11"
+          },
+          {
+            "from": "END-09",
+            "relation": "产生战斗结果",
+            "to": "END-12"
+          },
+          {
+            "from": "END-11",
+            "relation": "产生关底结果",
+            "to": "END-12"
+          },
+          {
+            "from": "END-12",
+            "relation": "写入进度",
+            "to": "END-13"
+          },
+          {
+            "from": "END-12",
+            "relation": "发放局外资源",
+            "to": "END-14"
+          },
+          {
+            "from": "END-14",
+            "relation": "影响新局初始值",
+            "to": "END-01"
+          },
+          {
+            "from": "END-10",
+            "relation": "解锁法宝槽",
+            "to": "END-05"
+          },
+          {
+            "from": "END-10",
+            "relation": "改变战斗能力",
+            "to": "END-09"
+          },
+          {
+            "from": "END-07",
+            "relation": "改变阵法环境加成",
+            "to": "END-06"
+          },
+          {
+            "from": "END-07",
+            "relation": "约束Boss元素规则",
+            "to": "END-11"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-2-09；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：概要设计联审\n变化对象：END-10 境界突破与渡劫\n变化类型：状态变更\n变更前：渡劫成功后立即获得第二法宝槽\n变更后：渡劫进入不稳定状态，需存活一波后解锁第二槽\n已有追踪关系：END-01-进入关卡->END-02；END-02-初始化经济->END-03；END-03-提供修士->END-04；END-03-提供合成材料->END-10；END-04-提供站位->END-06；END-04-提供战斗单位->END-09；END-05-修改战斗属性->END-09；END-05-修改连携效果->END-06；END-06-修改伤害计算->END-09；END-07-修改伤害与控制->END-09；END-08-提供敌人目标->END-09；END-08-触发Boss阶段->END-11；END-09-产生战斗结果->END-12；END-11-产生关底结果->END-12；END-12-写入进度->END-13；END-12-发放局外资源->END-14；END-14-影响新局初始值->END-01；END-10-解锁法宝槽->END-05；END-10-改变战斗能力->END-09；END-07-改变阵法环境加成->END-06；END-07-约束Boss元素规则->END-11\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L3-14",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-3-05",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/架构评审",
+        "change_trigger": "重复能力治理或流程统一",
+        "review_stage": "变更影响评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "OBU-01",
+        "requirement_title": "统一登录与认证",
+        "change_type": "合并",
+        "before": "各子系统共享统一SSO但保留各自会话",
+        "after": "合并为单一会话令牌，并取消子系统本地会话"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "OBU-01",
+            "title": "统一登录与认证"
+          },
+          {
+            "id": "OBU-02",
+            "title": "首页信息聚合"
+          },
+          {
+            "id": "OBU-03",
+            "title": "课表与考试查询"
+          },
+          {
+            "id": "OBU-04",
+            "title": "选课与退课"
+          },
+          {
+            "id": "OBU-05",
+            "title": "作业查询与提交"
+          },
+          {
+            "id": "OBU-06",
+            "title": "云盘文件管理"
+          },
+          {
+            "id": "OBU-07",
+            "title": "课堂签到"
+          },
+          {
+            "id": "OBU-08",
+            "title": "教学评价"
+          },
+          {
+            "id": "OBU-09",
+            "title": "WiFi登录"
+          }
+        ],
+        "edges": [
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-02"
+          },
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-03"
+          },
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-04"
+          },
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-05"
+          },
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-06"
+          },
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-07"
+          },
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-08"
+          },
+          {
+            "from": "OBU-01",
+            "relation": "统一会话授权",
+            "to": "OBU-09"
+          },
+          {
+            "from": "OBU-03",
+            "relation": "提供课程上下文",
+            "to": "OBU-02"
+          },
+          {
+            "from": "OBU-05",
+            "relation": "提供待办信息",
+            "to": "OBU-02"
+          },
+          {
+            "from": "OBU-07",
+            "relation": "提供签到状态",
+            "to": "OBU-02"
+          },
+          {
+            "from": "OBU-03",
+            "relation": "嵌入签到入口",
+            "to": "OBU-07"
+          },
+          {
+            "from": "OBU-03",
+            "relation": "嵌入作业摘要",
+            "to": "OBU-05"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-3-05；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：变更影响评审\n变化对象：OBU-01 统一登录与认证\n变化类型：合并\n变更前：各子系统共享统一SSO但保留各自会话\n变更后：合并为单一会话令牌，并取消子系统本地会话\n已有追踪关系：OBU-01-统一会话授权->OBU-02；OBU-01-统一会话授权->OBU-03；OBU-01-统一会话授权->OBU-04；OBU-01-统一会话授权->OBU-05；OBU-01-统一会话授权->OBU-06；OBU-01-统一会话授权->OBU-07；OBU-01-统一会话授权->OBU-08；OBU-01-统一会话授权->OBU-09；OBU-03-提供课程上下文->OBU-02；OBU-05-提供待办信息->OBU-02；OBU-07-提供签到状态->OBU-02；OBU-03-嵌入签到入口->OBU-07；OBU-03-嵌入作业摘要->OBU-05\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  },
+  {
+    "sample_id": "REQBENCH-TRAC-L3-15",
+    "task": "requirements_traceability",
+    "task_name_zh": "需求追踪",
+    "difficulty": "L3",
+    "difficulty_zh": "高",
+    "model_input": {
+      "task": "需求变更影响分析",
+      "change": {
+        "change_id": "CR-RT-3-09",
+        "baseline_version": "SRS-V1.0",
+        "target_version": "SRS-V1.1",
+        "initiator_role": "产品经理/架构评审",
+        "change_trigger": "需求粒度过大或职责边界需要重划",
+        "review_stage": "变更影响评审",
+        "metadata_note": "以上流程字段为评测场景合成字段，不代表源项目真实变更记录。",
+        "target_type": "requirement_or_relation",
+        "requirement_id": "END-07",
+        "requirement_title": "五行与地脉风水",
+        "change_type": "拆分",
+        "before": "五行克制与地脉风水共同计算战斗修正",
+        "after": "拆分为单位五行克制和地图天象系统；天象每阶段变化且可覆盖地脉加成"
+      },
+      "trace_information": {
+        "nodes": [
+          {
+            "id": "END-01",
+            "title": "游戏初始化与主菜单"
+          },
+          {
+            "id": "END-02",
+            "title": "宗门道统与关卡开始"
+          },
+          {
+            "id": "END-03",
+            "title": "修士招募与经济"
+          },
+          {
+            "id": "END-04",
+            "title": "修士部署"
+          },
+          {
+            "id": "END-05",
+            "title": "法宝系统"
+          },
+          {
+            "id": "END-06",
+            "title": "阵法连携"
+          },
+          {
+            "id": "END-07",
+            "title": "五行与地脉风水"
+          },
+          {
+            "id": "END-08",
+            "title": "敌人波次"
+          },
+          {
+            "id": "END-09",
+            "title": "战斗与符箓"
+          },
+          {
+            "id": "END-10",
+            "title": "境界突破与渡劫"
+          },
+          {
+            "id": "END-11",
+            "title": "关底Boss"
+          },
+          {
+            "id": "END-12",
+            "title": "游戏结算"
+          },
+          {
+            "id": "END-13",
+            "title": "本地存档"
+          },
+          {
+            "id": "END-14",
+            "title": "局外宗门建设"
+          }
+        ],
+        "edges": [
+          {
+            "from": "END-01",
+            "relation": "进入关卡",
+            "to": "END-02"
+          },
+          {
+            "from": "END-02",
+            "relation": "初始化经济",
+            "to": "END-03"
+          },
+          {
+            "from": "END-03",
+            "relation": "提供修士",
+            "to": "END-04"
+          },
+          {
+            "from": "END-03",
+            "relation": "提供合成材料",
+            "to": "END-10"
+          },
+          {
+            "from": "END-04",
+            "relation": "提供站位",
+            "to": "END-06"
+          },
+          {
+            "from": "END-04",
+            "relation": "提供战斗单位",
+            "to": "END-09"
+          },
+          {
+            "from": "END-05",
+            "relation": "修改战斗属性",
+            "to": "END-09"
+          },
+          {
+            "from": "END-05",
+            "relation": "修改连携效果",
+            "to": "END-06"
+          },
+          {
+            "from": "END-06",
+            "relation": "修改伤害计算",
+            "to": "END-09"
+          },
+          {
+            "from": "END-07",
+            "relation": "修改伤害与控制",
+            "to": "END-09"
+          },
+          {
+            "from": "END-08",
+            "relation": "提供敌人目标",
+            "to": "END-09"
+          },
+          {
+            "from": "END-08",
+            "relation": "触发Boss阶段",
+            "to": "END-11"
+          },
+          {
+            "from": "END-09",
+            "relation": "产生战斗结果",
+            "to": "END-12"
+          },
+          {
+            "from": "END-11",
+            "relation": "产生关底结果",
+            "to": "END-12"
+          },
+          {
+            "from": "END-12",
+            "relation": "写入进度",
+            "to": "END-13"
+          },
+          {
+            "from": "END-12",
+            "relation": "发放局外资源",
+            "to": "END-14"
+          },
+          {
+            "from": "END-14",
+            "relation": "影响新局初始值",
+            "to": "END-01"
+          },
+          {
+            "from": "END-10",
+            "relation": "解锁法宝槽",
+            "to": "END-05"
+          },
+          {
+            "from": "END-10",
+            "relation": "改变战斗能力",
+            "to": "END-09"
+          },
+          {
+            "from": "END-07",
+            "relation": "改变阵法环境加成",
+            "to": "END-06"
+          },
+          {
+            "from": "END-07",
+            "relation": "约束Boss元素规则",
+            "to": "END-11"
+          }
+        ]
+      },
+      "prompt": "你是需求追踪变更影响分析专家。请基于给定变化和追踪关系，输出受影响需求、影响原因、完整路径、需复审对象及不确定项。不得把只有语义相似但没有追踪依据的需求判为已确认影响。\n项目：目标系统\n变更单：CR-RT-3-09；基线：SRS-V1.0 -> SRS-V1.1；评审阶段：变更影响评审\n变化对象：END-07 五行与地脉风水\n变化类型：拆分\n变更前：五行克制与地脉风水共同计算战斗修正\n变更后：拆分为单位五行克制和地图天象系统；天象每阶段变化且可覆盖地脉加成\n已有追踪关系：END-01-进入关卡->END-02；END-02-初始化经济->END-03；END-03-提供修士->END-04；END-03-提供合成材料->END-10；END-04-提供站位->END-06；END-04-提供战斗单位->END-09；END-05-修改战斗属性->END-09；END-05-修改连携效果->END-06；END-06-修改伤害计算->END-09；END-07-修改伤害与控制->END-09；END-08-提供敌人目标->END-09；END-08-触发Boss阶段->END-11；END-09-产生战斗结果->END-12；END-11-产生关底结果->END-12；END-12-写入进度->END-13；END-12-发放局外资源->END-14；END-14-影响新局初始值->END-01；END-10-解锁法宝槽->END-05；END-10-改变战斗能力->END-09；END-07-改变阵法环境加成->END-06；END-07-约束Boss元素规则->END-11\n输出要求：准确、可追溯、结构化、可复审；区分直接影响、间接影响、潜在影响和无影响。"
+    }
+  }
+]
