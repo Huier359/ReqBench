@@ -1,0 +1,65 @@
+{
+  "prepared_on": "2026-10-04",
+  "scope": "提示词模板, 不含原始项目材料或完整样本请求",
+  "historical_templates": [
+    {
+      "task": "completion",
+      "name": "需求补全",
+      "file": "historical/completion.md",
+      "message_roles": [
+        "system",
+        "user"
+      ],
+      "status": "historical_template"
+    },
+    {
+      "task": "decomposition",
+      "name": "需求分解",
+      "file": "historical/decomposition.md",
+      "message_roles": [
+        "user"
+      ],
+      "status": "historical_template"
+    },
+    {
+      "task": "completeness",
+      "name": "需求完整性评估",
+      "file": "historical/completeness.md",
+      "message_roles": [
+        "user"
+      ],
+      "status": "historical_template"
+    },
+    {
+      "task": "conflict",
+      "name": "需求冲突识别",
+      "file": "historical/conflict.md",
+      "message_roles": [
+        "system",
+        "user"
+      ],
+      "status": "historical_template"
+    },
+    {
+      "task": "extraction",
+      "name": "需求识别",
+      "file": "historical/extraction.md",
+      "message_roles": [
+        "system",
+        "user"
+      ],
+      "status": "historical_template"
+    },
+    {
+      "task": "trace",
+      "name": "需求追踪",
+      "file": "historical/trace.md",
+      "message_roles": [
+        "user"
+      ],
+      "status": "historical_template"
+    }
+  ],
+  "experimental_prompt": "experimental/v2-draft.md",
+  "final_sample_mapping_verified": false
+}
