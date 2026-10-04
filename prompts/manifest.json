@@ -60,6 +60,5 @@
       "status": "historical_template"
     }
   ],
-  "experimental_prompt": "experimental/v2-draft.md",
   "final_sample_mapping_verified": false
 }
